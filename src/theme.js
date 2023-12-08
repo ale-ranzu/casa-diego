@@ -11,8 +11,34 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'DM Sans, sans-serif', // Cambia 'Roboto' por la fuente que prefieras
-  },
+    fontFamily: 'DM Sans, sans-serif',
+    fontWeight: 300, 
+    fontSize: 26,
+    '@media (min-width:600px)': {
+      fontSize: 18,
+    },
+    h1: {
+      fontSize: 100,
+      fontWeight: 200,
+      '@media (max-width:600px)': {
+        fontSize: 55,
+      },
+    },
+    h2: {
+      fontSize: 55,
+      fontWeight: 300,
+      '@media (max-width:600px)': {
+        fontSize: 48,
+      },
+    },
+    h3: {
+      fontSize: 50,
+      fontWeight: 200,
+      '@media (max-width:600px)': {
+        fontSize: 42,
+      },
+    },
+  }, 
   
 });
 
