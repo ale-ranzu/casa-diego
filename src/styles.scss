@@ -8,16 +8,21 @@ body {
   background: #f6f5f5;
 }
 
-.bg-inicio {
-  background: url(../casa-front.jpg) no-repeat {
-    size: cover;
+%bg {
+  background: no-repeat {
+    size:cover;
+    position: top;
   }
 }
 
+.bg-inicio {
+  @extend %bg;
+  background-image: url(../casa-front.jpg);
+}
+
 .bg-action {
-  background: url(../bg-diego.jpg) no-repeat {
-    size: cover;
-  }
+  @extend %bg;
+  background-image: url(../bg-diego.jpg);
 }
 
 ///////////// ANIMACIONES DE IMAGENES

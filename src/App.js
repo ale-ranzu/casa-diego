@@ -584,7 +584,7 @@ function App() {
 
         {/*  CONTACTO  */}
         <div
-          className="relative flex overflow-hidden w-[99vw] justify-center pb-56 lg:h-[120dvh]"
+          className="relative flex overflow-hidden w-[99vw] justify-center h-[100dvh] md:h-[110dvh] lg:h-[120dvh]"
           id="contacto"
         >
           <div className="py-12 animate-marquee whitespace-nowrap">
@@ -601,7 +601,7 @@ function App() {
             container
             maxWidth={"xl"}
             justifyContent={"center"}
-            className="absolute top-[9rem] sm:top-[11rem] md:top-[13rem] lg:top-[18.5rem]"
+            className="absolute top-[8rem] sm:top-[10.5rem] md:top-[12.5rem] lg:top-[18.5rem]"
           >
             <Grid item xs={10} md={9} lg={8} xl={7}>
               <div
@@ -617,7 +617,7 @@ function App() {
                       responderemos a la brevedad.
                     </Typography>
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} md={10} className="mb-4">
                     <TextField
                       id="nombre"
                       label="Nombre y Apellido"
@@ -626,7 +626,7 @@ function App() {
                       fullWidth
                     />
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} md={10} className="mb-4">
                     <TextField
                       id="email"
                       label="Email"
@@ -635,7 +635,7 @@ function App() {
                       fullWidth
                     />
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} md={10} className="mb-4">
                     <TextField
                       id="telefono"
                       label="Teléfono"
@@ -644,7 +644,7 @@ function App() {
                       fullWidth
                     />
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} md={10} className="mb-4">
                     <TextField
                       id="outlined-multiline-static"
                       label="Multiline"
@@ -654,7 +654,7 @@ function App() {
                       defaultValue="Default Value"
                     />
                   </Grid>
-                  <Grid item xs={12} md={10}>
+                  <Grid item xs={12} md={10} className="text-right">
                     <Button
                       variant="contained"
                       className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6"
@@ -669,7 +669,7 @@ function App() {
           </Grid>
         </div>       
       </main>
-      <FooterDiego></FooterDiego>
+      <FooterDiego />
     </div>
   );
 }
