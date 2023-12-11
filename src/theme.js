@@ -32,13 +32,16 @@ const theme = createTheme({
       },
     },
     h3: {
-      fontSize: 50,
-      fontWeight: 200,
+      fontSize: 48,
+      fontWeight: 400,
       '@media (max-width:600px)': {
-        fontSize: 42,
+        fontSize: 40,
       },
     },
   }, 
+  button: {
+    fontSize: 19,
+  },
   
 });
 

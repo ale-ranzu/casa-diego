@@ -9,13 +9,9 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import casaDiegoLogo from "../assets/casa-diego-invertido.svg";
+import './nav.scss';
 
-const pages = ["reservar", "contacto"];
-const languages = ["portugués", "inglés", "español"];
-
-// ... (código anterior)
-
-function Nav() {
+function Nav({ links }) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -29,7 +25,7 @@ function Nav() {
   return (
     <AppBar
       position="sticky"
-      className="h-[85px] backdrop-blur-md !bg-header flex justify-center !shadow-none"
+      className="h-[85px] backdrop-blur-md !bg-header flex justify-center !shadow-none nav-casa-diego"
     >
       <Container maxWidth={"xl"}>
         <Toolbar className="flex justify-between" disableGutters>
@@ -70,26 +66,16 @@ function Nav() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+              {links.map((link) => (
+                <MenuItem key={link.id} onClick={handleCloseNavMenu}>
                   <Button
-                    key={page}
-                    onClick={handleCloseNavMenu}
-                    className="my-3 !text-text block"
+                    key={link.id}
+                    href={`#${link.targetId}`}
+                    className={`my-3 !text-text block !text-[16px] !lowercase ${
+                      link.type === "language" ? "" : ""
+                    }`}
                   >
-                    {page}
-                  </Button>
-                </MenuItem>
-              ))}
-              <hr></hr>
-              {languages.map((language) => (
-                <MenuItem key={language} onClick={handleCloseNavMenu}>
-                  <Button
-                    key={language}
-                    onClick={handleCloseNavMenu}
-                    className="my-3 !text-text block"
-                  >
-                    {language}
+                    {link.text}
                   </Button>
                 </MenuItem>
               ))}
@@ -99,25 +85,18 @@ function Nav() {
           {/* Botones en la barra de herramientas de escritorio */}
           <Box
             sx={{
-              display: { xs: "none", md: "block" },
+              display: { xs: "none", md: "flex" },
             }}
           >
-            {pages.map((page) => (
+            {links.map((link) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                className="my-2 !text-white block !text-[20px] !lowercase !mr-4 !transition !ease-in-out !delay-150 hover:-translate-y-2 !duration-200"
+                key={link.id}
+                href={`#${link.targetId}`}
+                className={`my-2 !text-white block !lowercase !mr-4 !transition !ease-in-out !delay-150 hover:-translate-y-2 !duration-200 ${
+                  link.type === "language" ? "!text-[15px]" : ""
+                }`}
               >
-                {page}
-              </Button>
-            ))}
-            {languages.map((language) => (
-              <Button
-                key={language}
-                onClick={handleCloseNavMenu}
-                className="my-2 !text-white block !text-[15px] !lowercase !ml-4 !transition !ease-in-out !delay-150 hover:-translate-y-1 !duration-200"
-              >
-                {language}
+                {link.text}
               </Button>
             ))}
           </Box>

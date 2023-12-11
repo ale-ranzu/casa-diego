@@ -1,0 +1,49 @@
+// Icon.js
+import React from 'react';
+import iconCasa from "../assets/casa.svg";
+import iconBanio from "../assets/banio.svg";
+import iconCocina from "../assets/cocina.svg";
+import iconCapacidad from "../assets/capacidad.svg";
+import iconCesped from "../assets/cesped.svg";
+import iconComedor from "../assets/comedor.svg";
+import iconHabitaciones from "../assets/habitaciones.svg";
+import iconJardin from "../assets/jardin.svg";
+import iconLiving from "../assets/living.svg";
+import iconPileta from "../assets/pileta.svg";
+import iconParrilla from "../assets/parrilla.svg";
+import iconPisos from "../assets/pisos.svg";
+import iconMobiliario from "../assets/mobiliario.svg";
+import iconQuincho from "../assets/quincho.svg";
+import iconCopa from "../assets/copa.svg";
+
+const Icon = ({ name, text = '', ...props }) => {
+    const icons = {   
+        'iconCasa': <img src={iconCasa}/>, 
+        'iconBanio': <img src={iconBanio}/>,
+        'iconCocina': <img src={iconCocina}/>,
+        'iconCapacidad': <img src={iconCapacidad}/>,
+        'iconCesped': <img src={iconCesped}/>,
+        'iconComedor': <img src={iconComedor}/>,
+        'iconHabitaciones': <img src={iconHabitaciones}/>,
+        'iconJardin': <img src={iconJardin}/>,
+        'iconLiving': <img src={iconLiving}/>,
+        'iconPileta': <img src={iconPileta}/>,
+        'iconParrilla': <img src={iconParrilla}/>,
+        'iconPisos': <img src={iconPisos}/>,
+        'iconMobiliario': <img src={iconMobiliario}/>,
+        'iconQuincho': <img src={iconQuincho}/>,
+        'iconCopa': <img src={iconCopa}/>,
+    };
+
+  return icons[name] ? (
+    <span
+      {...props}
+      className='flex flex-col items-center justify-center w-[100px]'      
+    >
+      {icons[name]}
+      {text && <span className='text-center text-white !text-[22px] !font-[200]'>{text}</span>}
+    </span>
+  ) : null;
+};
+
+export default Icon;

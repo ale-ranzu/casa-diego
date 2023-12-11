@@ -4,16 +4,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        header: 'rgba(54, 49, 48, .85)',
+        header: 'rgba(35, 32, 32, .80)',
         text: '#232020',
+        gray: '#756F6F',
+        'gray-light': '#C8C6C6',
       },
       fontFamily: {
         'sans': ['DM Sans', 'ui-sans-serif', 'system-ui'],
       }
     },
     animation: {
-      marquee: 'marquee 25s linear infinite',
-      marquee2: 'marquee2 25s linear infinite',
+      marquee: 'marquee 50s linear infinite',
+      marquee2: 'marquee2 50s linear infinite',
     },
     keyframes: {
       marquee: {
@@ -28,6 +30,6 @@ module.exports = {
   },
   plugins: [
     require('tailwindcss-animated')
-  ], 
+  ],
 }
 
