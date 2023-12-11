@@ -1,5 +1,5 @@
 // Icon.js
-import React from 'react';
+import React from "react";
 import iconCasa from "../assets/casa.svg";
 import iconBanio from "../assets/banio.svg";
 import iconCocina from "../assets/cocina.svg";
@@ -16,33 +16,39 @@ import iconMobiliario from "../assets/mobiliario.svg";
 import iconQuincho from "../assets/quincho.svg";
 import iconCopa from "../assets/copa.svg";
 
-const Icon = ({ name, text = '', ...props }) => {
-    const icons = {   
-        'iconCasa': <img src={iconCasa}/>, 
-        'iconBanio': <img src={iconBanio}/>,
-        'iconCocina': <img src={iconCocina}/>,
-        'iconCapacidad': <img src={iconCapacidad}/>,
-        'iconCesped': <img src={iconCesped}/>,
-        'iconComedor': <img src={iconComedor}/>,
-        'iconHabitaciones': <img src={iconHabitaciones}/>,
-        'iconJardin': <img src={iconJardin}/>,
-        'iconLiving': <img src={iconLiving}/>,
-        'iconPileta': <img src={iconPileta}/>,
-        'iconParrilla': <img src={iconParrilla}/>,
-        'iconPisos': <img src={iconPisos}/>,
-        'iconMobiliario': <img src={iconMobiliario}/>,
-        'iconQuincho': <img src={iconQuincho}/>,
-        'iconCopa': <img src={iconCopa}/>,
-    };
+const Icon = ({ name, text = "", ...props }) => {
+  const icons = {
+    iconCasa: <img src={iconCasa} />,
+    iconBanio: <img src={iconBanio} />,
+    iconCocina: <img src={iconCocina} />,
+    iconCapacidad: <img src={iconCapacidad} />,
+    iconCesped: <img src={iconCesped} />,
+    iconComedor: <img src={iconComedor} />,
+    iconHabitaciones: <img src={iconHabitaciones} />,
+    iconJardin: <img src={iconJardin} />,
+    iconLiving: <img src={iconLiving} />,
+    iconPileta: <img src={iconPileta} />,
+    iconParrilla: <img src={iconParrilla} />,
+    iconPisos: <img src={iconPisos} />,
+    iconMobiliario: <img src={iconMobiliario} />,
+    iconQuincho: <img src={iconQuincho} />,
+    iconCopa: <img src={iconCopa} />,
+  };
 
   return icons[name] ? (
-    <span
-      {...props}
-      className='flex flex-col items-center justify-center w-[100px]'      
-    >
-      {icons[name]}
-      {text && <span className='text-center text-white !text-[22px] !font-[200]'>{text}</span>}
-    </span>
+    <div className="h-48 md:h-52 flex flex-col items-center justify-center">
+      <span
+        {...props}
+        className="w-[80px] h-[100px] md:w-[100px] md:h-[120px] flex justify-center items-stretch"
+      >
+        {icons[name]}       
+      </span>
+      {text && (
+          <span className="text-center text-white text-[21px] font-[200] leading-6 h-[50px]">
+            {text}
+          </span>
+        )}
+    </div>
   ) : null;
 };
 

@@ -14,6 +14,12 @@ body {
   }
 }
 
+.bg-action {
+  background: url(../bg-diego.jpg) no-repeat {
+    size: cover;
+  }
+}
+
 ///////////// ANIMACIONES DE IMAGENES
 ///
 
@@ -29,7 +35,7 @@ body {
   }
 }
 
-img {
+.img-zoom {
   view-timeline-name: --image;
   view-timeline-axis: block;
 

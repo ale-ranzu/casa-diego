@@ -13,9 +13,9 @@ const theme = createTheme({
   typography: {
     fontFamily: 'DM Sans, sans-serif',
     fontWeight: 300, 
-    fontSize: 26,
+    fontSize: 21,
     '@media (min-width:600px)': {
-      fontSize: 18,
+      fontSize: 17,
     },
     h1: {
       fontSize: 100,
