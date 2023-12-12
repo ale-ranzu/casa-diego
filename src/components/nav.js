@@ -30,9 +30,9 @@ function Nav({ links }) {
       <Container maxWidth={"xl"}>
         <Toolbar className="flex justify-between" disableGutters>
           {/* Logo u otros elementos del nav */}
-          <div className="logo-container">
+          <a className="logo-container" href="/">
             <img className="w-[175px]" src={casaDiegoLogo} alt="Logo" />
-          </div>
+          </a>
 
           {/* Botón hamburguesa en dispositivos móviles */}
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
