@@ -6,6 +6,15 @@ import FooterDiego from "./components/footer";
 import "./App.css";
 import AOS from "aos";
 import Icon from "./components/icon";
+import './styles.scss';
+import img1 from "./assets/diego_y_familia_2.jpg";
+import img2 from "./assets/diego2.jpg";
+import img3 from "./assets/diego_y_periodista.jpg";
+import img4 from "./assets/diego_casa.jpg";
+import img5 from "./assets/diego_tota.jpg";
+import img6 from "./assets/diego_y_familia_1.jpg";
+import img7 from "./assets/diego_y_familia_3.jpg";
+import img8 from "./assets/diego.jpg";
 
 function App() {
   useEffect(() => {
@@ -360,14 +369,14 @@ function App() {
         >
           <Grid item xs={10} md={4}>
             <img
-              src="../diego_y_familia_2.jpg"
+              src={img1}
               alt="Diego, la Tota, Claudia y Giannina"
               className="img-zoom w-full"
             />
           </Grid>
           <Grid item xs={10} md={4}>
             <img
-              src="../diego2.jpg"
+              src={img2}
               alt="Diego en su casa haciendo un asado"
               className="img-zoom w-full md:mt-36"
             />
@@ -409,24 +418,24 @@ function App() {
         >
           <Grid item xs={10} md={4}>
             <img
-              src="../diego_y_periodista.jpg"
+              src={img3}
               alt="Diego dando una nota en su casa"
               className="img-zoom w-full"
             />
             <img
-              src="../diego_casa.jpg"
+              src={img4}
               alt="Diego dando una nota en su casa"
               className="img-zoom w-full md:w-[80%] pt-4 md:float-right"
             />
           </Grid>
           <Grid item xs={10} md={4}>
             <img
-              src="../diego_tota.jpg"
+              src={img5}
               alt="Diego y la Tota tomando mate"
               className="img-zoom w-full md:mt-12"
             />
             <img
-              src="../diego_y_familia_1.jpg"
+              src={img6}
               alt="Diego dando una nota en su casa"
               className="img-zoom w-full md:w-[80%] pt-4"
             />
@@ -463,14 +472,14 @@ function App() {
         >
           <Grid item xs={10} md={4}>
             <img
-              src="../diego_y_familia_3.jpg"
+              src={img7}
               alt="Diego y sus padres"
               className="img-zoom w-full"
             />
           </Grid>
           <Grid item xs={10} md={4}>
             <img
-              src="../diego.jpg"
+              src={img8}
               alt="Diego en la puerta de entrada a su casa"
               className="img-zoom w-full md:mt-12"
             />
