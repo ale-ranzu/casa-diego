@@ -17,12 +17,12 @@ body {
 
 .bg-inicio {
   @extend %bg;
-  background-image: url(../casa-front.jpg);
+  background-image: url(./assets/casa-front.jpg);
 }
 
 .bg-action {
   @extend %bg;
-  background-image: url(../bg-diego.jpg);
+  background-image: url(./assets/bg-diego.jpg);
 }
 
 ///////////// ANIMACIONES DE IMAGENES
