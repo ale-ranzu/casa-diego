@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/casa-diego/static/css/main.b48a733c.css",
-    "main.js": "/casa-diego/static/js/main.796a7182.js",
+    "main.css": "/casa-diego/static/css/main.0deffc37.css",
+    "main.js": "/casa-diego/static/js/main.c3ae1576.js",
     "static/media/casa-front.jpg": "/casa-diego/static/media/casa-front.2e52fa34404f6190ed1d.jpg",
-    "static/media/diego_tota.jpg": "/casa-diego/static/media/diego_tota.3875b569ed91561ec8e7.jpg",
-    "static/media/diego_y_familia_1.jpg": "/casa-diego/static/media/diego_y_familia_1.0088e153b48ab9e6bef5.jpg",
+    "static/media/diego_tota.jpg": "/casa-diego/static/media/diego_tota.ce8c675bb386ea7dbc84.jpg",
+    "static/media/diego_y_periodista.jpg": "/casa-diego/static/media/diego_y_periodista.c6764e04f8eb0e8cd9e8.jpg",
+    "static/media/diego.jpg": "/casa-diego/static/media/diego.868ed84c1606d6d8ef0b.jpg",
+    "static/media/diego_y_familia_2.jpg": "/casa-diego/static/media/diego_y_familia_2.78b1e44f68f29e96d927.jpg",
+    "static/media/diego_y_familia_1.jpg": "/casa-diego/static/media/diego_y_familia_1.f62c657d6fa70e258844.jpg",
+    "static/media/diego_y_familia_3.jpg": "/casa-diego/static/media/diego_y_familia_3.048bfec6aafcff09bf89.jpg",
+    "static/media/diego2.jpg": "/casa-diego/static/media/diego2.9d29ff8e2928df7dfb51.jpg",
+    "static/media/diego_casa.jpg": "/casa-diego/static/media/diego_casa.6d3a7356bb90dc1fd7cc.jpg",
     "static/media/bg-diego.jpg": "/casa-diego/static/media/bg-diego.461eb6cd151775b581e0.jpg",
-    "static/media/diego_y_periodista.jpg": "/casa-diego/static/media/diego_y_periodista.854f703f97b5179b1a0c.jpg",
-    "static/media/diego_y_familia_3.jpg": "/casa-diego/static/media/diego_y_familia_3.8a95da28c39522a99238.jpg",
-    "static/media/diego.jpg": "/casa-diego/static/media/diego.9799a7aa427aebd8591d.jpg",
-    "static/media/diego_y_familia_2.jpg": "/casa-diego/static/media/diego_y_familia_2.466d8dd2af3d8b54de03.jpg",
-    "static/media/diego2.jpg": "/casa-diego/static/media/diego2.03ae0f8fcbeed9d47e9a.jpg",
     "static/media/casa-diego-tipo.svg": "/casa-diego/static/media/casa-diego-tipo.41aba742586a9f1f471b825e8177620c.svg",
     "static/media/casa-diego-invertido.svg": "/casa-diego/static/media/casa-diego-invertido.d6e629c5db377be5c95068f9a1107143.svg",
-    "static/media/diego_casa.jpg": "/casa-diego/static/media/diego_casa.354daccc30424cdd1be4.jpg",
     "static/media/cocina.svg": "/casa-diego/static/media/cocina.72af73005c4293bbfcad1399ab6f4b7d.svg",
     "static/media/comedor.svg": "/casa-diego/static/media/comedor.44e8a1fa54fabb0e600320a2a2fb992c.svg",
     "static/media/pileta.svg": "/casa-diego/static/media/pileta.1bd87daf245d8154ca27fcfd8c660d42.svg",
@@ -32,11 +32,11 @@
     "static/media/habitaciones.svg": "/casa-diego/static/media/habitaciones.e65291ad076c5eac5f9e3cf85f97e9d8.svg",
     "index.html": "/casa-diego/index.html",
     "static/media/facebook.svg": "/casa-diego/static/media/facebook.b808d297c69f9b842adbc2a8ee89af86.svg",
-    "main.b48a733c.css.map": "/casa-diego/static/css/main.b48a733c.css.map",
-    "main.796a7182.js.map": "/casa-diego/static/js/main.796a7182.js.map"
+    "main.0deffc37.css.map": "/casa-diego/static/css/main.0deffc37.css.map",
+    "main.c3ae1576.js.map": "/casa-diego/static/js/main.c3ae1576.js.map"
   },
   "entrypoints": [
-    "static/css/main.b48a733c.css",
-    "static/js/main.796a7182.js"
+    "static/css/main.0deffc37.css",
+    "static/js/main.c3ae1576.js"
   ]
 }
