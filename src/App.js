@@ -3,10 +3,11 @@ import { Divider, Grid, Typography, Button, TextField } from "@mui/material";
 import casaDiegoLogoTipo from "./assets/casa-diego-tipo.svg";
 import Nav from "./components/nav";
 import FooterDiego from "./components/footer";
+import Marquee from "./components/marqueeSection";
 import "./App.css";
 import AOS from "aos";
 import Icon from "./components/icon";
-import './styles.scss';
+import "./styles.scss";
 import img1 from "./assets/diego_y_familia_2.jpg";
 import img2 from "./assets/diego2.jpg";
 import img3 from "./assets/diego_y_periodista.jpg";
@@ -71,7 +72,7 @@ function App() {
           maxWidth={"xl"}
           justifyContent={"center"}
           alignItems={"center"}
-          className="pt-16 pb-32 lg:pt-32 lg:pb-60 px-5"
+          className="pt-16 pb-32 lg:pt-32 lg:pb-60 px-5 lg:px-0"
         >
           <Grid item xs={12} lg={7}>
             <Typography
@@ -100,59 +101,34 @@ function App() {
         </Grid>
 
         {/* <!-- RESERVA --> */}
-        <div
-          className="relative flex overflow-hidden w-[99vw] justify-center pb-80 lg:pb-56"
-          id="reservar"
-          ref={reservarRef}
-        >
-          <div className="py-12 animate-marquee whitespace-nowrap">
-            <Typography className="!text-[90px] sm:!text-[130px] md:!text-[170px] lg:!text-[270px] !font-[900] text-text">
-              RESERVÁ AHORA
-            </Typography>
-          </div>
-          <div className="absolute top-0 py-12 animate-marquee2 whitespace-nowrap">
-            <Typography className="!text-[90px] sm:!text-[130px] md:!text-[170px] lg:!text-[270px] !font-[900]  text-text">
-              RESERVÁ AHORA
-            </Typography>
-          </div>
-          <Grid
-            container
-            maxWidth={"xl"}
-            justifyContent={"center"}
-            className="absolute top-[8.3rem] sm:top-[10.5rem] md:top-[12.5rem] lg:top-[19rem]"
-          >
-            <Grid item xs={10} md={9} lg={8} xl={7}>
-              <div className="p-8 md:p-20 bg-gray-light bg-opacity-40 rounded-xl backdrop-blur-lg flex justify-around items-end">
-                <Grid container spacing={3}>
-                  <Grid item xs={12} md={4}>
-                    <Typography className="!text-[20px]">Check In</Typography>
-                    <input
-                      type="date"
-                      label="Check In"
-                      className="px-2 !text-[18px] w-full"
-                    />
-                  </Grid>
-                  <Grid item xs={12} md={4}>
-                    <Typography className="!text-[20px]">Check Out</Typography>
-                    <input
-                      type="date"
-                      label="Check Out"
-                      className="px-2 !text-[18px] w-full"
-                    />
-                  </Grid>
-                  <Grid item xs={12} md={4} className="!mt-[1.5rem]">
-                    <Button
-                      variant="contained"
-                      className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase"
-                    >
-                      Buscar
-                    </Button>
-                  </Grid>
-                </Grid>
-              </div>
+        <Marquee id="reservar" ref={reservarRef} texto="RESERVÁ AHORA">
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={4}>
+              <Typography className="!text-[20px]">Check In</Typography>
+              <input
+                type="date"
+                label="Check In"
+                className="px-2 !text-[18px] w-full"
+              />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Typography className="!text-[20px]">Check Out</Typography>
+              <input
+                type="date"
+                label="Check Out"
+                className="px-2 !text-[18px] w-full"
+              />
+            </Grid>
+            <Grid item xs={12} md={4} className="!mt-[1.5rem]">
+              <Button
+                variant="contained"
+                className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase"
+              >
+                Buscar
+              </Button>
             </Grid>
           </Grid>
-        </div>
+        </Marquee>
 
         {/* <!-- ICONOS COMODIDADES --> */}
         <Grid
@@ -160,7 +136,7 @@ function App() {
           spacing={5}
           maxWidth={"xl"}
           justifyContent={"center"}
-          className="px-5 md:px-0"
+          className="px-5 lg:px-0"
         >
           <Grid item xs={12}>
             <Typography
@@ -176,7 +152,6 @@ function App() {
               <Grid
                 container
                 justifyContent={"center"}
-                className="px-5 md:px-0"
               >
                 <Grid
                   item
@@ -365,7 +340,6 @@ function App() {
           spacing={2}
           maxWidth={"xl"}
           justifyContent={"center"}
-          className="px-5 md:px-0 pt-12"
         >
           <Grid item xs={10} md={4}>
             <img
@@ -381,7 +355,7 @@ function App() {
               className="img-zoom w-full md:mt-36"
             />
           </Grid>
-          <Grid item xs={10} md={7} className="!pt-[4rem] md:!-ml-[7.5rem]">
+          <Grid item xs={10} md={7} className="!pt-[4rem] md:!-ml-[7.5rem] ">
             <Typography
               variant="h3"
               className="!mb-[1rem]"
@@ -414,7 +388,7 @@ function App() {
           spacing={2}
           maxWidth={"xl"}
           justifyContent={"center"}
-          className="px-5 md:px-0 pt-32"
+          className="pt-32"
         >
           <Grid item xs={10} md={4}>
             <img
@@ -425,7 +399,7 @@ function App() {
             <img
               src={img4}
               alt="Diego dando una nota en su casa"
-              className="img-zoom w-full md:w-[80%] pt-4 md:float-right"
+              className="img-zoom w-full lg:w-[80%] pt-4 md:float-right"
             />
           </Grid>
           <Grid item xs={10} md={4}>
@@ -437,7 +411,7 @@ function App() {
             <img
               src={img6}
               alt="Diego dando una nota en su casa"
-              className="img-zoom w-full md:w-[80%] pt-4"
+              className="img-zoom w-full lg:w-[80%] pt-4"
             />
           </Grid>
           <Grid item xs={10} md={6} className="!pt-[4rem] md:!-ml-[3rem]">
@@ -468,7 +442,7 @@ function App() {
           spacing={2}
           maxWidth={"xl"}
           justifyContent={"center"}
-          className="px-5 md:px-0 pt-32"
+          className="pt-32"
         >
           <Grid item xs={10} md={4}>
             <img
@@ -487,87 +461,26 @@ function App() {
         </Grid>
 
         {/* <!-- SERVICIOS --> */}
-        <div
-          className="relative flex overflow-hidden w-[99vw] justify-center pb-80 lg:pb-56"
-          id="reservar"
-        >
-          <div className="py-12 animate-marquee whitespace-nowrap">
-            <Typography className="!text-[90px] sm:!text-[130px] md:!text-[170px] lg:!text-[270px] !font-[900] text-text">
-              SERVICIOS <span className="px-8">SERVICIOS</span>
-            </Typography>
-          </div>
-          <div className="absolute top-0 py-12 animate-marquee2 whitespace-nowrap">
-            <Typography className="!text-[90px] sm:!text-[130px] md:!text-[170px] lg:!text-[270px] !font-[900]  text-text">
-              SERVICIOS <span className="px-8">SERVICIOS</span>
-            </Typography>
-          </div>
-          <Grid
-            container
-            maxWidth={"xl"}
-            justifyContent={"center"}
-            className="absolute top-[8.3rem] sm:top-[10.5rem] md:top-[12.5rem] lg:top-[19rem]"
-          >
-            <Grid item xs={10} md={9} lg={8} xl={7}>
-              <div
-                className="p-8 md:p-20 bg-gray-light bg-opacity-40 rounded-xl backdrop-blur-lg flex justify-around items-end"
-                data-aos="flip-right"
-                data-aos-delay="100"
-                data-aos-duration="500"
-              >
-                <Grid container spacing={3}>
-                  <Grid item xs={12} md={10}>
-                    <Typography className="!text-[28px] !font-bold">
-                      Conserjería | Atención 24 horas | Internet de alta
-                      velocidad | Aire Acondicionado | Seguridad 24 horas | Bar
-                      | Limpieza | Servicio de ropa blanca | Estacionamiento
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </div>
+        <Marquee texto="SERVICIOS">
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={10}>
+              <Typography className="!text-[23px] lg:!text-[28px] !font-bold">
+                Conserjería <span className="!text-gray-light">| </span> Atención 24 horas <span className="!text-gray-light">| </span> Internet de alta velocidad <span className="!text-gray-light">| </span> Aire Acondicionado <span className="!text-gray-light">| </span> Seguridad 24 horas <span className="!text-gray-light">| </span> Bar <span className="!text-gray-light">| </span> Limpieza <span className="!text-gray-light">| </span> Servicio de ropa blanca <span className="!text-gray-light">| </span> Estacionamiento
+              </Typography>
             </Grid>
           </Grid>
-        </div>
+        </Marquee>
 
         {/*  SERVICIOS ADICIONALES   */}
-        <div
-          className="relative flex overflow-hidden w-[99vw] justify-center pb-80 lg:pb-56"
-          id="reservar"
-        >
-          <div className="py-12 animate-marquee whitespace-nowrap">
-            <Typography className="!text-[90px] sm:!text-[130px] md:!text-[170px] lg:!text-[270px] !font-[900] text-text">
-              SERVICIOS ADICIONALES
-            </Typography>
-          </div>
-          <div className="absolute top-0 py-12 animate-marquee2 whitespace-nowrap">
-            <Typography className="!text-[90px] sm:!text-[130px] md:!text-[170px] lg:!text-[270px] !font-[900]  text-text">
-              SERVICIOS ADICIONALES
-            </Typography>
-          </div>
-          <Grid
-            container
-            maxWidth={"xl"}
-            justifyContent={"center"}
-            className="absolute top-[8.3rem] sm:top-[10.5rem] md:top-[12.5rem] lg:top-[19rem]"
-          >
-            <Grid item xs={10} md={9} lg={8} xl={7}>
-              <div
-                className="p-8 md:p-20 bg-gray-light bg-opacity-40 rounded-xl backdrop-blur-lg flex justify-around items-end"
-                data-aos="flip-right"
-                data-aos-delay="100"
-                data-aos-duration="500"
-              >
-                <Grid container spacing={3}>
-                  <Grid item xs={12} md={10}>
-                    <Typography className="!text-[28px] !font-bold">
-                      Traslados | Visitas Guiadas | Asistencia a Estadios |
-                      Experiencias Gastronómicas | Tours
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </div>
+        <Marquee texto="SERVICIOS ADICIONALES">
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={10}>
+              <Typography className="!text-[23px] lg:!text-[28px] !font-bold">
+                Traslados <span className="!text-gray-light">| </span>Visitas Guiadas <span className="!text-gray-light">| </span> Asistencia a Estadios <span className="!text-gray-light">| </span> Experiencias Gastronómicas <span className="!text-gray-light">| </span> Tours
+              </Typography>
             </Grid>
           </Grid>
-        </div>
+        </Marquee>
 
         {/*  LLAMADA A LA ACCIÓN   */}
         <div className="bg-action mix-blend-multiply w-full">
@@ -592,91 +505,62 @@ function App() {
         </div>
 
         {/*  CONTACTO  */}
-        <div
-          className="relative flex overflow-hidden w-[99vw] justify-center h-[100dvh] md:h-[110dvh] lg:h-[120dvh]"
-          id="contacto"
-        >
-          <div className="py-12 animate-marquee whitespace-nowrap">
-            <Typography className="!text-[90px] sm:!text-[130px] md:!text-[170px] lg:!text-[270px] !font-[900] text-text">
-              CONTACTANOS
-            </Typography>
-          </div>
-          <div className="absolute top-0 py-12 animate-marquee2 whitespace-nowrap">
-            <Typography className="!text-[90px] sm:!text-[130px] md:!text-[170px] lg:!text-[270px] !font-[900]  text-text">
-              CONTACTANOS
-            </Typography>
-          </div>
-          <Grid
-            container
-            maxWidth={"xl"}
-            justifyContent={"center"}
-            className="absolute top-[8rem] sm:top-[10.5rem] md:top-[12.5rem] lg:top-[18.5rem]"
-          >
-            <Grid item xs={10} md={9} lg={8} xl={7}>
-              <div
-                className="p-8 md:p-20 bg-gray-light bg-opacity-40 rounded-xl backdrop-blur-lg flex justify-around items-end"
-                data-aos="flip-right"
-                data-aos-delay="100"
-                data-aos-duration="500"
+        <Marquee texto="CONTACTANOS" className="relative flex overflow-hidden w-[98vw] justify-center pb-[48rem]">
+          <Grid container spacing={3} justifyContent={"center"}>
+            <Grid item xs={12} md={10}>
+              <Typography className="mb-5">
+                Cualquier consulta que tengas, no dudes en escribirnos,
+                responderemos a la brevedad.
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={10} className="mb-4">
+              <TextField
+                id="nombre"
+                label="Nombre y Apellido"
+                variant="outlined"
+                size="small"
+                fullWidth                
+              />
+            </Grid>
+            <Grid item xs={12} md={10} className="mb-4">
+              <TextField
+                id="email"
+                label="Email"
+                variant="outlined"
+                size="small"
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12} md={10} className="mb-4">
+              <TextField
+                id="telefono"
+                label="Teléfono"
+                variant="outlined"
+                size="small"
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={12} md={10} className="mb-4">
+              <TextField
+                id="outlined-multiline-static"
+                label="Dejanos tu consulta"
+                multiline
+                fullWidth
+                rows={4}
+                defaultValue="Hola, quisiera saber..."
+              />
+            </Grid>
+            <Grid item xs={12} md={10} className="text-right">
+              <Button
+                variant="contained"
+                className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6"
+                onClick={handleReservaClick}
               >
-                <Grid container spacing={3} justifyContent={"center"}>
-                  <Grid item xs={12} md={10}>
-                    <Typography className="mb-5">
-                      Cualquier consulta que tengas, no dudes en escribirnos,
-                      responderemos a la brevedad.
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12} md={10} className="mb-4">
-                    <TextField
-                      id="nombre"
-                      label="Nombre y Apellido"
-                      variant="outlined"
-                      size="small"
-                      fullWidth
-                    />
-                  </Grid>
-                  <Grid item xs={12} md={10} className="mb-4">
-                    <TextField
-                      id="email"
-                      label="Email"
-                      variant="outlined"
-                      size="small"
-                      fullWidth
-                    />
-                  </Grid>
-                  <Grid item xs={12} md={10} className="mb-4">
-                    <TextField
-                      id="telefono"
-                      label="Teléfono"
-                      variant="outlined"
-                      size="small"
-                      fullWidth
-                    />
-                  </Grid>
-                  <Grid item xs={12} md={10} className="mb-4">
-                    <TextField
-                      id="outlined-multiline-static"
-                      label="Multiline"
-                      multiline
-                      fullWidth
-                      rows={4}
-                      defaultValue="Default Value"
-                    />
-                  </Grid>
-                  <Grid item xs={12} md={10} className="text-right">
-                    <Button
-                      variant="contained"
-                      className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6"
-                      onClick={handleReservaClick}
-                    >
-                      hacé tu reserva
-                    </Button>
-                  </Grid>
-                </Grid>
-              </div>
+                hacé tu reserva
+              </Button>
             </Grid>
           </Grid>
-        </div>       
+        </Marquee>
       </main>
       <FooterDiego />
     </div>
