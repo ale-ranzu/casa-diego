@@ -48,7 +48,7 @@ function App() {
       <Nav links={navLinks} />
 
       {/* <!-- INICIO --> */}
-      <div className="bg-inicio -mt-[85px] h-[100dvh] mix-blend-multiply">
+      <div className="bg-inicio -mt-[120px] h-[100dvh] mix-blend-multiply">
         <div className="w-full h-[100dvh] bg-black bg-opacity-50 flex flex-col justify-center items-center">
           <img
             className="max-w-[310px] sm:max-w-[500px] lg:max-w-[740px] animate-fade-up animate-ease-in-out"
@@ -119,7 +119,12 @@ function App() {
                 className="px-2 !text-[18px] w-full"
               />
             </Grid>
-            <Grid item xs={12} md={4} className="!mt-[1.5rem]">
+            <Grid
+              item
+              xs={12}
+              md={4}
+              className="!mt-[1.5rem] text-right md:text-center"
+            >
               <Button
                 variant="contained"
                 className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase"
@@ -136,7 +141,7 @@ function App() {
           spacing={5}
           maxWidth={"xl"}
           justifyContent={"center"}
-          className="px-5 lg:px-0"
+          className="px-4 xl:px-0"
         >
           <Grid item xs={12}>
             <Typography
@@ -149,14 +154,12 @@ function App() {
               Toda la casa para vos y tus amigos
             </Typography>
             <div className="bg-text rounded-2xl w-full py-32">
-              <Grid
-                container
-                justifyContent={"center"}
-              >
+              <Grid container justifyContent={"center"} className="px-5">
                 <Grid
                   item
                   xs={6}
-                  md={2}
+                  sm={4}
+                  lg={2}
                   sx={{ marginLeft: { md: 2 } }}
                   className="text-center mx-auto py-3"
                   data-aos="fade-up"
@@ -168,7 +171,8 @@ function App() {
                 <Grid
                   item
                   xs={6}
-                  md={2}
+                  sm={4}
+                  lg={2}
                   className="text-center mx-auto py-3"
                   data-aos="fade-up"
                   data-aos-delay="150"
@@ -179,7 +183,8 @@ function App() {
                 <Grid
                   item
                   xs={6}
-                  md={2}
+                  sm={4}
+                  lg={2}
                   className="text-center mx-auto py-3"
                   data-aos="fade-up"
                   data-aos-delay="200"
@@ -190,7 +195,8 @@ function App() {
                 <Grid
                   item
                   xs={6}
-                  md={2}
+                  sm={4}
+                  lg={2}
                   className="text-center mx-auto py-3"
                   data-aos="fade-up"
                   data-aos-delay="250"
@@ -201,7 +207,8 @@ function App() {
                 <Grid
                   item
                   xs={6}
-                  md={2}
+                  sm={4}
+                  lg={2}
                   className="text-center mx-auto py-3"
                   data-aos="fade-up"
                   data-aos-delay="300"
@@ -213,7 +220,8 @@ function App() {
                 <Grid
                   item
                   xs={6}
-                  md={2}
+                  sm={4}
+                  lg={2}
                   sx={{ marginLeft: { md: 2 } }}
                   className="text-center mx-auto py-3"
                   data-aos="fade-up"
@@ -225,7 +233,8 @@ function App() {
                 <Grid
                   item
                   xs={6}
-                  md={2}
+                  sm={4}
+                  lg={2}
                   className="text-center mx-auto py-3"
                   data-aos="fade-up"
                   data-aos-delay="200"
@@ -236,7 +245,8 @@ function App() {
                 <Grid
                   item
                   xs={6}
-                  md={2}
+                  sm={4}
+                  lg={2}
                   className="text-center mx-auto py-3"
                   data-aos="fade-up"
                   data-aos-delay="250"
@@ -247,7 +257,8 @@ function App() {
                 <Grid
                   item
                   xs={6}
-                  md={2}
+                  sm={4}
+                  lg={2}
                   className="text-center mx-auto py-3"
                   data-aos="fade-up"
                   data-aos-delay="300"
@@ -258,7 +269,8 @@ function App() {
                 <Grid
                   item
                   xs={6}
-                  md={2}
+                  sm={4}
+                  lg={2}
                   className="text-center mx-auto py-3"
                   data-aos="fade-up"
                   data-aos-delay="350"
@@ -270,7 +282,8 @@ function App() {
                 <Grid
                   item
                   xs={6}
-                  md={2}
+                  sm={4}
+                  lg={2}
                   mdOffset={1}
                   className="text-center mx-auto py-3"
                   data-aos="fade-up"
@@ -282,7 +295,8 @@ function App() {
                 <Grid
                   item
                   xs={6}
-                  md={2}
+                  sm={4}
+                  lg={2}
                   className="text-center mx-auto py-3"
                   data-aos="fade-up"
                   data-aos-delay="250"
@@ -293,7 +307,8 @@ function App() {
                 <Grid
                   item
                   xs={6}
-                  md={2}
+                  sm={4}
+                  lg={2}
                   className="text-center mx-auto py-3"
                   data-aos="fade-up"
                   data-aos-delay="300"
@@ -307,7 +322,8 @@ function App() {
                 <Grid
                   item
                   xs={6}
-                  md={2}
+                  sm={4}
+                  lg={2}
                   className="text-center mx-auto py-3"
                   data-aos="fade-up"
                   data-aos-delay="350"
@@ -318,7 +334,8 @@ function App() {
                 <Grid
                   item
                   xs={6}
-                  md={2}
+                  sm={4}
+                  lg={2}
                   className="text-center mx-auto py-3"
                   data-aos="fade-up"
                   data-aos-delay="400"
@@ -335,16 +352,11 @@ function App() {
         </Grid>
 
         {/* <!-- IMAGENES Y TEXTO 1 --> */}
-        <Grid
-          container
-          spacing={2}
-          maxWidth={"xl"}
-          justifyContent={"center"}
-        >
-          <Grid item xs={10} md={4}>
+        <Grid container spacing={2} maxWidth={"xl"} justifyContent={"center"}>
+          <Grid item xs={10} md={4} className="!pt-14">
             <img
               src={img1}
-              alt="Diego, la Tota, Claudia y Giannina"
+              alt="Diego, la Tota, Claudia y Dalma"
               className="img-zoom w-full"
             />
           </Grid>
@@ -465,7 +477,16 @@ function App() {
           <Grid container spacing={3}>
             <Grid item xs={12} md={10}>
               <Typography className="!text-[23px] lg:!text-[28px] !font-bold">
-                Conserjería <span className="!text-gray-light">| </span> Atención 24 horas <span className="!text-gray-light">| </span> Internet de alta velocidad <span className="!text-gray-light">| </span> Aire Acondicionado <span className="!text-gray-light">| </span> Seguridad 24 horas <span className="!text-gray-light">| </span> Bar <span className="!text-gray-light">| </span> Limpieza <span className="!text-gray-light">| </span> Servicio de ropa blanca <span className="!text-gray-light">| </span> Estacionamiento
+                Conserjería <span className="!text-gray-light">| </span>{" "}
+                Atención 24 horas <span className="!text-gray-light">| </span>{" "}
+                Internet de alta velocidad{" "}
+                <span className="!text-gray-light">| </span> Aire Acondicionado{" "}
+                <span className="!text-gray-light">| </span> Seguridad 24 horas{" "}
+                <span className="!text-gray-light">| </span> Bar{" "}
+                <span className="!text-gray-light">| </span> Limpieza{" "}
+                <span className="!text-gray-light">| </span> Servicio de ropa
+                blanca <span className="!text-gray-light">| </span>{" "}
+                Estacionamiento
               </Typography>
             </Grid>
           </Grid>
@@ -476,7 +497,11 @@ function App() {
           <Grid container spacing={3}>
             <Grid item xs={12} md={10}>
               <Typography className="!text-[23px] lg:!text-[28px] !font-bold">
-                Traslados <span className="!text-gray-light">| </span>Visitas Guiadas <span className="!text-gray-light">| </span> Asistencia a Estadios <span className="!text-gray-light">| </span> Experiencias Gastronómicas <span className="!text-gray-light">| </span> Tours
+                Traslados <span className="!text-gray-light">| </span>Visitas
+                Guiadas <span className="!text-gray-light">| </span> Asistencia
+                a Estadios <span className="!text-gray-light">| </span>{" "}
+                Experiencias Gastronómicas{" "}
+                <span className="!text-gray-light">| </span> Tours
               </Typography>
             </Grid>
           </Grid>
@@ -487,7 +512,7 @@ function App() {
           <div className="w-full pt-64 pb-16 bg-black bg-opacity-10 flex flex-col justify-center items-center">
             <Grid container justifyContent={"center"}>
               <Grid item xs={10} md={7}>
-                <div className="p-6 md:p-10 bg-gray-light bg-opacity-20 rounded-xl backdrop-blur-lg flex flex-col items-center">
+                <div className="p-6 md:p-10 bg-white bg-opacity-30 rounded-xl backdrop-blur-lg flex flex-col items-center">
                   <Typography className="!text-[35px] !font-bold">
                     Diego, su casa, tu hospedaje
                   </Typography>
@@ -505,7 +530,11 @@ function App() {
         </div>
 
         {/*  CONTACTO  */}
-        <Marquee texto="CONTACTANOS" className="relative flex overflow-hidden w-[98vw] justify-center pb-[48rem]">
+        <Marquee
+          texto="CONTACTANOS"
+          className="relative flex overflow-hidden w-[98vw] justify-center pb-[48rem] md:pb-[42rem]"
+          id="contacto"
+        >
           <Grid container spacing={3} justifyContent={"center"}>
             <Grid item xs={12} md={10}>
               <Typography className="mb-5">
@@ -519,7 +548,7 @@ function App() {
                 label="Nombre y Apellido"
                 variant="outlined"
                 size="small"
-                fullWidth                
+                fullWidth
               />
             </Grid>
             <Grid item xs={12} md={10} className="mb-4">
@@ -556,11 +585,23 @@ function App() {
                 className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6"
                 onClick={handleReservaClick}
               >
-                hacé tu reserva
+                envianos tu consulta
               </Button>
             </Grid>
           </Grid>
         </Marquee>
+        <Grid container maxWidth={"xl"} justifyContent={"center"}>
+          <Grid item xs={12} md={10}>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1641.9572308177735!2d-58.51833459706597!3d-34.606324446725374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb7ce2876574f%3A0x5f330af22cd97bf6!2sJos%C3%A9%20Luis%20Cantilo%204575%2C%20C1419%20Villa%20Devoto%2C%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1702559007816!5m2!1ses-419!2sar"
+              width="100%"
+              height="350"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </Grid>
+        </Grid>
       </main>
       <FooterDiego />
     </div>
