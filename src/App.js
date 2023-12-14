@@ -4,9 +4,27 @@ import casaDiegoLogoTipo from "./assets/casa-diego-tipo.svg";
 import Nav from "./components/nav";
 import FooterDiego from "./components/footer";
 import Marquee from "./components/marqueeSection";
+import Icon from "./components/icon";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import RoomServiceTwoToneIcon from "@mui/icons-material/RoomServiceTwoTone";
+import ScheduleTwoToneIcon from "@mui/icons-material/ScheduleTwoTone";
+import SettingsRemoteTwoToneIcon from '@mui/icons-material/SettingsRemoteTwoTone';
+import AcUnitTwoToneIcon from '@mui/icons-material/AcUnitTwoTone';
+import SafetyCheckTwoToneIcon from '@mui/icons-material/SafetyCheckTwoTone';
+import LocalBarTwoToneIcon from '@mui/icons-material/LocalBarTwoTone';
+import CleaningServicesTwoToneIcon from '@mui/icons-material/CleaningServicesTwoTone';
+import DryCleaningTwoToneIcon from '@mui/icons-material/DryCleaningTwoTone';
+import DirectionsCarFilledTwoToneIcon from '@mui/icons-material/DirectionsCarFilledTwoTone';
+import AirportShuttleTwoToneIcon from '@mui/icons-material/AirportShuttleTwoTone';
+import StadiumTwoToneIcon from '@mui/icons-material/StadiumTwoTone';
+import BakeryDiningTwoToneIcon from '@mui/icons-material/BakeryDiningTwoTone';
+import TheaterComedyTwoToneIcon from '@mui/icons-material/TheaterComedyTwoTone';
+import TourTwoToneIcon from '@mui/icons-material/TourTwoTone';
 import "./App.css";
 import AOS from "aos";
-import Icon from "./components/icon";
 import "./styles.scss";
 import img1 from "./assets/diego_y_familia_2.jpg";
 import img2 from "./assets/diego2.jpg";
@@ -68,11 +86,11 @@ function App() {
         {/* <!-- TEXTO 1 --> */}
         <Grid
           container
-          spacing={5}
+          spacing={4}
           maxWidth={"xl"}
           justifyContent={"center"}
           alignItems={"center"}
-          className="pt-16 pb-32 lg:pt-32 lg:pb-60 px-5 lg:px-0"
+          className="!px-6 pt-16 pb-32 lg:pt-32 lg:pb-60  lg:px-0"
         >
           <Grid item xs={12} lg={7}>
             <Typography
@@ -473,36 +491,109 @@ function App() {
         </Grid>
 
         {/* <!-- SERVICIOS --> */}
-        <Marquee texto="SERVICIOS">
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={10}>
-              <Typography className="!text-[23px] lg:!text-[28px] !font-bold">
-                Conserjería <span className="!text-gray-light">| </span>{" "}
-                Atención 24 horas <span className="!text-gray-light">| </span>{" "}
-                Internet de alta velocidad{" "}
-                <span className="!text-gray-light">| </span> Aire Acondicionado{" "}
-                <span className="!text-gray-light">| </span> Seguridad 24 horas{" "}
-                <span className="!text-gray-light">| </span> Bar{" "}
-                <span className="!text-gray-light">| </span> Limpieza{" "}
-                <span className="!text-gray-light">| </span> Servicio de ropa
-                blanca <span className="!text-gray-light">| </span>{" "}
-                Estacionamiento
+        <Marquee
+          texto="SERVICIOS"
+          marqueeContentGridSizes={{ xs: 12, md: 11, lg: 10, xl: 10 }}
+          className="relative flex overflow-hidden w-[98vw] justify-center pb-[63rem] md:pb-[42rem]"
+        >
+          <Grid container spacing={5}>
+            <Grid item xs={12} sm={6}>
+              <Typography className="!text-[25px] md:!text-[28px] !font-bold">
+                Básicos
               </Typography>
+              <List>
+                <ListItem>
+                  <ListItemAvatar>
+                    <RoomServiceTwoToneIcon />
+                  </ListItemAvatar>
+                  <ListItemText primary="Conserjería" />
+                </ListItem>
+                <ListItem>
+                  <ListItemAvatar>
+                    <ScheduleTwoToneIcon />
+                  </ListItemAvatar>
+                  <ListItemText primary="Atención las 24 horas" />
+                </ListItem>
+                <ListItem>
+                  <ListItemAvatar>
+                    <SettingsRemoteTwoToneIcon />
+                  </ListItemAvatar>
+                  <ListItemText primary="Internet de alta velocidad" />
+                </ListItem>
+                <ListItem>
+                  <ListItemAvatar>
+                    <AcUnitTwoToneIcon />
+                  </ListItemAvatar>
+                  <ListItemText primary="Aire Acondicionado" />
+                </ListItem>
+                <ListItem>
+                  <ListItemAvatar>
+                    <SafetyCheckTwoToneIcon />
+                  </ListItemAvatar>
+                  <ListItemText primary="Seguridad 24 horas" />
+                </ListItem>
+                <ListItem>
+                  <ListItemAvatar>
+                    <LocalBarTwoToneIcon />
+                  </ListItemAvatar>
+                  <ListItemText primary="Bar" />
+                </ListItem>
+                <ListItem>
+                  <ListItemAvatar>
+                    <CleaningServicesTwoToneIcon />
+                  </ListItemAvatar>
+                  <ListItemText primary="Limpieza" />
+                </ListItem>
+                <ListItem>
+                  <ListItemAvatar>
+                    <DryCleaningTwoToneIcon />
+                  </ListItemAvatar>
+                  <ListItemText primary="Servicio de ropa blanca" />
+                </ListItem>
+                <ListItem>
+                  <ListItemAvatar>
+                    <DirectionsCarFilledTwoToneIcon />
+                  </ListItemAvatar>
+                  <ListItemText primary="Estacionamiento" />
+                </ListItem>
+              </List>
             </Grid>
-          </Grid>
-        </Marquee>
-
-        {/*  SERVICIOS ADICIONALES   */}
-        <Marquee texto="SERVICIOS ADICIONALES">
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={10}>
-              <Typography className="!text-[23px] lg:!text-[28px] !font-bold">
-                Traslados <span className="!text-gray-light">| </span>Visitas
-                Guiadas <span className="!text-gray-light">| </span> Asistencia
-                a Estadios <span className="!text-gray-light">| </span>{" "}
-                Experiencias Gastronómicas{" "}
-                <span className="!text-gray-light">| </span> Tours
+            <Grid item xs={12} sm={6}>
+              <Typography className="!text-[25px] md:!text-[28px] !font-bold">
+                Adicionales
               </Typography>
+              <List>
+                <ListItem>
+                  <ListItemAvatar>
+                    <AirportShuttleTwoToneIcon />
+                  </ListItemAvatar>
+                  <ListItemText primary="Traslados" />
+                </ListItem>
+                <ListItem>
+                  <ListItemAvatar>
+                    <TourTwoToneIcon />
+                  </ListItemAvatar>
+                  <ListItemText primary="Visitas Guiadas" />
+                </ListItem>
+                <ListItem>
+                  <ListItemAvatar>
+                    <StadiumTwoToneIcon />
+                  </ListItemAvatar>
+                  <ListItemText primary="Asistencia a Estadios" />
+                </ListItem>
+                <ListItem>
+                  <ListItemAvatar>
+                    <BakeryDiningTwoToneIcon />
+                  </ListItemAvatar>
+                  <ListItemText primary="Experiencias Gastronómicas" />
+                </ListItem>
+                <ListItem>
+                  <ListItemAvatar>
+                    <TheaterComedyTwoToneIcon />
+                  </ListItemAvatar>
+                  <ListItemText primary="Tours" />
+                </ListItem>
+              </List>
             </Grid>
           </Grid>
         </Marquee>

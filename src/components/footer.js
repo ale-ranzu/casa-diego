@@ -13,7 +13,7 @@ function FooterDiego() {
         </Grid>
         <Grid item xs={12} md={8} className="flex items-center">
           <Typography className="!text-white !text-[16px] pt-4 md:pt-0">
-            Cantilo 4575, Villa Devoto, Ciudad de Buenos Aires.
+            José Luis Cantilo 4575, Villa Devoto, Ciudad de Buenos Aires.
           </Typography>
         </Grid>
         <Grid item xs={12} md={2} className="flex items-center pt-8 md:pt-0 md:justify-end">

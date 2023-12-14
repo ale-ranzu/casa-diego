@@ -6,7 +6,7 @@ import AOS from "aos";
 AOS.init();
 
 const Marquee = forwardRef(
-  ({ id, texto, customClasses, children, ...rest }, ref) => {
+  ({ id, texto, customClasses, children, marqueeTextSize, marqueeContentGridSizes, ...rest }, ref) => {
     const marqueeClasses = `relative flex overflow-hidden w-[98vw] justify-center pb-80 lg:pb-56 ${
       customClasses || ""
     }`;
@@ -18,13 +18,23 @@ const Marquee = forwardRef(
 
     return (
       <div className={marqueeClasses} {...rest} id={id} ref={ref}>
-        <div className="py-12 animate-marquee whitespace-nowrap pr-8">
-          <Typography className="!text-[60px] sm:!text-[100px] md:!text-[130px] lg:!text-[220px] !font-[900] text-text">
+       {/*  <div className="py-12 animate-marquee whitespace-nowrap pr-8">
+          <Typography className={`!text-${marqueeTextSize || "[70px]"} sm:!text-[100px] md:!text-[130px] lg:!text-[220px] !font-[900] text-text`}>
             {texto}
           </Typography>
         </div>
         <div className="absolute top-0 py-12 animate-marquee2 whitespace-nowrap pl-4">
-          <Typography className="!text-[60px] sm:!text-[100px] md:!text-[130px] lg:!text-[220px] !font-[900]  text-text opacity-80">
+          <Typography className={`!text-${marqueeTextSize || "[70px]"} sm:!text-[100px] md:!text-[130px] lg:!text-[220px] !font-[900] text-text opacity-80`}>
+            {texto}
+          </Typography>
+        </div> */}
+        <div className="py-12 animate-marquee whitespace-nowrap pr-8">
+          <Typography className="!text-[70px] sm:!text-[100px] md:!text-[130px] lg:!text-[220px] !font-[900] text-text">
+            {texto}
+          </Typography>
+        </div>
+        <div className="absolute top-0 py-12 animate-marquee2 whitespace-nowrap pl-4">
+          <Typography className="!text-[70px] sm:!text-[100px] md:!text-[130px] lg:!text-[220px] !font-[900] text-text">
             {texto}
           </Typography>
         </div>
@@ -32,14 +42,14 @@ const Marquee = forwardRef(
           container
           maxWidth={"xl"}
           justifyContent={"center"}
-          className="absolute top-[6.5rem] sm:top-[9rem] md:top-[11rem] lg:top-[15.5rem]"
+          className="absolute top-[7rem] sm:top-[8.7rem] md:top-[10.5rem] lg:top-[15.5rem]"
         >
           <Grid
             item
-            xs={11}
-            md={9}
-            lg={8}
-            xl={7}
+            xs={marqueeContentGridSizes?.xs || 11}
+            md={marqueeContentGridSizes?.md || 9}
+            lg={marqueeContentGridSizes?.lg || 8}
+            xl={marqueeContentGridSizes?.xl || 7}
             data-aos="zoom-in"
             data-aos-delay="100"
             data-aos-duration="500"
