@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -9,16 +9,26 @@ import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import casaDiegoLogo from "../assets/casa-diego-invertido.svg";
 import "./nav.scss";
 
 const drawerWidth = "75vw";
 function Nav({ links }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  useEffect(() => {
+    const handleBodyStyle = () => {
+      document.body.style.paddingRight = mobileOpen ? '0px' : '';
+    };
+
+    handleBodyStyle();
+
+    return () => {
+      handleBodyStyle();
+    };
+  }, [mobileOpen]);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
