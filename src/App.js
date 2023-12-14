@@ -11,18 +11,18 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import RoomServiceTwoToneIcon from "@mui/icons-material/RoomServiceTwoTone";
 import ScheduleTwoToneIcon from "@mui/icons-material/ScheduleTwoTone";
-import SettingsRemoteTwoToneIcon from '@mui/icons-material/SettingsRemoteTwoTone';
-import AcUnitTwoToneIcon from '@mui/icons-material/AcUnitTwoTone';
-import SafetyCheckTwoToneIcon from '@mui/icons-material/SafetyCheckTwoTone';
-import LocalBarTwoToneIcon from '@mui/icons-material/LocalBarTwoTone';
-import CleaningServicesTwoToneIcon from '@mui/icons-material/CleaningServicesTwoTone';
-import DryCleaningTwoToneIcon from '@mui/icons-material/DryCleaningTwoTone';
-import DirectionsCarFilledTwoToneIcon from '@mui/icons-material/DirectionsCarFilledTwoTone';
-import AirportShuttleTwoToneIcon from '@mui/icons-material/AirportShuttleTwoTone';
-import StadiumTwoToneIcon from '@mui/icons-material/StadiumTwoTone';
-import BakeryDiningTwoToneIcon from '@mui/icons-material/BakeryDiningTwoTone';
-import TheaterComedyTwoToneIcon from '@mui/icons-material/TheaterComedyTwoTone';
-import TourTwoToneIcon from '@mui/icons-material/TourTwoTone';
+import SettingsRemoteTwoToneIcon from "@mui/icons-material/SettingsRemoteTwoTone";
+import AcUnitTwoToneIcon from "@mui/icons-material/AcUnitTwoTone";
+import SafetyCheckTwoToneIcon from "@mui/icons-material/SafetyCheckTwoTone";
+import LocalBarTwoToneIcon from "@mui/icons-material/LocalBarTwoTone";
+import CleaningServicesTwoToneIcon from "@mui/icons-material/CleaningServicesTwoTone";
+import DryCleaningTwoToneIcon from "@mui/icons-material/DryCleaningTwoTone";
+import DirectionsCarFilledTwoToneIcon from "@mui/icons-material/DirectionsCarFilledTwoTone";
+import AirportShuttleTwoToneIcon from "@mui/icons-material/AirportShuttleTwoTone";
+import StadiumTwoToneIcon from "@mui/icons-material/StadiumTwoTone";
+import BakeryDiningTwoToneIcon from "@mui/icons-material/BakeryDiningTwoTone";
+import TheaterComedyTwoToneIcon from "@mui/icons-material/TheaterComedyTwoTone";
+import TourTwoToneIcon from "@mui/icons-material/TourTwoTone";
 import "./App.css";
 import AOS from "aos";
 import "./styles.scss";
@@ -494,7 +494,7 @@ function App() {
         <Marquee
           texto="SERVICIOS"
           marqueeContentGridSizes={{ xs: 12, md: 11, lg: 10, xl: 10 }}
-          className="relative flex overflow-hidden w-[98vw] justify-center pb-[63rem] md:pb-[42rem]"
+          className="relative flex overflow-hidden w-[98vw] justify-center pb-[84rem] md:pb-[42rem]"
         >
           <Grid container spacing={5}>
             <Grid item xs={12} sm={6}>
@@ -502,58 +502,49 @@ function App() {
                 Básicos
               </Typography>
               <List>
-                <ListItem>
-                  <ListItemAvatar>
-                    <RoomServiceTwoToneIcon />
-                  </ListItemAvatar>
+                <ListItem className="!pl-0">
+                  <RoomServiceTwoToneIcon className="mr-3" />
+
                   <ListItemText primary="Conserjería" />
                 </ListItem>
-                <ListItem>
-                  <ListItemAvatar>
-                    <ScheduleTwoToneIcon />
-                  </ListItemAvatar>
+                <ListItem className="!pl-0">
+                  <ScheduleTwoToneIcon className="mr-3" />
+
                   <ListItemText primary="Atención las 24 horas" />
                 </ListItem>
-                <ListItem>
-                  <ListItemAvatar>
-                    <SettingsRemoteTwoToneIcon />
-                  </ListItemAvatar>
+                <ListItem className="!pl-0">
+                  <SettingsRemoteTwoToneIcon className="mr-3" />
+
                   <ListItemText primary="Internet de alta velocidad" />
                 </ListItem>
-                <ListItem>
-                  <ListItemAvatar>
-                    <AcUnitTwoToneIcon />
-                  </ListItemAvatar>
+                <ListItem className="!pl-0">
+                  <AcUnitTwoToneIcon className="mr-3" />
+
                   <ListItemText primary="Aire Acondicionado" />
                 </ListItem>
-                <ListItem>
-                  <ListItemAvatar>
-                    <SafetyCheckTwoToneIcon />
-                  </ListItemAvatar>
+                <ListItem className="!pl-0">
+                  <SafetyCheckTwoToneIcon className="mr-3" />
+
                   <ListItemText primary="Seguridad 24 horas" />
                 </ListItem>
-                <ListItem>
-                  <ListItemAvatar>
-                    <LocalBarTwoToneIcon />
-                  </ListItemAvatar>
+                <ListItem className="!pl-0">
+                  <LocalBarTwoToneIcon className="mr-3" />
+
                   <ListItemText primary="Bar" />
                 </ListItem>
-                <ListItem>
-                  <ListItemAvatar>
-                    <CleaningServicesTwoToneIcon />
-                  </ListItemAvatar>
+                <ListItem className="!pl-0">
+                  <CleaningServicesTwoToneIcon className="mr-3" />
+
                   <ListItemText primary="Limpieza" />
                 </ListItem>
-                <ListItem>
-                  <ListItemAvatar>
-                    <DryCleaningTwoToneIcon />
-                  </ListItemAvatar>
+                <ListItem className="!pl-0">
+                  <DryCleaningTwoToneIcon className="mr-3" />
+
                   <ListItemText primary="Servicio de ropa blanca" />
                 </ListItem>
-                <ListItem>
-                  <ListItemAvatar>
-                    <DirectionsCarFilledTwoToneIcon />
-                  </ListItemAvatar>
+                <ListItem className="!pl-0">
+                  <DirectionsCarFilledTwoToneIcon className="mr-3" />
+
                   <ListItemText primary="Estacionamiento" />
                 </ListItem>
               </List>
@@ -563,34 +554,29 @@ function App() {
                 Adicionales
               </Typography>
               <List>
-                <ListItem>
-                  <ListItemAvatar>
-                    <AirportShuttleTwoToneIcon />
-                  </ListItemAvatar>
+                <ListItem className="!pl-0">
+                  <AirportShuttleTwoToneIcon className="mr-3" />
+
                   <ListItemText primary="Traslados" />
                 </ListItem>
-                <ListItem>
-                  <ListItemAvatar>
-                    <TourTwoToneIcon />
-                  </ListItemAvatar>
+                <ListItem className="!pl-0">
+                  <TourTwoToneIcon className="mr-3" />
+
                   <ListItemText primary="Visitas Guiadas" />
                 </ListItem>
-                <ListItem>
-                  <ListItemAvatar>
-                    <StadiumTwoToneIcon />
-                  </ListItemAvatar>
+                <ListItem className="!pl-0">
+                  <StadiumTwoToneIcon className="mr-3" />
+
                   <ListItemText primary="Asistencia a Estadios" />
                 </ListItem>
-                <ListItem>
-                  <ListItemAvatar>
-                    <BakeryDiningTwoToneIcon />
-                  </ListItemAvatar>
+                <ListItem className="!pl-0">
+                  <BakeryDiningTwoToneIcon className="mr-3" />
+
                   <ListItemText primary="Experiencias Gastronómicas" />
                 </ListItem>
-                <ListItem>
-                  <ListItemAvatar>
-                    <TheaterComedyTwoToneIcon />
-                  </ListItemAvatar>
+                <ListItem className="!pl-0">
+                  <TheaterComedyTwoToneIcon className="mr-3" />
+
                   <ListItemText primary="Tours" />
                 </ListItem>
               </List>
