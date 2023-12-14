@@ -16,7 +16,7 @@ function FooterDiego() {
             Cantilo 4575, Villa Devoto, Ciudad de Buenos Aires.
           </Typography>
         </Grid>
-        <Grid item xs={12} md={2} className="flex items-center pt-8 md:pt-0 flex md:justify-end">
+        <Grid item xs={12} md={2} className="flex items-center pt-8 md:pt-0 md:justify-end">
           <img className="mr-4 w-5" src={iconFace} alt="Logo" />
           <img className="w-5" src={iconInsta} alt="Logo" />
         </Grid>
