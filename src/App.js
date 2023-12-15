@@ -67,7 +67,7 @@ function App() {
       <Nav links={navLinks} />
 
       {/* <!-- INICIO --> */}
-      <div className="bg-inicio -mt-[120px] h-[100dvh] mix-blend-multiply js-hoverable-element">
+      <div className="bg-inicio mt-0 h-[100dvh] mix-blend-multiply js-hoverable-element">
         <div className="w-full h-[100dvh] bg-black bg-opacity-50 flex flex-col justify-center items-center">
           <img
             className="max-w-[310px] sm:max-w-[500px] lg:max-w-[740px] animate-fade-up animate-ease-in-out"

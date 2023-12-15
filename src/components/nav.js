@@ -14,6 +14,7 @@ import Button from "@mui/material/Button";
 import casaDiegoLogo from "../assets/casa-diego-invertido.svg";
 
 const drawerWidth = "75vw";
+const drawerHeight = "100dvh";
 function Nav({ links }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -40,8 +41,8 @@ function Nav({ links }) {
   return (
     <>
       <AppBar
-        position="sticky"
-        className="h-[85px] backdrop-blur-md !bg-header flex justify-center !shadow-none nav-casa-diego"
+        position="fixed"
+        className="h-[85px] w-full backdrop-blur-md !bg-header flex justify-center !shadow-none nav-casa-diego"
       >
         <Container maxWidth="xl">
           <Toolbar className="flex justify-between" disableGutters>
@@ -94,7 +95,7 @@ function Nav({ links }) {
         }}
         sx={{
           display: { xs: "block", md: "none" },
-          "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth, backgroundColor: "#232020", display: "flex", alignItems: "center", justifyContent: "center" },   
+          "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth, height: drawerHeight, backgroundColor: "#232020", display: "flex", alignItems: "center", justifyContent: "center" },   
         }}        
       >
         <Box onClick={handleCloseNavMenu}>
