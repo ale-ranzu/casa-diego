@@ -39,12 +39,12 @@ const Icon = ({ name, text = "", ...props }) => {
     <div className="h-48 md:h-52 flex flex-col items-center justify-center">
       <span
         {...props}
-        className="w-[80px] h-[100px] md:w-[100px] md:h-[120px] flex justify-center items-stretch"
+        className="w-[80px] h-[100px] md:w-[100px] md:h-[120px] flex justify-center items-stretch js-hoverable-element"
       >
         {icons[name]}       
       </span>
       {text && (
-          <span className="text-center text-white text-[21px] font-[200] leading-6 h-[50px]">
+          <span className="text-center text-white text-[21px] font-[200] leading-6 h-[50px] js-hoverable-element">
             {text}
           </span>
         )}

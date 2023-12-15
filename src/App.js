@@ -5,10 +5,10 @@ import Nav from "./components/nav";
 import FooterDiego from "./components/footer";
 import Marquee from "./components/marqueeSection";
 import Icon from "./components/icon";
+import CustomCursor from "./components/customCursor";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
 import RoomServiceTwoToneIcon from "@mui/icons-material/RoomServiceTwoTone";
 import ScheduleTwoToneIcon from "@mui/icons-material/ScheduleTwoTone";
 import SettingsRemoteTwoToneIcon from "@mui/icons-material/SettingsRemoteTwoTone";
@@ -24,8 +24,8 @@ import BakeryDiningTwoToneIcon from "@mui/icons-material/BakeryDiningTwoTone";
 import TheaterComedyTwoToneIcon from "@mui/icons-material/TheaterComedyTwoTone";
 import TourTwoToneIcon from "@mui/icons-material/TourTwoTone";
 import "./App.css";
-import AOS from "aos";
 import "./styles.scss";
+import AOS from "aos";
 import img1 from "./assets/diego_y_familia_2.jpg";
 import img2 from "./assets/diego2.jpg";
 import img3 from "./assets/diego_y_periodista.jpg";
@@ -62,11 +62,12 @@ function App() {
 
   return (
     <div className="App">
+      <CustomCursor />
       {/* <!-- NAV--> */}
       <Nav links={navLinks} />
 
       {/* <!-- INICIO --> */}
-      <div className="bg-inicio -mt-[120px] h-[100dvh] mix-blend-multiply">
+      <div className="bg-inicio -mt-[120px] h-[100dvh] mix-blend-multiply js-hoverable-element">
         <div className="w-full h-[100dvh] bg-black bg-opacity-50 flex flex-col justify-center items-center">
           <img
             className="max-w-[310px] sm:max-w-[500px] lg:max-w-[740px] animate-fade-up animate-ease-in-out"
@@ -82,7 +83,7 @@ function App() {
           </Typography>
         </div>
       </div>
-      <main className="flex flex-col items-center py-6">
+      <main className="flex flex-col items-center py-6 overflow-hidden">
         {/* <!-- TEXTO 1 --> */}
         <Grid
           container
@@ -98,19 +99,18 @@ function App() {
               data-aos="fade-up-right"
               data-aos-delay="100"
               data-aos-duration="500"
+              className="js-hoverable-element"
             >
               Un alojamiento único en el mundo.
             </Typography>
           </Grid>
-          <Grid
-            item
-            xs={12}
-            lg={5}
-            data-aos="fade-up-left"
-            data-aos-delay="200"
-            data-aos-duration="500"
-          >
-            <Typography>
+          <Grid item xs={12} lg={5}>
+            <Typography
+              className="js-hoverable-element"
+              data-aos="fade-up-left"
+              data-aos-delay="200"
+              data-aos-duration="500"
+            >
               Ahora podés hospedarte en la mítica casa de Maradona y su familia,
               el hogar que Diego eligió como punto de encuentro con sus
               familiares y amigos, que cuenta con capacidad para 12 personas.
@@ -122,19 +122,23 @@ function App() {
         <Marquee id="reservar" ref={reservarRef} texto="RESERVÁ AHORA">
           <Grid container spacing={3}>
             <Grid item xs={12} md={4}>
-              <Typography className="!text-[20px]">Check In</Typography>
+              <Typography className="!text-[20px] js-hoverable-element">
+                Check In
+              </Typography>
               <input
                 type="date"
                 label="Check In"
-                className="px-2 !text-[18px] w-full"
+                className="px-2 !text-[18px] w-full js-hoverable-element"
               />
             </Grid>
             <Grid item xs={12} md={4}>
-              <Typography className="!text-[20px]">Check Out</Typography>
+              <Typography className="!text-[20px] js-hoverable-element">
+                Check Out
+              </Typography>
               <input
                 type="date"
                 label="Check Out"
-                className="px-2 !text-[18px] w-full"
+                className="px-2 !text-[18px] w-full js-hoverable-element"
               />
             </Grid>
             <Grid
@@ -145,7 +149,7 @@ function App() {
             >
               <Button
                 variant="contained"
-                className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase"
+                className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase js-hoverable-element"
               >
                 Buscar
               </Button>
@@ -164,7 +168,7 @@ function App() {
           <Grid item xs={12}>
             <Typography
               variant="h3"
-              className="text-center pb-8"
+              className="text-center pb-8 js-hoverable-element"
               data-aos="fade-up"
               data-aos-delay="100"
               data-aos-duration="500"
@@ -184,19 +188,25 @@ function App() {
                   data-aos-delay="100"
                   data-aos-duration="500"
                 >
-                  <Icon name="iconCasa" text="700 m2 cubiertos" />
+                  <Icon
+                    name="iconCasa"
+                    text="700 m2 cubiertos"
+                  />
                 </Grid>
                 <Grid
                   item
                   xs={6}
                   sm={4}
                   lg={2}
-                  className="text-center mx-auto py-3"
+                  className="text-center mx-auto py-3 "
                   data-aos="fade-up"
                   data-aos-delay="150"
                   data-aos-duration="500"
                 >
-                  <Icon name="iconJardin" text="500 m2 descubiertos" />
+                  <Icon
+                    name="iconJardin"
+                    text="500 m2 descubiertos"
+                  />
                 </Grid>
                 <Grid
                   item
@@ -208,7 +218,10 @@ function App() {
                   data-aos-delay="200"
                   data-aos-duration="500"
                 >
-                  <Icon name="iconPisos" text="3 pisos" />
+                  <Icon
+                    name="iconPisos"
+                    text="3 pisos"
+                  />
                 </Grid>
                 <Grid
                   item
@@ -220,7 +233,10 @@ function App() {
                   data-aos-delay="250"
                   data-aos-duration="500"
                 >
-                  <Icon name="iconHabitaciones" text="6 habitaciones" />
+                  <Icon
+                    name="iconHabitaciones"
+                    text="6 habitaciones"
+                  />
                 </Grid>
                 <Grid
                   item
@@ -232,7 +248,10 @@ function App() {
                   data-aos-delay="300"
                   data-aos-duration="500"
                 >
-                  <Icon name="iconLiving" text="Living" />
+                  <Icon
+                    name="iconLiving"
+                    text="Living"
+                  />
                 </Grid>
 
                 <Grid
@@ -246,7 +265,10 @@ function App() {
                   data-aos-delay="150"
                   data-aos-duration="500"
                 >
-                  <Icon name="iconComedor" text="Comedor" />
+                  <Icon
+                    name="iconComedor"
+                    text="Comedor"
+                  />
                 </Grid>
                 <Grid
                   item
@@ -258,7 +280,10 @@ function App() {
                   data-aos-delay="200"
                   data-aos-duration="500"
                 >
-                  <Icon name="iconCocina" text="Cocina" />
+                  <Icon
+                    name="iconCocina"
+                    text="Cocina"
+                  />
                 </Grid>
                 <Grid
                   item
@@ -270,7 +295,10 @@ function App() {
                   data-aos-delay="250"
                   data-aos-duration="500"
                 >
-                  <Icon name="iconBanio" text="4 Baños" />
+                  <Icon
+                    name="iconBanio"
+                    text="4 Baños"
+                  />
                 </Grid>
                 <Grid
                   item
@@ -282,7 +310,10 @@ function App() {
                   data-aos-delay="300"
                   data-aos-duration="500"
                 >
-                  <Icon name="iconCesped" text="Jardín con césped sintético" />
+                  <Icon
+                    name="iconCesped"
+                    text="Jardín con césped sintético"
+                  />
                 </Grid>
                 <Grid
                   item
@@ -294,7 +325,10 @@ function App() {
                   data-aos-delay="350"
                   data-aos-duration="500"
                 >
-                  <Icon name="iconQuincho" text="Quincho" />
+                  <Icon
+                    name="iconQuincho"
+                    text="Quincho"
+                  />
                 </Grid>
 
                 <Grid
@@ -308,7 +342,10 @@ function App() {
                   data-aos-delay="200"
                   data-aos-duration="500"
                 >
-                  <Icon name="iconParrilla" text="Parrilla" />
+                  <Icon
+                    name="iconParrilla"
+                    text="Parrilla"
+                  />
                 </Grid>
                 <Grid
                   item
@@ -320,7 +357,10 @@ function App() {
                   data-aos-delay="250"
                   data-aos-duration="500"
                 >
-                  <Icon name="iconPileta" text="Pileta climatizada" />
+                  <Icon
+                    name="iconPileta"
+                    text="Pileta climatizada"
+                  />
                 </Grid>
                 <Grid
                   item
@@ -347,7 +387,10 @@ function App() {
                   data-aos-delay="350"
                   data-aos-duration="500"
                 >
-                  <Icon name="iconMobiliario" text="Mobiliario original" />
+                  <Icon
+                    name="iconMobiliario"
+                    text="Mobiliario original"
+                  />
                 </Grid>
                 <Grid
                   item
@@ -375,20 +418,20 @@ function App() {
             <img
               src={img1}
               alt="Diego, la Tota, Claudia y Dalma"
-              className="img-zoom w-full"
+              className="img-zoom w-full js-hoverable-element"
             />
           </Grid>
           <Grid item xs={10} md={4}>
             <img
               src={img2}
               alt="Diego en su casa haciendo un asado"
-              className="img-zoom w-full md:mt-36"
+              className="img-zoom w-full md:mt-36 js-hoverable-element"
             />
           </Grid>
           <Grid item xs={10} md={7} className="!pt-[4rem] md:!-ml-[7.5rem] ">
             <Typography
               variant="h3"
-              className="!mb-[1rem]"
+              className="!mb-[1rem] js-hoverable-element"
               data-aos="fade-up"
               data-aos-delay="100"
               data-aos-duration="500"
@@ -399,6 +442,7 @@ function App() {
               data-aos="fade-up"
               data-aos-delay="150"
               data-aos-duration="500"
+              className="js-hoverable-element"
             >
               En 1981, Diego es transferido de Argentinos Juniors a Boca Juniors
               y cumple el sueño de regalarle una casa a sus padres. Se
@@ -424,30 +468,30 @@ function App() {
             <img
               src={img3}
               alt="Diego dando una nota en su casa"
-              className="img-zoom w-full"
+              className="img-zoom w-full js-hoverable-element"
             />
             <img
               src={img4}
               alt="Diego dando una nota en su casa"
-              className="img-zoom w-full lg:w-[80%] pt-4 md:float-right"
+              className="img-zoom w-full lg:w-[80%] pt-4 md:float-right js-hoverable-element"
             />
           </Grid>
           <Grid item xs={10} md={4}>
             <img
               src={img5}
               alt="Diego y la Tota tomando mate"
-              className="img-zoom w-full md:mt-12"
+              className="img-zoom w-full md:mt-12 js-hoverable-element"
             />
             <img
               src={img6}
               alt="Diego dando una nota en su casa"
-              className="img-zoom w-full lg:w-[80%] pt-4"
+              className="img-zoom w-full lg:w-[80%] pt-4 js-hoverable-element"
             />
           </Grid>
           <Grid item xs={10} md={6} className="!pt-[4rem] md:!-ml-[3rem]">
             <Typography
               variant="h3"
-              className="!mb-[1rem]"
+              className="!mb-[1rem] js-hoverable-element"
               data-aos="fade-up"
               data-aos-delay="100"
               data-aos-duration="500"
@@ -458,6 +502,7 @@ function App() {
               data-aos="fade-up"
               data-aos-delay="150"
               data-aos-duration="500"
+              className="js-hoverable-element"
             >
               Entrá, cerrá la puerta y disfrutá con total privacidad. La
               vivienda se reserva completa, con capacidad para hasta 12
@@ -478,14 +523,14 @@ function App() {
             <img
               src={img7}
               alt="Diego y sus padres"
-              className="img-zoom w-full"
+              className="img-zoom w-full js-hoverable-element"
             />
           </Grid>
           <Grid item xs={10} md={4}>
             <img
               src={img8}
               alt="Diego en la puerta de entrada a su casa"
-              className="img-zoom w-full md:mt-12"
+              className="img-zoom w-full md:mt-12 js-hoverable-element"
             />
           </Grid>
         </Grid>
@@ -498,10 +543,10 @@ function App() {
         >
           <Grid container spacing={5}>
             <Grid item xs={12} sm={6}>
-              <Typography className="!text-[25px] md:!text-[28px] !font-bold">
+              <Typography className="!text-[25px] md:!text-[28px] !font-bold js-hoverable-element">
                 Básicos
               </Typography>
-              <List>
+              <List className="js-hoverable-element">
                 <ListItem className="!pl-0">
                   <RoomServiceTwoToneIcon className="mr-3" />
 
@@ -550,10 +595,10 @@ function App() {
               </List>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <Typography className="!text-[25px] md:!text-[28px] !font-bold">
+              <Typography className="!text-[25px] md:!text-[28px] !font-bold js-hoverable-element">
                 Adicionales
               </Typography>
-              <List>
+              <List className="js-hoverable-element">
                 <ListItem className="!pl-0">
                   <AirportShuttleTwoToneIcon className="mr-3" />
 
@@ -590,12 +635,12 @@ function App() {
             <Grid container justifyContent={"center"}>
               <Grid item xs={10} md={7}>
                 <div className="p-6 md:p-10 bg-white bg-opacity-30 rounded-xl backdrop-blur-lg flex flex-col items-center">
-                  <Typography className="!text-[35px] !font-bold">
+                  <Typography className="!text-[35px] !font-bold js-hoverable-element">
                     Diego, su casa, tu hospedaje
                   </Typography>
                   <Button
                     variant="contained"
-                    className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6"
+                    className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6 js-hoverable-element"
                     onClick={handleReservaClick}
                   >
                     hacé tu reserva
@@ -614,7 +659,7 @@ function App() {
         >
           <Grid container spacing={3} justifyContent={"center"}>
             <Grid item xs={12} md={10}>
-              <Typography className="mb-5">
+              <Typography className="mb-5 js-hoverable-element">
                 Cualquier consulta que tengas, no dudes en escribirnos,
                 responderemos a la brevedad.
               </Typography>
@@ -626,6 +671,7 @@ function App() {
                 variant="outlined"
                 size="small"
                 fullWidth
+                className="js-hoverable-element"
               />
             </Grid>
             <Grid item xs={12} md={10} className="mb-4">
@@ -635,6 +681,7 @@ function App() {
                 variant="outlined"
                 size="small"
                 fullWidth
+                className="js-hoverable-element"
               />
             </Grid>
             <Grid item xs={12} md={10} className="mb-4">
@@ -644,6 +691,7 @@ function App() {
                 variant="outlined"
                 size="small"
                 fullWidth
+                className="js-hoverable-element"
               />
             </Grid>
             <Grid item xs={12} md={10} className="mb-4">
@@ -654,12 +702,13 @@ function App() {
                 fullWidth
                 rows={4}
                 defaultValue="Hola, quisiera saber..."
+                className="js-hoverable-element"
               />
             </Grid>
             <Grid item xs={12} md={10} className="text-right">
               <Button
                 variant="contained"
-                className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6"
+                className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6 js-hoverable-element"
                 onClick={handleReservaClick}
               >
                 envianos tu consulta

@@ -17,24 +17,14 @@ const Marquee = forwardRef(
     }, []);
 
     return (
-      <div className={marqueeClasses} {...rest} id={id} ref={ref}>
-       {/*  <div className="py-12 animate-marquee whitespace-nowrap pr-8">
-          <Typography className={`!text-${marqueeTextSize || "[70px]"} sm:!text-[100px] md:!text-[130px] lg:!text-[220px] !font-[900] text-text`}>
-            {texto}
-          </Typography>
-        </div>
-        <div className="absolute top-0 py-12 animate-marquee2 whitespace-nowrap pl-4">
-          <Typography className={`!text-${marqueeTextSize || "[70px]"} sm:!text-[100px] md:!text-[130px] lg:!text-[220px] !font-[900] text-text opacity-80`}>
-            {texto}
-          </Typography>
-        </div> */}
+      <div className={marqueeClasses} {...rest} id={id} ref={ref}>       
         <div className="py-12 animate-marquee whitespace-nowrap pr-8">
-          <Typography className="!text-[70px] sm:!text-[100px] md:!text-[130px] lg:!text-[220px] !font-[900] text-text">
+          <Typography className="!text-[70px] sm:!text-[100px] md:!text-[130px] lg:!text-[220px] !font-[900] text-text js-hoverable-element">
             {texto}
           </Typography>
         </div>
         <div className="absolute top-0 py-12 animate-marquee2 whitespace-nowrap pl-4">
-          <Typography className="!text-[70px] sm:!text-[100px] md:!text-[130px] lg:!text-[220px] !font-[900] text-text">
+          <Typography className="!text-[70px] sm:!text-[100px] md:!text-[130px] lg:!text-[220px] !font-[900] text-text js-hoverable-element">
             {texto}
           </Typography>
         </div>

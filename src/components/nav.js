@@ -12,7 +12,6 @@ import ListItemButton from "@mui/material/ListItemButton";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import casaDiegoLogo from "../assets/casa-diego-invertido.svg";
-import "./nav.scss";
 
 const drawerWidth = "75vw";
 function Nav({ links }) {
@@ -48,7 +47,7 @@ function Nav({ links }) {
           <Toolbar className="flex justify-between" disableGutters>
             {/* Logo u otros elementos del nav */}
             <a className="logo-container" href="/">
-              <img className="w-[175px]" src={casaDiegoLogo} alt="Logo" />
+              <img className="w-[175px] js-hoverable-element" src={casaDiegoLogo} alt="Logo" />
             </a>
 
             {/* Botón hamburguesa en dispositivos móviles */}
@@ -73,7 +72,7 @@ function Nav({ links }) {
                 <Button
                   key={link.id}
                   href={`#${link.targetId}`}
-                  className={`my-2 !text-white block !lowercase !mr-4 !transition !ease-in-out !delay-150 hover:-translate-y-2 !duration-200 ${
+                  className={`js-hoverable-element my-2 !text-white block !lowercase !mr-4 !transition !ease-in-out !delay-150 hover:-translate-y-2 !duration-200 ${
                     link.type === "language" ? "!text-[15px]" : ""
                   }`}
                 >
