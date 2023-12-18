@@ -26,14 +26,23 @@ import TourTwoToneIcon from "@mui/icons-material/TourTwoTone";
 import "./App.css";
 import "./styles.scss";
 import AOS from "aos";
-import img1 from "./assets/diego_y_familia_2.jpg";
-import img2 from "./assets/diego2.jpg";
+import img1 from "./assets/cesped-sintetico.jpg";
+import img2 from "./assets/pileta-quincho.jpg";
 import img3 from "./assets/diego_y_periodista.jpg";
 import img4 from "./assets/diego_casa.jpg";
 import img5 from "./assets/diego_tota.jpg";
 import img6 from "./assets/diego_y_familia_1.jpg";
 import img7 from "./assets/diego_y_familia_3.jpg";
 import img8 from "./assets/diego.jpg";
+import img9 from "./assets/bar.jpg";
+import img10 from "./assets/cama.jpg";
+import img11 from "./assets/comedor.jpg";
+import img12 from "./assets/living-comedor.jpg";
+import img13 from "./assets/dormitorio-principal.jpg";
+import img14 from "./assets/pileta-climatizada.jpg";
+import italiano from "./assets/italia.svg";
+import espaniol from "./assets/espania.svg";
+import ingles from "./assets/ingles.svg";
 
 function App() {
   useEffect(() => {
@@ -51,13 +60,26 @@ function App() {
     { id: "reservar", text: "Reservar", targetId: "reservar" },
     { id: "contacto", text: "Contacto", targetId: "contacto" },
     {
-      id: "portugues",
-      text: "Portugués",
-      targetId: "portugues",
+      id: "italiano",
+      text: "Italiano",
+      targetId: "italiano",
       type: "language",
+      svg: italiano,
     },
-    { id: "espaniol", text: "Español", targetId: "espaniol", type: "language" },
-    { id: "ingles", text: "Inglés", targetId: "ingles", type: "language" },
+    {
+      id: "espaniol",
+      text: "Español",
+      targetId: "espaniol",
+      type: "language",
+      svg: espaniol,
+    },
+    {
+      id: "english",
+      text: "English",
+      targetId: "english",
+      type: "language",
+      svg: ingles,
+    },
   ];
 
   return (
@@ -188,10 +210,7 @@ function App() {
                   data-aos-delay="100"
                   data-aos-duration="500"
                 >
-                  <Icon
-                    name="iconCasa"
-                    text="700 m2 cubiertos"
-                  />
+                  <Icon name="iconCasa" text="700 m2 cubiertos" />
                 </Grid>
                 <Grid
                   item
@@ -203,10 +222,7 @@ function App() {
                   data-aos-delay="150"
                   data-aos-duration="500"
                 >
-                  <Icon
-                    name="iconJardin"
-                    text="500 m2 descubiertos"
-                  />
+                  <Icon name="iconJardin" text="500 m2 descubiertos" />
                 </Grid>
                 <Grid
                   item
@@ -218,10 +234,7 @@ function App() {
                   data-aos-delay="200"
                   data-aos-duration="500"
                 >
-                  <Icon
-                    name="iconPisos"
-                    text="3 pisos"
-                  />
+                  <Icon name="iconPisos" text="3 pisos" />
                 </Grid>
                 <Grid
                   item
@@ -233,10 +246,7 @@ function App() {
                   data-aos-delay="250"
                   data-aos-duration="500"
                 >
-                  <Icon
-                    name="iconHabitaciones"
-                    text="6 habitaciones"
-                  />
+                  <Icon name="iconHabitaciones" text="6 habitaciones" />
                 </Grid>
                 <Grid
                   item
@@ -248,10 +258,7 @@ function App() {
                   data-aos-delay="300"
                   data-aos-duration="500"
                 >
-                  <Icon
-                    name="iconLiving"
-                    text="Living"
-                  />
+                  <Icon name="iconLiving" text="Living" />
                 </Grid>
 
                 <Grid
@@ -265,10 +272,7 @@ function App() {
                   data-aos-delay="150"
                   data-aos-duration="500"
                 >
-                  <Icon
-                    name="iconComedor"
-                    text="Comedor"
-                  />
+                  <Icon name="iconComedor" text="Comedor" />
                 </Grid>
                 <Grid
                   item
@@ -280,10 +284,7 @@ function App() {
                   data-aos-delay="200"
                   data-aos-duration="500"
                 >
-                  <Icon
-                    name="iconCocina"
-                    text="Cocina"
-                  />
+                  <Icon name="iconCocina" text="Cocina" />
                 </Grid>
                 <Grid
                   item
@@ -295,10 +296,7 @@ function App() {
                   data-aos-delay="250"
                   data-aos-duration="500"
                 >
-                  <Icon
-                    name="iconBanio"
-                    text="4 Baños"
-                  />
+                  <Icon name="iconBanio" text="4 Baños" />
                 </Grid>
                 <Grid
                   item
@@ -310,10 +308,7 @@ function App() {
                   data-aos-delay="300"
                   data-aos-duration="500"
                 >
-                  <Icon
-                    name="iconCesped"
-                    text="Jardín con césped sintético"
-                  />
+                  <Icon name="iconCesped" text="Jardín con césped sintético" />
                 </Grid>
                 <Grid
                   item
@@ -325,10 +320,7 @@ function App() {
                   data-aos-delay="350"
                   data-aos-duration="500"
                 >
-                  <Icon
-                    name="iconQuincho"
-                    text="Quincho"
-                  />
+                  <Icon name="iconQuincho" text="Quincho" />
                 </Grid>
 
                 <Grid
@@ -342,10 +334,7 @@ function App() {
                   data-aos-delay="200"
                   data-aos-duration="500"
                 >
-                  <Icon
-                    name="iconParrilla"
-                    text="Parrilla"
-                  />
+                  <Icon name="iconParrilla" text="Parrilla" />
                 </Grid>
                 <Grid
                   item
@@ -357,10 +346,7 @@ function App() {
                   data-aos-delay="250"
                   data-aos-duration="500"
                 >
-                  <Icon
-                    name="iconPileta"
-                    text="Pileta climatizada"
-                  />
+                  <Icon name="iconPileta" text="Pileta climatizada" />
                 </Grid>
                 <Grid
                   item
@@ -387,10 +373,7 @@ function App() {
                   data-aos-delay="350"
                   data-aos-duration="500"
                 >
-                  <Icon
-                    name="iconMobiliario"
-                    text="Mobiliario original"
-                  />
+                  <Icon name="iconMobiliario" text="Mobiliario original" />
                 </Grid>
                 <Grid
                   item
@@ -413,21 +396,50 @@ function App() {
         </Grid>
 
         {/* <!-- IMAGENES Y TEXTO 1 --> */}
-        <Grid container spacing={2} maxWidth={"xl"} justifyContent={"center"}>
-          <Grid item xs={10} md={4} className="!pt-14">
+        <Grid
+          container
+          spacing={2}
+          maxWidth={"xl"}
+          justifyContent={"center"}
+          className="!mt-12"
+        >
+          <Grid item xs={10} md={4} className="!pt-14 js-hoverable-element">
             <img
               src={img1}
-              alt="Diego, la Tota, Claudia y Dalma"
-              className="img-zoom w-full js-hoverable-element"
+              alt="Vista del fondo"
+              className="w-full"
+              data-aos="zoom-in-up"
+              data-aos-delay="100"
+              data-aos-duration="500"
             />
-          </Grid>
-          <Grid item xs={10} md={4}>
             <img
               src={img2}
-              alt="Diego en su casa haciendo un asado"
-              className="img-zoom w-full md:mt-36 js-hoverable-element"
+              alt="La pile"
+              className="w-full lg:w-[90%] pt-4 md:float-right"
+              data-aos="zoom-in-up"
+              data-aos-delay="150"
+              data-aos-duration="500"
             />
           </Grid>
+          <Grid item xs={10} md={4} className="js-hoverable-element">
+            <img
+              src={img11}
+              alt="El comedor"
+              className="w-full"
+              data-aos="zoom-in-up"
+              data-aos-delay="100"
+              data-aos-duration="500"
+            />
+            <img
+              src={img14}
+              alt="la pile"
+              className="w-full lg:w-[90%] pt-4"
+              data-aos="zoom-in-up"
+              data-aos-delay="150"
+              data-aos-duration="500"
+            />
+          </Grid>
+
           <Grid item xs={10} md={7} className="!pt-[4rem] md:!-ml-[7.5rem] ">
             <Typography
               variant="h3"
@@ -464,43 +476,55 @@ function App() {
           justifyContent={"center"}
           className="pt-32"
         >
-          <Grid item xs={10} md={4}>
+          <Grid item xs={10} md={4} className="js-hoverable-element">
+            <img
+              src={img4}
+              alt="Diego en el patio dando una nota"
+              className="w-full md:mt-36"
+              data-aos="zoom-in-up"
+              data-aos-delay="150"
+              data-aos-duration="500"
+            />
             <img
               src={img3}
               alt="Diego dando una nota en su casa"
-              className="img-zoom w-full js-hoverable-element"
-            />
-            <img
-              src={img4}
-              alt="Diego dando una nota en su casa"
-              className="img-zoom w-full lg:w-[80%] pt-4 md:float-right js-hoverable-element"
+              className="w-full lg:w-[90%] pt-4 md:float-right"
+              data-aos="zoom-in-up"
+              data-aos-delay="150"
+              data-aos-duration="500"
             />
           </Grid>
-          <Grid item xs={10} md={4}>
+          <Grid item xs={10} md={4} className="js-hoverable-element">
             <img
               src={img5}
               alt="Diego y la Tota tomando mate"
-              className="img-zoom w-full md:mt-12 js-hoverable-element"
+              className="w-full md:mt-12"
+              data-aos="zoom-in-up"
+              data-aos-delay="150"
+              data-aos-duration="500"
             />
             <img
               src={img6}
               alt="Diego dando una nota en su casa"
-              className="img-zoom w-full lg:w-[80%] pt-4 js-hoverable-element"
+              className="w-full lg:w-[90%] pt-4"
+              data-aos="zoom-in-up"
+              data-aos-delay="150"
+              data-aos-duration="500"
             />
           </Grid>
           <Grid item xs={10} md={6} className="!pt-[4rem] md:!-ml-[3rem]">
             <Typography
               variant="h3"
-              className="!mb-[1rem] js-hoverable-element"
               data-aos="fade-up"
-              data-aos-delay="100"
+              data-aos-delay="150"
               data-aos-duration="500"
+              className="!mb-[1rem] js-hoverable-element"
             >
               Hospedate en Casa Diego en forma privada y exclusiva
             </Typography>
             <Typography
               data-aos="fade-up"
-              data-aos-delay="150"
+              data-aos-delay="200"
               data-aos-duration="500"
               className="js-hoverable-element"
             >
@@ -517,20 +541,42 @@ function App() {
           spacing={2}
           maxWidth={"xl"}
           justifyContent={"center"}
-          className="pt-32"
+          className="pt-32 js-hoverable-element"
         >
           <Grid item xs={10} md={4}>
             <img
-              src={img7}
-              alt="Diego y sus padres"
-              className="img-zoom w-full js-hoverable-element"
+              src={img9}
+              alt="El bar"
+              className="w-full"
+              data-aos="zoom-in-up"
+              data-aos-delay="100"
+              data-aos-duration="500"
+            />
+            <img
+              src={img12}
+              alt="Living comedor"
+              className="w-full lg:w-[90%] pt-4 float-right"
+              data-aos="zoom-in-up"
+              data-aos-delay="150"
+              data-aos-duration="500"
             />
           </Grid>
           <Grid item xs={10} md={4}>
             <img
-              src={img8}
-              alt="Diego en la puerta de entrada a su casa"
-              className="img-zoom w-full md:mt-12 js-hoverable-element"
+              src={img10}
+              alt="la cama"
+              className="w-full md:mt-12"
+              data-aos="zoom-in-up"
+              data-aos-delay="150"
+              data-aos-duration="500"
+            />
+            <img
+              src={img13}
+              alt="Dormitorio principal"
+              className="w-full lg:w-[90%] pt-4"
+              data-aos="zoom-in-up"
+              data-aos-delay="200"
+              data-aos-duration="500"
             />
           </Grid>
         </Grid>
@@ -629,18 +675,48 @@ function App() {
           </Grid>
         </Marquee>
 
+        {/* <!-- IMAGENES DIEGO --> */}
+        <Grid
+          container
+          spacing={2}
+          maxWidth={"xl"}
+          justifyContent={"center"}
+          className="pt-32 js-hoverable-element"
+        >
+          <Grid item xs={10} md={4}>
+            <img
+              src={img7}
+              alt="Diego con sus padres"
+              className="w-full"
+              data-aos="zoom-in-up"
+              data-aos-delay="100"
+              data-aos-duration="500"
+            />
+          </Grid>
+          <Grid item xs={10} md={4}>
+            <img
+              src={img8}
+              alt="Diego en la puerta de entrada a su casa"
+              className="w-full md:mt-12"
+              data-aos="zoom-in-up"
+              data-aos-delay="150"
+              data-aos-duration="500"
+            />
+          </Grid>
+        </Grid>
+
         {/*  LLAMADA A LA ACCIÓN   */}
-        <div className="bg-action mix-blend-multiply w-full">
+        <div className="bg-action mix-blend-multiply w-full mt-12 ">
           <div className="w-full pt-64 pb-16 bg-black bg-opacity-10 flex flex-col justify-center items-center">
             <Grid container justifyContent={"center"}>
-              <Grid item xs={10} md={7}>
+              <Grid item xs={10} md={7} className="js-hoverable-element">
                 <div className="p-6 md:p-10 bg-white bg-opacity-30 rounded-xl backdrop-blur-lg flex flex-col items-center">
-                  <Typography className="!text-[35px] !font-bold js-hoverable-element">
+                  <Typography className="!text-[35px] !font-bold">
                     Diego, su casa, tu hospedaje
                   </Typography>
                   <Button
                     variant="contained"
-                    className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6 js-hoverable-element"
+                    className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6 "
                     onClick={handleReservaClick}
                   >
                     hacé tu reserva

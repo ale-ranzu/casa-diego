@@ -20,7 +20,7 @@ function Nav({ links }) {
 
   useEffect(() => {
     const handleBodyStyle = () => {
-      document.body.style.paddingRight = mobileOpen ? '0px' : '';
+      document.body.style.paddingRight = mobileOpen ? "0px" : "";
     };
 
     handleBodyStyle();
@@ -48,7 +48,11 @@ function Nav({ links }) {
           <Toolbar className="flex justify-between" disableGutters>
             {/* Logo u otros elementos del nav */}
             <a className="logo-container" href="/">
-              <img className="w-[175px] js-hoverable-element" src={casaDiegoLogo} alt="Logo" />
+              <img
+                className="w-[175px] js-hoverable-element"
+                src={casaDiegoLogo}
+                alt="Logo"
+              />
             </a>
 
             {/* Botón hamburguesa en dispositivos móviles */}
@@ -74,10 +78,21 @@ function Nav({ links }) {
                   key={link.id}
                   href={`#${link.targetId}`}
                   className={`js-hoverable-element my-2 !text-white block !lowercase !mr-4 !transition !ease-in-out !delay-150 hover:-translate-y-2 !duration-200 ${
-                    link.type === "language" ? "!text-[15px]" : ""
+                    link.type === "language" ? "!text-[14px]" : ""
                   }`}
                 >
-                  {link.text}
+                  {link.type === "language" ? (
+                    <>
+                      <img
+                        src={link.svg}
+                        alt={`${link.text} icon`}
+                        className="mr-2 w-[25px]"
+                      />
+                      {link.text}
+                    </>
+                  ) : (
+                    link.text
+                  )}
                 </Button>
               ))}
             </Box>
@@ -91,28 +106,45 @@ function Nav({ links }) {
         open={mobileOpen}
         onClose={handleCloseNavMenu}
         ModalProps={{
-          keepMounted: true, // Better open performance on mobile.         
+          keepMounted: true, // Better open performance on mobile.
         }}
         sx={{
           display: { xs: "block", md: "none" },
-          "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth, height: drawerHeight, backgroundColor: "#232020", display: "flex", alignItems: "center", justifyContent: "center" },   
-        }}        
+          "& .MuiDrawer-paper": {
+            boxSizing: "border-box",
+            width: drawerWidth,
+            height: drawerHeight,
+            backgroundColor: "#232020",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          },
+        }}
       >
         <Box onClick={handleCloseNavMenu}>
           <List>
             {links.map((link) => (
               <ListItem key={link.id} disablePadding>
-                <ListItemButton
-                  onClick={handleCloseNavMenu}                  
-                >
+                <ListItemButton onClick={handleCloseNavMenu}>
                   <Button
                     key={link.id}
                     href={`#${link.targetId}`}
-                    className={`my-3 !text-white block !text-[22px] !lowercase text-center ${
-                      link.type === "language" ? "" : ""
+                    className={`js-hoverable-element my-2 !text-white block !lowercase !mr-4 !transition !ease-in-out !delay-150 hover:-translate-y-2 !duration-200 ${
+                      link.type === "language" ? "!text-[15px]" : ""
                     }`}
                   >
-                    {link.text}
+                    {link.type === "language" ? (
+                      <>
+                        <img
+                          src={link.svg}
+                          alt={`${link.text} icon`}
+                          className="mr-2 w-[25px]"
+                        />
+                        {link.text}
+                      </>
+                    ) : (
+                      link.text
+                    )}
                   </Button>
                 </ListItemButton>
               </ListItem>
