@@ -4,6 +4,7 @@ import casaDiegoLogoTipo from "./assets/casa-diego-tipo.svg";
 import Nav from "./components/nav";
 import FooterDiego from "./components/footer";
 import Marquee from "./components/marqueeSection";
+import ContactForm from "./components/contactForm";
 import Icon from "./components/icon";
 import CustomCursor from "./components/customCursor";
 import List from "@mui/material/List";
@@ -733,64 +734,15 @@ function App() {
           className="relative flex overflow-hidden w-[98vw] justify-center pb-[48rem] md:pb-[42rem]"
           id="contacto"
         >
-          <Grid container spacing={3} justifyContent={"center"}>
+          <div className="pb-8 flex justify-center">
             <Grid item xs={12} md={10}>
               <Typography className="mb-5 js-hoverable-element">
                 Cualquier consulta que tengas, no dudes en escribirnos,
                 responderemos a la brevedad.
               </Typography>
-            </Grid>
-            <Grid item xs={12} md={10} className="mb-4">
-              <TextField
-                id="nombre"
-                label="Nombre y Apellido"
-                variant="outlined"
-                size="small"
-                fullWidth
-                className="js-hoverable-element"
-              />
-            </Grid>
-            <Grid item xs={12} md={10} className="mb-4">
-              <TextField
-                id="email"
-                label="Email"
-                variant="outlined"
-                size="small"
-                fullWidth
-                className="js-hoverable-element"
-              />
-            </Grid>
-            <Grid item xs={12} md={10} className="mb-4">
-              <TextField
-                id="telefono"
-                label="Teléfono"
-                variant="outlined"
-                size="small"
-                fullWidth
-                className="js-hoverable-element"
-              />
-            </Grid>
-            <Grid item xs={12} md={10} className="mb-4">
-              <TextField
-                id="outlined-multiline-static"
-                label="Dejanos tu consulta"
-                multiline
-                fullWidth
-                rows={4}
-                defaultValue="Hola, quisiera saber..."
-                className="js-hoverable-element"
-              />
-            </Grid>
-            <Grid item xs={12} md={10} className="text-right">
-              <Button
-                variant="contained"
-                className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6 js-hoverable-element"
-                onClick={handleReservaClick}
-              >
-                envianos tu consulta
-              </Button>
-            </Grid>
-          </Grid>
+            </Grid>           
+          </div>
+          <ContactForm />
         </Marquee>
         <Grid container maxWidth={"xl"} justifyContent={"center"}>
           <Grid item xs={12} md={10}>
