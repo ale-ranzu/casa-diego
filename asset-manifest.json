@@ -1,9 +1,8 @@
 {
   "files": {
-    "main.css": "/casa-diego/static/css/main.d0b752c6.css",
-    "main.js": "/casa-diego/static/js/main.9b240716.js",
+    "main.css": "/casa-diego/static/css/main.67628ff5.css",
+    "main.js": "/casa-diego/static/js/main.513b5433.js",
     "static/media/comedor.jpg": "/casa-diego/static/media/comedor.800a04e05282be6ae3e6.jpg",
-    "static/media/living-comedor.jpg": "/casa-diego/static/media/living-comedor.c9dd7a2834e8f3e29830.jpg",
     "static/media/cama.jpg": "/casa-diego/static/media/cama.c23ce365713d4a785cc4.jpg",
     "static/media/diego_tota.jpg": "/casa-diego/static/media/diego_tota.ce8c675bb386ea7dbc84.jpg",
     "static/media/diego_y_periodista.jpg": "/casa-diego/static/media/diego_y_periodista.c6764e04f8eb0e8cd9e8.jpg",
@@ -15,7 +14,8 @@
     "static/media/cesped-sintetico.jpg": "/casa-diego/static/media/cesped-sintetico.dc1bdf253774a8d5cf49.jpg",
     "static/media/dormitorio-principal.jpg": "/casa-diego/static/media/dormitorio-principal.98b62bfb6798c6aefb22.jpg",
     "static/media/diego.jpg": "/casa-diego/static/media/diego.b24d627befe7cc0a01a8.jpg",
-    "static/media/casa-front.jpg": "/casa-diego/static/media/casa-front.87406a85a0c40478e97e.jpg",
+    "static/media/casa-front.jpg": "/casa-diego/static/media/casa-front.ef2809b3f8e4a68c1176.jpg",
+    "static/media/living-comedor.jpg": "/casa-diego/static/media/living-comedor.906fe9a4128694337dfc.jpg",
     "static/media/diego_y_familia_1.jpg": "/casa-diego/static/media/diego_y_familia_1.f71f77079f815f6a8662.jpg",
     "static/media/bg-diego.jpg": "/casa-diego/static/media/bg-diego.461eb6cd151775b581e0.jpg",
     "static/media/casa-diego-tipo.svg": "/casa-diego/static/media/casa-diego-tipo.41aba742586a9f1f471b825e8177620c.svg",
@@ -41,11 +41,11 @@
     "static/media/italia.svg": "/casa-diego/static/media/italia.a3b20930a86abb0d5f107d34751cb947.svg",
     "static/media/facebook.svg": "/casa-diego/static/media/facebook.b808d297c69f9b842adbc2a8ee89af86.svg",
     "static/media/espania.svg": "/casa-diego/static/media/espania.f8f2dc3e79f4ce313483c399ffde3c1e.svg",
-    "main.d0b752c6.css.map": "/casa-diego/static/css/main.d0b752c6.css.map",
-    "main.9b240716.js.map": "/casa-diego/static/js/main.9b240716.js.map"
+    "main.67628ff5.css.map": "/casa-diego/static/css/main.67628ff5.css.map",
+    "main.513b5433.js.map": "/casa-diego/static/js/main.513b5433.js.map"
   },
   "entrypoints": [
-    "static/css/main.d0b752c6.css",
-    "static/js/main.9b240716.js"
+    "static/css/main.67628ff5.css",
+    "static/js/main.513b5433.js"
   ]
 }
