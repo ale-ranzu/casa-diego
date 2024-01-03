@@ -62,16 +62,10 @@
     }
     &__button {
       width: auto;
-      padding: 4px 10px;
-      background-color: pink;
-      color: pink;
+      padding: 4px 10px;     
       cursor: pointer;
       transition: all 0.15s ease-in-out;
-      margin-right: 20px;
-      &.is-active {
-        background-color: green;
-        color: green;
-      }
+      margin-right: 20px;     
     }
   }
 }
