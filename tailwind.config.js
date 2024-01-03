@@ -4,13 +4,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        header: 'rgba(35, 32, 32, .80)',
-        text: '#232020',
-        gray: '#756F6F',
-        'gray-light': '#C8C6C6',
+        header: 'rgba(250, 250, 2504, .60)',
+        text: '#393d42',
+        gray: '#6a6e73',
+        'gray-light': '#9fa3a9',
       },
       fontFamily: {
         'sans': ['DM Sans', 'ui-sans-serif', 'system-ui'],
+        'title': ['Gilda Display', 'ui-serif', 'system-ui'],
       }
     },
     animation: {

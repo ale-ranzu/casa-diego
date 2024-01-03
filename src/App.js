@@ -44,6 +44,7 @@ import img14 from "./assets/pileta-climatizada.jpg";
 import italiano from "./assets/italia.svg";
 import espaniol from "./assets/espania.svg";
 import ingles from "./assets/ingles.svg";
+import { DateRangeOutlined } from "@mui/icons-material";
 
 function App() {
   useEffect(() => {
@@ -90,19 +91,30 @@ function App() {
       <Nav links={navLinks} />
 
       {/* <!-- INICIO --> */}
-      <div className="bg-inicio mt-0 h-[100dvh] mix-blend-multiply js-hoverable-element">
-        <div className="w-full h-[100dvh] bg-black bg-opacity-50 flex flex-col justify-center items-center">
-          <img
-            className="max-w-[310px] sm:max-w-[500px] lg:max-w-[740px] animate-fade-up animate-ease-in-out"
-            src={casaDiegoLogoTipo}
-            alt="Logo"
-          />
-          <Divider className="!border-white min-w-[40%] !mt-[65px] !mb-[50px] animate-fade-up animate-delay-100 animate-ease-in-out" />
+      <div className="bg-inicio mt-0 h-[100dvh] bg-blend-multiply js-hoverable-element">
+        <div className="w-full h-[100dvh] bg-black bg-opacity-60 flex flex-col justify-center items-center">
           <Typography
-            variant="h3"
-            className="text-white text-center animate-fade-up animate-delay-200 animate-ease-in-out w-4/5"
+            variant="h2"
+            className="!text-white text-center w-4/5"
+            data-aos="zoom-in"
+            data-aos-easing="ease-in-sine"
           >
-            Reservá tu estadía exclusiva en la mítica casa de Maradona
+            Maradona's Family Home
+          </Typography>
+          <Divider
+            className="!border-white min-w-[40%] !mt-[65px] !mb-[50px]"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+            data-aos-easing="ease-in-sine"
+          />
+          <Typography
+            variant="h4"
+            className="text-white text-center w-4/5"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+            data-aos-easing="ease-in-sine"
+          >
+            Reservá tu exclusiva estadía en la mítica casa de Maradona
           </Typography>
         </div>
       </div>
@@ -114,25 +126,27 @@ function App() {
           maxWidth={"xl"}
           justifyContent={"center"}
           alignItems={"center"}
-          className="!px-6 pt-16 pb-32 lg:pt-32 lg:pb-60  lg:px-0"
+          className="!px-6 pt-16 pb-32 lg:pt-32 lg:pb-60 lg:px-0 text-center"
         >
-          <Grid item xs={12} lg={7}>
+          <Grid item xs={12}>
             <Typography
-              variant="h1"
-              data-aos="fade-up-right"
+              variant="h2"
+              data-aos="zoom-in"
               data-aos-delay="100"
               data-aos-duration="500"
+              data-aos-easing="ease-in-sine"
               className="js-hoverable-element"
             >
               Un alojamiento único en el mundo.
             </Typography>
           </Grid>
-          <Grid item xs={12} lg={5}>
+          <Grid item xs={12} md={8}>
             <Typography
               className="js-hoverable-element"
-              data-aos="fade-up-left"
+              data-aos="zoom-in"
               data-aos-delay="200"
               data-aos-duration="500"
+              data-aos-easing="ease-in-sine"
             >
               Ahora podés hospedarte en la mítica casa de Maradona y su familia,
               el hogar que Diego eligió como punto de encuentro con sus
@@ -142,7 +156,22 @@ function App() {
         </Grid>
 
         {/* <!-- RESERVA --> */}
-        <Marquee id="reservar" ref={reservarRef} texto="RESERVÁ AHORA">
+        <Grid
+          container
+          spacing={4}
+          maxWidth={"xl"}
+          justifyContent={"center"}
+          className="!px-6 pt-16 lg:px-0 text-center"
+        >
+          <Grid item xs={12}>
+            <DateRangeOutlined
+              className="!text-[60px] text-gray js-hoverable-element"
+              data-aos="zoom-in"
+              data-aos-duration="500"
+            />
+          </Grid>
+        </Grid>
+        <Marquee id="reservar" ref={reservarRef} texto="Reservá ahora">
           <Grid container spacing={3}>
             <Grid item xs={12} md={4}>
               <Typography className="!text-[20px] js-hoverable-element">
@@ -151,7 +180,7 @@ function App() {
               <input
                 type="date"
                 label="Check In"
-                className="px-2 !text-[18px] w-full js-hoverable-element"
+                className="px-2 !text-[18px] w-full js-hoverable-element border rounded !border-gray-light"
               />
             </Grid>
             <Grid item xs={12} md={4}>
@@ -161,7 +190,7 @@ function App() {
               <input
                 type="date"
                 label="Check Out"
-                className="px-2 !text-[18px] w-full js-hoverable-element"
+                className="px-2 !text-[18px] w-full js-hoverable-element border rounded !border-gray-light"
               />
             </Grid>
             <Grid
@@ -172,7 +201,7 @@ function App() {
             >
               <Button
                 variant="contained"
-                className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase js-hoverable-element"
+                className="!text-[16px] bg-primary !hover:bg-gray-700 !font-title px-4 !lowercase js-hoverable-element"
               >
                 Buscar
               </Button>
@@ -184,7 +213,6 @@ function App() {
         <Grid
           container
           spacing={5}
-          maxWidth={"xl"}
           justifyContent={"center"}
           className="px-4 xl:px-0"
         >
@@ -192,13 +220,13 @@ function App() {
             <Typography
               variant="h3"
               className="text-center pb-8 js-hoverable-element"
-              data-aos="fade-up"
+              data-aos="zoom-in"
               data-aos-delay="100"
               data-aos-duration="500"
             >
               Toda la casa para vos y tus amigos
             </Typography>
-            <div className="bg-text rounded-2xl w-full py-32">
+            <div className="bg-gray w-full py-32">
               <Grid container justifyContent={"center"} className="px-5">
                 <Grid
                   item
@@ -402,7 +430,8 @@ function App() {
           spacing={2}
           maxWidth={"xl"}
           justifyContent={"center"}
-          className="!mt-12"
+          alignItems={"center"}
+          className="!mt-12 text-center"
         >
           <Grid item xs={10} md={4} className="!pt-14 js-hoverable-element">
             <img
@@ -441,18 +470,18 @@ function App() {
             />
           </Grid>
 
-          <Grid item xs={10} md={7} className="!pt-[4rem] md:!-ml-[7.5rem] ">
+          <Grid item xs={10} md={7} className="!pt-[4rem]">
             <Typography
               variant="h3"
               className="!mb-[1rem] js-hoverable-element"
-              data-aos="fade-up"
+              data-aos="zoom-in"
               data-aos-delay="100"
               data-aos-duration="500"
             >
               Un patrimonio histórico de Argentina
             </Typography>
             <Typography
-              data-aos="fade-up"
+              data-aos="zoom-in"
               data-aos-delay="150"
               data-aos-duration="500"
               className="js-hoverable-element"
@@ -513,10 +542,15 @@ function App() {
               data-aos-duration="500"
             />
           </Grid>
-          <Grid item xs={10} md={6} className="!pt-[4rem] md:!-ml-[3rem]">
+          <Grid
+            item
+            xs={10}
+            md={6}
+            className="!pt-[4rem] md:!-ml-[3rem] text-center"
+          >
             <Typography
               variant="h3"
-              data-aos="fade-up"
+              data-aos="zoom-in"
               data-aos-delay="150"
               data-aos-duration="500"
               className="!mb-[1rem] js-hoverable-element"
@@ -524,7 +558,7 @@ function App() {
               Hospedate en Casa Diego en forma privada y exclusiva
             </Typography>
             <Typography
-              data-aos="fade-up"
+              data-aos="zoom-in"
               data-aos-delay="200"
               data-aos-duration="500"
               className="js-hoverable-element"
@@ -584,7 +618,7 @@ function App() {
 
         {/* <!-- SERVICIOS --> */}
         <Marquee
-          texto="SERVICIOS"
+          texto="Servicios"
           marqueeContentGridSizes={{ xs: 12, md: 11, lg: 10, xl: 10 }}
           className="relative flex overflow-hidden w-[98vw] justify-center pb-[84rem] md:pb-[42rem]"
         >
@@ -707,17 +741,17 @@ function App() {
         </Grid>
 
         {/*  LLAMADA A LA ACCIÓN   */}
-        <div className="bg-action mix-blend-multiply w-full mt-12 ">
+        <div className="bg-action mix-blend-multiply w-full my-12 ">
           <div className="w-full pt-64 pb-16 bg-black bg-opacity-10 flex flex-col justify-center items-center">
             <Grid container justifyContent={"center"}>
               <Grid item xs={10} md={7} className="js-hoverable-element">
-                <div className="p-6 md:p-10 bg-white bg-opacity-30 rounded-xl backdrop-blur-lg flex flex-col items-center">
-                  <Typography className="!text-[35px] !font-bold">
+                <div className="p-6 md:p-10 bg-white bg-opacity-25 rounded-sm backdrop-blur-lg flex flex-col items-center">
+                  <Typography variant="h3">
                     Diego, su casa, tu hospedaje
                   </Typography>
                   <Button
                     variant="contained"
-                    className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6 "
+                    className="!text-[16px] bg-primary !hover:bg-gray-700 !font-title px-4 !lowercase !mt-6 "
                     onClick={handleReservaClick}
                   >
                     hacé tu reserva
@@ -729,21 +763,42 @@ function App() {
         </div>
 
         {/*  CONTACTO  */}
-        <Marquee
-          texto="CONTACTANOS"
-          className="relative flex overflow-hidden w-[98vw] justify-center pb-[48rem] md:pb-[42rem]"
+
+        <Grid
+          container
+          maxWidth={"xl"}
+          justifyContent={"center"}
           id="contacto"
+          className="pb-24"
         >
-          <div className="pb-8 flex justify-center">
-            <Grid item xs={12} md={10}>
-              <Typography className="mb-5 js-hoverable-element">
-                Cualquier consulta que tengas, no dudes en escribirnos,
-                responderemos a la brevedad.
-              </Typography>
-            </Grid>           
-          </div>
+          <Grid
+            item
+            xs={10}
+            md={6}
+            className="!pt-[4rem] md:!-ml-[3rem] text-center"
+          >
+            <Typography
+              variant="h3"
+              data-aos="zoom-in"
+              data-aos-delay="150"
+              data-aos-duration="500"
+              className="!mb-[1rem] js-hoverable-element"
+            >
+              Contactanos
+            </Typography>
+            <Typography
+              data-aos="zoom-in"
+              data-aos-delay="200"
+              data-aos-duration="500"
+              className="js-hoverable-element"
+            >
+              Cualquier consulta que tengas, no dudes en escribirnos,
+              responderemos a la brevedad.
+            </Typography>
+          </Grid>
           <ContactForm />
-        </Marquee>
+        </Grid>
+
         <Grid container maxWidth={"xl"} justifyContent={"center"}>
           <Grid item xs={12} md={10}>
             <iframe

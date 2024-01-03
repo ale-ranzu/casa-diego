@@ -1,48 +1,54 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 // Define tu paleta de colores personalizada aquí
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#232020', // Puedes cambiar este color según tu preferencia
-    },
-    secondary: {
-      main: '#f50057', // Puedes cambiar este color según tu preferencia
-    },
+      main: "#7c6f65",
+    },    
   },
   typography: {
-    fontFamily: 'DM Sans, sans-serif',
-    fontWeight: 300, 
+    fontFamily: "DM Sans, sans-serif",
+    fontWeight: 300,
     fontSize: 21,
-    '@media (min-width:600px)': {
+    "@media (min-width:600px)": {
       fontSize: 17,
     },
     h1: {
+      fontFamily: "Gilda Display, serif",
+      color: '#393d42',
       fontSize: 100,
-      fontWeight: 200,
-      '@media (max-width:600px)': {
+      "@media (max-width:600px)": {
         fontSize: 55,
       },
     },
     h2: {
+      fontFamily: "Gilda Display, serif",
       fontSize: 55,
-      fontWeight: 300,
-      '@media (max-width:600px)': {
+      "@media (max-width:600px)": {
         fontSize: 48,
       },
     },
     h3: {
-      fontSize: 48,
-      fontWeight: 400,
-      '@media (max-width:600px)': {
+      fontFamily: "Gilda Display, serif",
+      fontSize: 45,
+      "@media (max-width:600px)": {
         fontSize: 40,
       },
     },
-  }, 
+    h4: {
+      fontWeight: 200,
+      fontSize: 36,
+      letterSpacing: 2,
+      "@media (max-width:600px)": {
+        fontSize: 30,
+      },
+    },
+  },
   button: {
+    fontFamily: "Gilda Display, serif",
     fontSize: 19,
   },
-  
 });
 
 export default theme;

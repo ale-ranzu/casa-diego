@@ -68,7 +68,7 @@ function ContactForm() {
   return (
     <form id="form" onSubmit={handleReservaClick}>
       <Grid container rowGap={2} justifyContent={"center"}>
-        <Grid item xs={12} md={10}>
+        <Grid item xs={12} md={7}>
           <TextField
             label="Nombre y Apellido *"
             variant="outlined"
@@ -77,9 +77,10 @@ function ContactForm() {
             value={formData.name}
             onChange={handleChange}
             size="small"
+            className="border rounded border-gray-light"
           />
         </Grid>
-        <Grid item xs={12} md={10}>
+        <Grid item xs={12} md={7}>
           <TextField
             label="Teléfono *"
             variant="outlined"
@@ -89,9 +90,10 @@ function ContactForm() {
             value={formData.phone}
             onChange={handleChange}
             size="small"
+            className="border rounded border-gray-light"
           />
         </Grid>
-        <Grid item xs={12} md={10}>
+        <Grid item xs={12} md={7}>
           <TextField
             label="Email *"
             variant="outlined"
@@ -101,9 +103,10 @@ function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             size="small"
+            className="border rounded border-gray-light"
           />
         </Grid>
-        <Grid item xs={12} md={10}>
+        <Grid item xs={12} md={7}>
           <TextField
             label="Mensaje *"
             variant="outlined"
@@ -114,9 +117,10 @@ function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             size="small"
+            className="border rounded border-gray-light"
           />
         </Grid>
-        <Grid item xs={12} md={10} className="text-right">
+        <Grid item xs={12} md={7} className="text-right">
           <Button
             type="submit"
             id="button"
