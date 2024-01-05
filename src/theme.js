@@ -4,13 +4,13 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#7c6f65",
+      main: "#8a7256",
     },    
   },
   typography: {
     fontFamily: "DM Sans, sans-serif",
     fontWeight: 300,
-    fontSize: 21,
+    fontSize: 20,
     "@media (min-width:600px)": {
       fontSize: 17,
     },

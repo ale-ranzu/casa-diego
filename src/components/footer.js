@@ -3,6 +3,7 @@ import { Grid, Typography } from "@mui/material";
 import casaDiegoLogo from "../assets/casa-diego-invertido.svg";
 import iconFace from "../assets/facebook.svg";
 import iconInsta from "../assets/instagram.svg";
+import iconX from "../assets/x.svg";
 
 function FooterDiego() {
   return (
@@ -18,7 +19,8 @@ function FooterDiego() {
         </Grid>
         <Grid item xs={12} md={2} className="flex items-center pt-8 md:pt-0 md:justify-end">
           <img className="mr-4 w-5 js-hoverable-element" src={iconFace} alt="Logo" />
-          <img className="w-5 js-hoverable-element" src={iconInsta} alt="Logo" />
+          <img className="mr-4 w-5 js-hoverable-element" src={iconInsta} alt="Logo" />
+          <img className="w-5 js-hoverable-element" src={iconX} alt="Logo" />
         </Grid>
       </Grid>
     </div>

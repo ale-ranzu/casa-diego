@@ -39,7 +39,7 @@ const Icon = ({ name, text = "", ...props }) => {
     <div className="h-48 md:h-52 flex flex-col items-center justify-center">
       <span
         {...props}
-        className="w-[80px] h-[100px] md:w-[100px] md:h-[120px] flex justify-center items-stretch js-hoverable-element brightness-200"
+        className="w-[60px] h-[80px] md:w-[80px] md:h-[100px] flex justify-center items-stretch js-hoverable-element brightness-200"
       >
         {icons[name]}       
       </span>

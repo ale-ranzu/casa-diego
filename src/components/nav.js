@@ -11,7 +11,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import casaDiegoLogo from "../assets/casa-diego.svg";
+import casaDiegoLogo from "../assets/casa-diego-invertido.svg";
 
 const drawerWidth = "75vw";
 const drawerHeight = "100dvh";
@@ -77,7 +77,7 @@ function Nav({ links }) {
                 <Button
                   key={link.id}
                   href={`#${link.targetId}`}
-                  className={`js-hoverable-element my-2 !font-title block !lowercase !mr-4 !transition !ease-in-out !delay-150 hover:-translate-y-2 !duration-200 ${
+                  className={`js-hoverable-element my-2 !text-white !font-title block !lowercase !mr-4 !transition !ease-in-out !delay-150 hover:-translate-y-2 !duration-200 ${
                     link.type === "language" ? "!text-[14px]" : ""
                   }`}
                 >
@@ -86,7 +86,7 @@ function Nav({ links }) {
                       <img
                         src={link.svg}
                         alt={`${link.text} icon`}
-                        className="mr-2 w-[17px]"
+                        className="mr-2 w-[17px] shadow-none"
                       />
                       {link.text}
                     </>

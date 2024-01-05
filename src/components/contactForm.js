@@ -47,7 +47,9 @@ function ContactForm() {
       await emailjs.sendForm(serviceID, templateID, e.target).then(
         () => {
           btn.value = "Enviar la consulta";
-          alert("Hemos recibido tu consulta, en breve nos contactaremos con vos.");
+          alert(
+            "Hemos recibido tu consulta, en breve nos contactaremos con vos."
+          );
           setFormData({
             name: "",
             phone: "",
@@ -67,60 +69,61 @@ function ContactForm() {
 
   return (
     <form id="form" onSubmit={handleReservaClick}>
-      <Grid container rowGap={2} justifyContent={"center"}>
-        <Grid item xs={12} md={7}>
-          <TextField
-            label="Nombre y Apellido *"
-            variant="outlined"
-            fullWidth
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            size="small"
-            className="border rounded border-gray-light"
-          />
-        </Grid>
-        <Grid item xs={12} md={7}>
-          <TextField
-            label="Teléfono *"
-            variant="outlined"
-            fullWidth
-            name="phone"
-            type="number"
-            value={formData.phone}
-            onChange={handleChange}
-            size="small"
-            className="border rounded border-gray-light"
-          />
-        </Grid>
-        <Grid item xs={12} md={7}>
-          <TextField
-            label="Email *"
-            variant="outlined"
-            fullWidth
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            size="small"
-            className="border rounded border-gray-light"
-          />
-        </Grid>
-        <Grid item xs={12} md={7}>
-          <TextField
-            label="Mensaje *"
-            variant="outlined"
-            fullWidth
-            name="message"
-            multiline
-            rows={4}
-            value={formData.message}
-            onChange={handleChange}
-            size="small"
-            className="border rounded border-gray-light"
-          />
-        </Grid>
-        <Grid item xs={12} md={7} className="text-right">
+      <Grid container spacing={2} maxWidth={"lg"}>
+        <Grid item container xs={10} md={6} maxWidth={"lg"} className="!pt-12" rowSpacing={3}>
+          <Grid item xs={12}>
+            <TextField
+              label="Nombre y Apellido *"
+              variant="standard"
+              fullWidth
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              size="small"
+              className="bg-white bg-opacity-20"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              label="Teléfono *"
+              variant="standard"
+              fullWidth
+              name="phone"
+              type="number"
+              value={formData.phone}
+              onChange={handleChange}
+              size="small"
+              className="bg-white bg-opacity-20"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              label="Email *"
+              variant="standard"
+              fullWidth
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+              size="small"
+              className="bg-white bg-opacity-20"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              label="Mensaje *"
+              variant="standard"
+              fullWidth
+              name="message"
+              multiline
+              rows={4}
+              value={formData.message}
+              onChange={handleChange}
+              size="small"
+              className="bg-white bg-opacity-20"
+            />
+          </Grid>
+          <Grid item xs={12} className="text-center">
           <Button
             type="submit"
             id="button"
@@ -130,6 +133,23 @@ function ContactForm() {
             Envíanos tu consulta
           </Button>
         </Grid>
+        </Grid>
+
+        <Grid
+          item
+          xs={12}
+          md={6}
+          className="!pt-12"
+        >
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1641.9572308177735!2d-58.51833459706597!3d-34.606324446725374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb7ce2876574f%3A0x5f330af22cd97bf6!2sJos%C3%A9%20Luis%20Cantilo%204575%2C%20C1419%20Villa%20Devoto%2C%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1702559007816!5m2!1ses-419!2sar"
+            width="100%"
+            height="350"
+            allowfullscreen="true"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </Grid>        
       </Grid>
     </form>
   );

@@ -1,15 +1,21 @@
-import React, { useEffect, useRef } from "react";
-import { Divider, Grid, Typography, Button, TextField } from "@mui/material";
-import casaDiegoLogoTipo from "./assets/casa-diego-tipo.svg";
+import React, { useEffect, useRef, useState } from "react";
+import {
+  Divider,
+  Grid,
+  Typography,
+  Button,
+  List,
+  ListItem,
+  ListItemText,
+  Paper,
+} from "@mui/material";
 import Nav from "./components/nav";
 import FooterDiego from "./components/footer";
 import Marquee from "./components/marqueeSection";
 import ContactForm from "./components/contactForm";
 import Icon from "./components/icon";
 import CustomCursor from "./components/customCursor";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
+import GaleriaImg from "./components/galeriaImg";
 import RoomServiceTwoToneIcon from "@mui/icons-material/RoomServiceTwoTone";
 import ScheduleTwoToneIcon from "@mui/icons-material/ScheduleTwoTone";
 import SettingsRemoteTwoToneIcon from "@mui/icons-material/SettingsRemoteTwoTone";
@@ -24,27 +30,27 @@ import StadiumTwoToneIcon from "@mui/icons-material/StadiumTwoTone";
 import BakeryDiningTwoToneIcon from "@mui/icons-material/BakeryDiningTwoTone";
 import TheaterComedyTwoToneIcon from "@mui/icons-material/TheaterComedyTwoTone";
 import TourTwoToneIcon from "@mui/icons-material/TourTwoTone";
+import DateRangeOutlined from "@mui/icons-material/DateRangeOutlined";
 import "./App.css";
 import "./styles.scss";
 import AOS from "aos";
 import img1 from "./assets/cesped-sintetico.jpg";
 import img2 from "./assets/pileta-quincho.jpg";
-import img3 from "./assets/diego_y_periodista.jpg";
-import img4 from "./assets/diego_casa.jpg";
-import img5 from "./assets/diego_tota.jpg";
-import img6 from "./assets/diego_y_familia_1.jpg";
-import img7 from "./assets/diego_y_familia_3.jpg";
-import img8 from "./assets/diego.jpg";
-import img9 from "./assets/bar.jpg";
-import img10 from "./assets/cama.jpg";
-import img11 from "./assets/comedor.jpg";
-import img12 from "./assets/living-comedor.jpg";
-import img13 from "./assets/dormitorio-principal.jpg";
-import img14 from "./assets/pileta-climatizada.jpg";
+import img3 from "./assets/bar.jpg";
+import img4 from "./assets/cama.jpg";
+import img5 from "./assets/comedor.jpg";
+import img6 from "./assets/living-comedor.jpg";
+import img7 from "./assets/dormitorio-principal.jpg";
+import img8 from "./assets/pileta-climatizada.jpg";
+import img9 from "./assets/diego_y_periodista.jpg";
+import img10 from "./assets/diego_casa.jpg";
+import img11 from "./assets/diego_tota.jpg";
+import img12 from "./assets/diego_y_familia_1.jpg";
+import img13 from "./assets/diego_y_familia_3.jpg";
+import img14 from "./assets/diego.jpg";
 import italiano from "./assets/italia.svg";
 import espaniol from "./assets/espania.svg";
 import ingles from "./assets/ingles.svg";
-import { DateRangeOutlined } from "@mui/icons-material";
 
 function App() {
   useEffect(() => {
@@ -118,7 +124,7 @@ function App() {
           </Typography>
         </div>
       </div>
-      <main className="flex flex-col items-center py-6 overflow-hidden">
+      <main className="flex flex-col items-center pt-6 overflow-hidden">
         {/* <!-- TEXTO 1 --> */}
         <Grid
           container
@@ -161,11 +167,11 @@ function App() {
           spacing={4}
           maxWidth={"xl"}
           justifyContent={"center"}
-          className="!px-6 pt-16 lg:px-0 text-center"
+          className="!px-6 lg:px-0 text-center"
         >
-          <Grid item xs={12}>
+          <Grid item xs={12} className="!pb-4">
             <DateRangeOutlined
-              className="!text-[60px] text-gray js-hoverable-element"
+              className="!text-[60px] text-gold js-hoverable-element"
               data-aos="zoom-in"
               data-aos-duration="500"
             />
@@ -173,25 +179,8 @@ function App() {
         </Grid>
         <Marquee id="reservar" ref={reservarRef} texto="Reservá ahora">
           <Grid container spacing={3}>
-            <Grid item xs={12} md={4}>
-              <Typography className="!text-[20px] js-hoverable-element">
-                Check In
-              </Typography>
-              <input
-                type="date"
-                label="Check In"
-                className="px-2 !text-[18px] w-full js-hoverable-element border rounded !border-gray-light"
-              />
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Typography className="!text-[20px] js-hoverable-element">
-                Check Out
-              </Typography>
-              <input
-                type="date"
-                label="Check Out"
-                className="px-2 !text-[18px] w-full js-hoverable-element border rounded !border-gray-light"
-              />
+            <Grid item xs={12} md={8}>
+            <CustomDatePicker />
             </Grid>
             <Grid
               item
@@ -214,262 +203,217 @@ function App() {
           container
           spacing={5}
           justifyContent={"center"}
-          className="px-4 xl:px-0"
+          className="px-4 xl:px-0 bg-text py-12"
         >
           <Grid item xs={12}>
             <Typography
               variant="h3"
-              className="text-center pb-8 js-hoverable-element"
+              className="text-center pb-12 js-hoverable-element text-white"
               data-aos="zoom-in"
               data-aos-delay="100"
               data-aos-duration="500"
             >
               Toda la casa para vos y tus amigos
             </Typography>
-            <div className="bg-gray w-full py-32">
-              <Grid container justifyContent={"center"} className="px-5">
-                <Grid
-                  item
-                  xs={6}
-                  sm={4}
-                  lg={2}
-                  sx={{ marginLeft: { md: 2 } }}
-                  className="text-center mx-auto py-3"
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                  data-aos-duration="500"
-                >
-                  <Icon name="iconCasa" text="700 m2 cubiertos" />
-                </Grid>
-                <Grid
-                  item
-                  xs={6}
-                  sm={4}
-                  lg={2}
-                  className="text-center mx-auto py-3 "
-                  data-aos="fade-up"
-                  data-aos-delay="150"
-                  data-aos-duration="500"
-                >
-                  <Icon name="iconJardin" text="500 m2 descubiertos" />
-                </Grid>
-                <Grid
-                  item
-                  xs={6}
-                  sm={4}
-                  lg={2}
-                  className="text-center mx-auto py-3"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                  data-aos-duration="500"
-                >
-                  <Icon name="iconPisos" text="3 pisos" />
-                </Grid>
-                <Grid
-                  item
-                  xs={6}
-                  sm={4}
-                  lg={2}
-                  className="text-center mx-auto py-3"
-                  data-aos="fade-up"
-                  data-aos-delay="250"
-                  data-aos-duration="500"
-                >
-                  <Icon name="iconHabitaciones" text="6 habitaciones" />
-                </Grid>
-                <Grid
-                  item
-                  xs={6}
-                  sm={4}
-                  lg={2}
-                  className="text-center mx-auto py-3"
-                  data-aos="fade-up"
-                  data-aos-delay="300"
-                  data-aos-duration="500"
-                >
-                  <Icon name="iconLiving" text="Living" />
-                </Grid>
+          </Grid>
+          <Grid container justifyContent={"center"} className="px-5">
+            <Grid
+              item
+              xs={6}
+              sm={4}
+              lg={2}
+              sx={{ marginLeft: { md: 2 } }}
+              className="text-center mx-auto py-3"
+              data-aos="fade-up"
+              data-aos-delay="100"
+              data-aos-duration="500"
+            >
+              <Icon name="iconCasa" text="700 m2 cubiertos" />
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={4}
+              lg={2}
+              className="text-center mx-auto py-3 "
+              data-aos="fade-up"
+              data-aos-delay="150"
+              data-aos-duration="500"
+            >
+              <Icon name="iconJardin" text="500 m2 descubiertos" />
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={4}
+              lg={2}
+              className="text-center mx-auto py-3"
+              data-aos="fade-up"
+              data-aos-delay="200"
+              data-aos-duration="500"
+            >
+              <Icon name="iconPisos" text="3 pisos" />
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={4}
+              lg={2}
+              className="text-center mx-auto py-3"
+              data-aos="fade-up"
+              data-aos-delay="250"
+              data-aos-duration="500"
+            >
+              <Icon name="iconHabitaciones" text="6 habitaciones" />
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={4}
+              lg={2}
+              className="text-center mx-auto py-3"
+              data-aos="fade-up"
+              data-aos-delay="300"
+              data-aos-duration="500"
+            >
+              <Icon name="iconLiving" text="Living" />
+            </Grid>
 
-                <Grid
-                  item
-                  xs={6}
-                  sm={4}
-                  lg={2}
-                  sx={{ marginLeft: { md: 2 } }}
-                  className="text-center mx-auto py-3"
-                  data-aos="fade-up"
-                  data-aos-delay="150"
-                  data-aos-duration="500"
-                >
-                  <Icon name="iconComedor" text="Comedor" />
-                </Grid>
-                <Grid
-                  item
-                  xs={6}
-                  sm={4}
-                  lg={2}
-                  className="text-center mx-auto py-3"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                  data-aos-duration="500"
-                >
-                  <Icon name="iconCocina" text="Cocina" />
-                </Grid>
-                <Grid
-                  item
-                  xs={6}
-                  sm={4}
-                  lg={2}
-                  className="text-center mx-auto py-3"
-                  data-aos="fade-up"
-                  data-aos-delay="250"
-                  data-aos-duration="500"
-                >
-                  <Icon name="iconBanio" text="4 Baños" />
-                </Grid>
-                <Grid
-                  item
-                  xs={6}
-                  sm={4}
-                  lg={2}
-                  className="text-center mx-auto py-3"
-                  data-aos="fade-up"
-                  data-aos-delay="300"
-                  data-aos-duration="500"
-                >
-                  <Icon name="iconCesped" text="Jardín con césped sintético" />
-                </Grid>
-                <Grid
-                  item
-                  xs={6}
-                  sm={4}
-                  lg={2}
-                  className="text-center mx-auto py-3"
-                  data-aos="fade-up"
-                  data-aos-delay="350"
-                  data-aos-duration="500"
-                >
-                  <Icon name="iconQuincho" text="Quincho" />
-                </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={4}
+              lg={2}
+              sx={{ marginLeft: { md: 2 } }}
+              className="text-center mx-auto py-3"
+              data-aos="fade-up"
+              data-aos-delay="150"
+              data-aos-duration="500"
+            >
+              <Icon name="iconComedor" text="Comedor" />
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={4}
+              lg={2}
+              className="text-center mx-auto py-3"
+              data-aos="fade-up"
+              data-aos-delay="200"
+              data-aos-duration="500"
+            >
+              <Icon name="iconCocina" text="Cocina" />
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={4}
+              lg={2}
+              className="text-center mx-auto py-3"
+              data-aos="fade-up"
+              data-aos-delay="250"
+              data-aos-duration="500"
+            >
+              <Icon name="iconBanio" text="4 Baños" />
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={4}
+              lg={2}
+              className="text-center mx-auto py-3"
+              data-aos="fade-up"
+              data-aos-delay="300"
+              data-aos-duration="500"
+            >
+              <Icon name="iconCesped" text="Jardín con césped sintético" />
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={4}
+              lg={2}
+              className="text-center mx-auto py-3"
+              data-aos="fade-up"
+              data-aos-delay="350"
+              data-aos-duration="500"
+            >
+              <Icon name="iconQuincho" text="Quincho" />
+            </Grid>
 
-                <Grid
-                  item
-                  xs={6}
-                  sm={4}
-                  lg={2}
-                  mdOffset={1}
-                  className="text-center mx-auto py-3"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                  data-aos-duration="500"
-                >
-                  <Icon name="iconParrilla" text="Parrilla" />
-                </Grid>
-                <Grid
-                  item
-                  xs={6}
-                  sm={4}
-                  lg={2}
-                  className="text-center mx-auto py-3"
-                  data-aos="fade-up"
-                  data-aos-delay="250"
-                  data-aos-duration="500"
-                >
-                  <Icon name="iconPileta" text="Pileta climatizada" />
-                </Grid>
-                <Grid
-                  item
-                  xs={6}
-                  sm={4}
-                  lg={2}
-                  className="text-center mx-auto py-3"
-                  data-aos="fade-up"
-                  data-aos-delay="300"
-                  data-aos-duration="500"
-                >
-                  <Icon
-                    name="iconCapacidad"
-                    text="Capacidad para 10-15 personas"
-                  />
-                </Grid>
-                <Grid
-                  item
-                  xs={6}
-                  sm={4}
-                  lg={2}
-                  className="text-center mx-auto py-3"
-                  data-aos="fade-up"
-                  data-aos-delay="350"
-                  data-aos-duration="500"
-                >
-                  <Icon name="iconMobiliario" text="Mobiliario original" />
-                </Grid>
-                <Grid
-                  item
-                  xs={6}
-                  sm={4}
-                  lg={2}
-                  className="text-center mx-auto py-3"
-                  data-aos="fade-up"
-                  data-aos-delay="400"
-                  data-aos-duration="500"
-                >
-                  <Icon
-                    name="iconCopa"
-                    text="Recuerdos únicos de los Maradona"
-                  />
-                </Grid>
-              </Grid>
-            </div>
+            <Grid
+              item
+              xs={6}
+              sm={4}
+              lg={2}
+              mdOffset={1}
+              className="text-center mx-auto py-3"
+              data-aos="fade-up"
+              data-aos-delay="200"
+              data-aos-duration="500"
+            >
+              <Icon name="iconParrilla" text="Parrilla" />
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={4}
+              lg={2}
+              className="text-center mx-auto py-3"
+              data-aos="fade-up"
+              data-aos-delay="250"
+              data-aos-duration="500"
+            >
+              <Icon name="iconPileta" text="Pileta climatizada" />
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={4}
+              lg={2}
+              className="text-center mx-auto py-3"
+              data-aos="fade-up"
+              data-aos-delay="300"
+              data-aos-duration="500"
+            >
+              <Icon name="iconCapacidad" text="Capacidad para 10-15 personas" />
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={4}
+              lg={2}
+              className="text-center mx-auto py-3"
+              data-aos="fade-up"
+              data-aos-delay="350"
+              data-aos-duration="500"
+            >
+              <Icon name="iconMobiliario" text="Mobiliario original" />
+            </Grid>
+            <Grid
+              item
+              xs={6}
+              sm={4}
+              lg={2}
+              className="text-center mx-auto py-3"
+              data-aos="fade-up"
+              data-aos-delay="400"
+              data-aos-duration="500"
+            >
+              <Icon name="iconCopa" text="Recuerdos únicos de los Maradona" />
+            </Grid>
           </Grid>
         </Grid>
 
-        {/* <!-- IMAGENES Y TEXTO 1 --> */}
+        {/* <!-- TEXTO 1 --> */}
         <Grid
           container
           spacing={2}
           maxWidth={"xl"}
           justifyContent={"center"}
           alignItems={"center"}
-          className="!mt-12 text-center"
+          className="!mt-12 text-center px-4 xl:px-0"
         >
-          <Grid item xs={10} md={4} className="!pt-14 js-hoverable-element">
-            <img
-              src={img1}
-              alt="Vista del fondo"
-              className="w-full"
-              data-aos="zoom-in-up"
-              data-aos-delay="100"
-              data-aos-duration="500"
-            />
-            <img
-              src={img2}
-              alt="La pile"
-              className="w-full lg:w-[90%] pt-4 md:float-right"
-              data-aos="zoom-in-up"
-              data-aos-delay="150"
-              data-aos-duration="500"
-            />
-          </Grid>
-          <Grid item xs={10} md={4} className="js-hoverable-element">
-            <img
-              src={img11}
-              alt="El comedor"
-              className="w-full"
-              data-aos="zoom-in-up"
-              data-aos-delay="100"
-              data-aos-duration="500"
-            />
-            <img
-              src={img14}
-              alt="la pile"
-              className="w-full lg:w-[90%] pt-4"
-              data-aos="zoom-in-up"
-              data-aos-delay="150"
-              data-aos-duration="500"
-            />
-          </Grid>
-
           <Grid item xs={10} md={7} className="!pt-[4rem]">
             <Typography
               variant="h3"
@@ -501,53 +445,23 @@ function App() {
         {/* <!-- IMAGENES Y TEXTO 2 --> */}
         <Grid
           container
-          spacing={2}
+          spacing={5}
           maxWidth={"xl"}
+          alignItems={"center"}
           justifyContent={"center"}
-          className="pt-32"
+          className="pt-32 px-4 xl:px-0"
         >
-          <Grid item xs={10} md={4} className="js-hoverable-element">
+          <Grid item xs={12} md={5}>
             <img
-              src={img4}
-              alt="Diego en el patio dando una nota"
-              className="w-full md:mt-36"
-              data-aos="zoom-in-up"
-              data-aos-delay="150"
-              data-aos-duration="500"
-            />
-            <img
-              src={img3}
-              alt="Diego dando una nota en su casa"
-              className="w-full lg:w-[90%] pt-4 md:float-right"
-              data-aos="zoom-in-up"
-              data-aos-delay="150"
+              src={img11}
+              alt="El bar"
+              className="w-full rounded-md js-hoverable-element"
+              data-aos="zoom-in"
+              data-aos-delay="100"
               data-aos-duration="500"
             />
           </Grid>
-          <Grid item xs={10} md={4} className="js-hoverable-element">
-            <img
-              src={img5}
-              alt="Diego y la Tota tomando mate"
-              className="w-full md:mt-12"
-              data-aos="zoom-in-up"
-              data-aos-delay="150"
-              data-aos-duration="500"
-            />
-            <img
-              src={img6}
-              alt="Diego dando una nota en su casa"
-              className="w-full lg:w-[90%] pt-4"
-              data-aos="zoom-in-up"
-              data-aos-delay="150"
-              data-aos-duration="500"
-            />
-          </Grid>
-          <Grid
-            item
-            xs={10}
-            md={6}
-            className="!pt-[4rem] md:!-ml-[3rem] text-center"
-          >
+          <Grid item xs={12} md={5}>
             <Typography
               variant="h3"
               data-aos="zoom-in"
@@ -563,185 +477,145 @@ function App() {
               data-aos-duration="500"
               className="js-hoverable-element"
             >
-              Entrá, cerrá la puerta y disfrutá con total privacidad. La
-              vivienda se reserva completa, con capacidad para hasta 12
+              Entrá, cerrá la puerta y disfrutá con total privacidad. <br></br>
+              La vivienda se reserva completa, con capacidad para hasta 12
               huéspedes y con un servicio exclusivo.
             </Typography>
           </Grid>
         </Grid>
 
-        {/* <!-- IMAGENES DIEGO --> */}
+        {/* <!-- SERVICIOS --> */}
+        <div className="bg-village w-full mt-24 flex justify-center">
         <Grid
           container
-          spacing={2}
           maxWidth={"xl"}
           justifyContent={"center"}
-          className="pt-32 js-hoverable-element"
+          className="py-12 px-4 xl:px-0"
+          spacing={5}
         >
-          <Grid item xs={10} md={4}>
-            <img
-              src={img9}
-              alt="El bar"
-              className="w-full"
-              data-aos="zoom-in-up"
+          <Grid item xs={12} className="text-center">
+            <Typography
+              variant="h3"
+              className="!mb-4 js-hoverable-element"
+              data-aos="zoom-in"
               data-aos-delay="100"
               data-aos-duration="500"
-            />
-            <img
-              src={img12}
-              alt="Living comedor"
-              className="w-full lg:w-[90%] pt-4 float-right"
-              data-aos="zoom-in-up"
-              data-aos-delay="150"
-              data-aos-duration="500"
-            />
+            >
+              Servicios
+            </Typography>
           </Grid>
-          <Grid item xs={10} md={4}>
-            <img
-              src={img10}
-              alt="la cama"
-              className="w-full md:mt-12"
-              data-aos="zoom-in-up"
-              data-aos-delay="150"
+          <Grid item xs={12} md={5}>
+            <Paper
+              elevation={6}
+              data-aos="zoom-in"
+              data-aos-delay="100"
               data-aos-duration="500"
-            />
-            <img
-              src={img13}
-              alt="Dormitorio principal"
-              className="w-full lg:w-[90%] pt-4"
-              data-aos="zoom-in-up"
+            >
+              <img src={img7} alt="El bar" className="w-full rounded-t-md" />
+              <div className="flex justify-center py-8">
+                <List className="js-hoverable-element">
+                  <ListItem>
+                    <ListItemText
+                      primary="Básicos"
+                      className="!text-[25px] md:!text-[28px] !font-bold"
+                    />
+                  </ListItem>
+                  <ListItem>
+                    <RoomServiceTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                    <ListItemText secondary="Conserjería" />
+                  </ListItem>
+                  <Divider component="li" className="!my-2" />
+                  <ListItem>
+                    <ScheduleTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                    <ListItemText secondary="Atención las 24 horas" />
+                  </ListItem>
+                  <Divider component="li" className="!my-2" />
+                  <ListItem>
+                    <SettingsRemoteTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                    <ListItemText secondary="Internet de alta velocidad" />
+                  </ListItem>
+                  <Divider component="li" className="!my-2" />
+                  <ListItem>
+                    <AcUnitTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                    <ListItemText secondary="Aire Acondicionado" />
+                  </ListItem>
+                  <Divider component="li" className="!my-2" />
+                  <ListItem>
+                    <SafetyCheckTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                    <ListItemText secondary="Seguridad 24 horas" />
+                  </ListItem>
+                  <Divider component="li" className="!my-2" />
+                  <ListItem>
+                    <LocalBarTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                    <ListItemText secondary="Bar" />
+                  </ListItem>
+                  <Divider component="li" className="!my-2" />
+                  <ListItem>
+                    <CleaningServicesTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                    <ListItemText secondary="Limpieza" />
+                  </ListItem>
+                  <Divider component="li" className="!my-2" />
+                  <ListItem>
+                    <DryCleaningTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                    <ListItemText secondary="Ropa blanca" />
+                  </ListItem>
+                  <Divider component="li" className="!my-2" />
+                  <ListItem>
+                    <DirectionsCarFilledTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                    <ListItemText secondary="Estacionamiento" />
+                  </ListItem>
+                </List>
+              </div>
+            </Paper>
+          </Grid>
+          <Grid item xs={12} md={5}>
+            <Paper
+              elevation={6}
+              data-aos="zoom-in"
               data-aos-delay="200"
               data-aos-duration="500"
-            />
+            >
+              <img src={img8} alt="El bar" className="w-full rounded-t-md" />
+              <div className="flex justify-center py-8">
+                <List className="js-hoverable-element">
+                  <ListItem>
+                    <ListItemText
+                      primary="Adicionales"
+                      className="!text-[25px] md:!text-[28px] !font-bold"
+                    />
+                  </ListItem>
+                  <ListItem>
+                    <AirportShuttleTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                    <ListItemText secondary="Traslados" />
+                  </ListItem>
+                  <Divider component="li" className="!my-2" />
+                  <ListItem>
+                    <TourTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                    <ListItemText secondary="Visitas Guiadas" />
+                  </ListItem>
+                  <Divider component="li" className="!my-2" />
+                  <ListItem>
+                    <StadiumTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                    <ListItemText secondary="Asistencia a Estadios" />
+                  </ListItem>
+                  <Divider component="li" className="!my-2" />
+                  <ListItem>
+                    <BakeryDiningTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                    <ListItemText secondary="Experiencias Gastronómicas" />
+                  </ListItem>
+                  <Divider component="li" className="!my-2" />
+                  <ListItem>
+                    <TheaterComedyTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                    <ListItemText secondary="Tours" />
+                  </ListItem>
+                </List>
+              </div>
+            </Paper>
           </Grid>
         </Grid>
-
-        {/* <!-- SERVICIOS --> */}
-        <Marquee
-          texto="Servicios"
-          marqueeContentGridSizes={{ xs: 12, md: 11, lg: 10, xl: 10 }}
-          className="relative flex overflow-hidden w-[98vw] justify-center pb-[84rem] md:pb-[42rem]"
-        >
-          <Grid container spacing={5}>
-            <Grid item xs={12} sm={6}>
-              <Typography className="!text-[25px] md:!text-[28px] !font-bold js-hoverable-element">
-                Básicos
-              </Typography>
-              <List className="js-hoverable-element">
-                <ListItem className="!pl-0">
-                  <RoomServiceTwoToneIcon className="mr-3" />
-
-                  <ListItemText primary="Conserjería" />
-                </ListItem>
-                <ListItem className="!pl-0">
-                  <ScheduleTwoToneIcon className="mr-3" />
-
-                  <ListItemText primary="Atención las 24 horas" />
-                </ListItem>
-                <ListItem className="!pl-0">
-                  <SettingsRemoteTwoToneIcon className="mr-3" />
-
-                  <ListItemText primary="Internet de alta velocidad" />
-                </ListItem>
-                <ListItem className="!pl-0">
-                  <AcUnitTwoToneIcon className="mr-3" />
-
-                  <ListItemText primary="Aire Acondicionado" />
-                </ListItem>
-                <ListItem className="!pl-0">
-                  <SafetyCheckTwoToneIcon className="mr-3" />
-
-                  <ListItemText primary="Seguridad 24 horas" />
-                </ListItem>
-                <ListItem className="!pl-0">
-                  <LocalBarTwoToneIcon className="mr-3" />
-
-                  <ListItemText primary="Bar" />
-                </ListItem>
-                <ListItem className="!pl-0">
-                  <CleaningServicesTwoToneIcon className="mr-3" />
-
-                  <ListItemText primary="Limpieza" />
-                </ListItem>
-                <ListItem className="!pl-0">
-                  <DryCleaningTwoToneIcon className="mr-3" />
-
-                  <ListItemText primary="Servicio de ropa blanca" />
-                </ListItem>
-                <ListItem className="!pl-0">
-                  <DirectionsCarFilledTwoToneIcon className="mr-3" />
-
-                  <ListItemText primary="Estacionamiento" />
-                </ListItem>
-              </List>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Typography className="!text-[25px] md:!text-[28px] !font-bold js-hoverable-element">
-                Adicionales
-              </Typography>
-              <List className="js-hoverable-element">
-                <ListItem className="!pl-0">
-                  <AirportShuttleTwoToneIcon className="mr-3" />
-
-                  <ListItemText primary="Traslados" />
-                </ListItem>
-                <ListItem className="!pl-0">
-                  <TourTwoToneIcon className="mr-3" />
-
-                  <ListItemText primary="Visitas Guiadas" />
-                </ListItem>
-                <ListItem className="!pl-0">
-                  <StadiumTwoToneIcon className="mr-3" />
-
-                  <ListItemText primary="Asistencia a Estadios" />
-                </ListItem>
-                <ListItem className="!pl-0">
-                  <BakeryDiningTwoToneIcon className="mr-3" />
-
-                  <ListItemText primary="Experiencias Gastronómicas" />
-                </ListItem>
-                <ListItem className="!pl-0">
-                  <TheaterComedyTwoToneIcon className="mr-3" />
-
-                  <ListItemText primary="Tours" />
-                </ListItem>
-              </List>
-            </Grid>
-          </Grid>
-        </Marquee>
-
-        {/* <!-- IMAGENES DIEGO --> */}
-        <Grid
-          container
-          spacing={2}
-          maxWidth={"xl"}
-          justifyContent={"center"}
-          className="pt-32 js-hoverable-element"
-        >
-          <Grid item xs={10} md={4}>
-            <img
-              src={img7}
-              alt="Diego con sus padres"
-              className="w-full"
-              data-aos="zoom-in-up"
-              data-aos-delay="100"
-              data-aos-duration="500"
-            />
-          </Grid>
-          <Grid item xs={10} md={4}>
-            <img
-              src={img8}
-              alt="Diego en la puerta de entrada a su casa"
-              className="w-full md:mt-12"
-              data-aos="zoom-in-up"
-              data-aos-delay="150"
-              data-aos-duration="500"
-            />
-          </Grid>
-        </Grid>
-
+        </div>
         {/*  LLAMADA A LA ACCIÓN   */}
-        <div className="bg-action mix-blend-multiply w-full my-12 ">
+        <div className="bg-action mix-blend-multiply w-full mb-12">
           <div className="w-full pt-64 pb-16 bg-black bg-opacity-10 flex flex-col justify-center items-center">
             <Grid container justifyContent={"center"}>
               <Grid item xs={10} md={7} className="js-hoverable-element">
@@ -763,13 +637,12 @@ function App() {
         </div>
 
         {/*  CONTACTO  */}
-
         <Grid
           container
           maxWidth={"xl"}
           justifyContent={"center"}
           id="contacto"
-          className="pb-24"
+          className="pb-8"
         >
           <Grid
             item
@@ -799,18 +672,8 @@ function App() {
           <ContactForm />
         </Grid>
 
-        <Grid container maxWidth={"xl"} justifyContent={"center"}>
-          <Grid item xs={12} md={10}>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1641.9572308177735!2d-58.51833459706597!3d-34.606324446725374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb7ce2876574f%3A0x5f330af22cd97bf6!2sJos%C3%A9%20Luis%20Cantilo%204575%2C%20C1419%20Villa%20Devoto%2C%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1702559007816!5m2!1ses-419!2sar"
-              width="100%"
-              height="350"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </Grid>
-        </Grid>
+        {/* galería de imagenes  */}
+        <GaleriaImg images={[img1, img2, img3, img4, img5, img6]} />
       </main>
       <FooterDiego />
     </div>

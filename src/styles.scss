@@ -5,7 +5,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #ecedee !important;
+  background-color: #e9eae4 !important;
 }
 
 %bg {
@@ -23,6 +23,20 @@ body {
 .bg-action {
   @extend %bg;
   background-image: url(./assets/bg-diego.jpg);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    background-color: #fff !important;
+}
+
+/* Para Firefox */
+input:-moz-autofill {
+    background-color: #fff !important;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 ///////////// ANIMACIONES DE IMAGENES
