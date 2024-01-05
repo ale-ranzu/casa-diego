@@ -132,9 +132,9 @@ function App() {
           maxWidth={"xl"}
           justifyContent={"center"}
           alignItems={"center"}
-          className="!px-6 pt-16 pb-32 lg:pt-32 lg:pb-60 lg:px-0 text-center"
+          className="!px-6 pt-16 pb-32 lg:pt-32 lg:pb-60 lg:px-0"
         >
-          <Grid item xs={12}>
+          <Grid item xs={12} className="md:text-center">
             <Typography
               variant="h2"
               data-aos="zoom-in"
@@ -162,26 +162,30 @@ function App() {
         </Grid>
 
         {/* <!-- RESERVA --> */}
-        <Marquee id="reservar" ref={reservarRef} texto="Reservá ahora">
+        <Grid container maxWidth={"xl"}>
+          <Grid item xs={12} className="flex justify-center">
+              <DateRangeOutlined className="text-gold !text-[50px] my-6"/>
+          </Grid>
+          <Marquee id="reservar" ref={reservarRef} texto="Reservá ahora">
           <Grid container spacing={3}>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} sm={6} lg={4}>
               <Typography className="!text-[20px] js-hoverable-element">
                 Check In
               </Typography>
               <input
                 type="date"
                 label="Check In"
-                className="px-2 !text-[18px] w-full js-hoverable-element"
+                className="px-2 !text-[18px] w-full js-hoverable-element border rounded-md border-gray-light"
               />
             </Grid>
-            <Grid item xs={12} md={4}>
-              <Typography className="!text-[20px] js-hoverable-element">
+            <Grid item xs={12} sm={6} lg={4}>
+              <Typography className="!text-[20px] js-hoverable-element ">
                 Check Out
               </Typography>
               <input
                 type="date"
                 label="Check Out"
-                className="px-2 !text-[18px] w-full js-hoverable-element"
+                className="px-2 !text-[18px] w-full js-hoverable-element border rounded-md  border-gray-light"
               />
             </Grid>
             <Grid
@@ -199,13 +203,14 @@ function App() {
             </Grid>
           </Grid>
         </Marquee>
+        </Grid>
+       
 
         {/* <!-- ICONOS COMODIDADES --> */}
         <Grid
-          container
-          spacing={5}
+          container          
           justifyContent={"center"}
-          className="px-4 xl:px-0 bg-text py-12"
+          className="bg-text py-12 px-4 lg:px-0"
         >
           <Grid item xs={12}>
             <Typography
@@ -218,7 +223,7 @@ function App() {
               Toda la casa para vos y tus amigos
             </Typography>
           </Grid>
-          <Grid container justifyContent={"center"} className="px-5">
+          <Grid container justifyContent={"center"} spacing={5}>
             <Grid
               item
               xs={6}
@@ -414,12 +419,12 @@ function App() {
           maxWidth={"xl"}
           justifyContent={"center"}
           alignItems={"center"}
-          className="!mt-12 text-center px-4 xl:px-0"
+          className="!mt-12 px-4 xl:px-0"
         >
           <Grid item xs={10} md={7} className="!pt-[4rem]">
             <Typography
               variant="h3"
-              className="!mb-[1rem] js-hoverable-element"
+              className="!mb-[1rem] js-hoverable-element md:text-center"
               data-aos="zoom-in"
               data-aos-delay="100"
               data-aos-duration="500"
@@ -650,14 +655,14 @@ function App() {
             item
             xs={10}
             md={6}
-            className="!pt-[4rem] md:!-ml-[3rem] text-center"
+            className="!pt-[4rem] md:!-ml-[3rem]"
           >
             <Typography
               variant="h3"
               data-aos="zoom-in"
               data-aos-delay="150"
               data-aos-duration="500"
-              className="!mb-[1rem] js-hoverable-element"
+              className="!mb-[1rem] js-hoverable-element md:text-center"
             >
               Contactanos
             </Typography>

@@ -32,7 +32,7 @@ const Marquee = forwardRef(
         <Grid container maxWidth={"xl"} justifyContent={"center"}>
           <Grid item xs={12} className="text-center">
             <Typography
-              className="!text-[70px] text-text js-hoverable-element !font-title"
+              className="!text-[50px] md:!text-[70px] text-text js-hoverable-element !font-title"
               data-aos="zoom-in"
               data-aos-delay="100"
               data-aos-duration="500"
