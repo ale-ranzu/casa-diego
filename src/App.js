@@ -162,25 +162,27 @@ function App() {
         </Grid>
 
         {/* <!-- RESERVA --> */}
-        <Grid
-          container
-          spacing={4}
-          maxWidth={"xl"}
-          justifyContent={"center"}
-          className="!px-6 lg:px-0 text-center"
-        >
-          <Grid item xs={12} className="!pb-4">
-            <DateRangeOutlined
-              className="!text-[60px] text-gold js-hoverable-element"
-              data-aos="zoom-in"
-              data-aos-duration="500"
-            />
-          </Grid>
-        </Grid>
         <Marquee id="reservar" ref={reservarRef} texto="Reservá ahora">
           <Grid container spacing={3}>
-            <Grid item xs={12} md={8}>
-            <CustomDatePicker />
+            <Grid item xs={12} md={4}>
+              <Typography className="!text-[20px] js-hoverable-element">
+                Check In
+              </Typography>
+              <input
+                type="date"
+                label="Check In"
+                className="px-2 !text-[18px] w-full js-hoverable-element"
+              />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <Typography className="!text-[20px] js-hoverable-element">
+                Check Out
+              </Typography>
+              <input
+                type="date"
+                label="Check Out"
+                className="px-2 !text-[18px] w-full js-hoverable-element"
+              />
             </Grid>
             <Grid
               item
@@ -190,7 +192,7 @@ function App() {
             >
               <Button
                 variant="contained"
-                className="!text-[16px] bg-primary !hover:bg-gray-700 !font-title px-4 !lowercase js-hoverable-element"
+                className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase js-hoverable-element"
               >
                 Buscar
               </Button>
@@ -486,133 +488,133 @@ function App() {
 
         {/* <!-- SERVICIOS --> */}
         <div className="bg-village w-full mt-24 flex justify-center">
-        <Grid
-          container
-          maxWidth={"xl"}
-          justifyContent={"center"}
-          className="py-12 px-4 xl:px-0"
-          spacing={5}
-        >
-          <Grid item xs={12} className="text-center">
-            <Typography
-              variant="h3"
-              className="!mb-4 js-hoverable-element"
-              data-aos="zoom-in"
-              data-aos-delay="100"
-              data-aos-duration="500"
-            >
-              Servicios
-            </Typography>
+          <Grid
+            container
+            maxWidth={"xl"}
+            justifyContent={"center"}
+            className="py-12 px-4 xl:px-0"
+            spacing={5}
+          >
+            <Grid item xs={12} className="text-center">
+              <Typography
+                variant="h3"
+                className="!mb-4 js-hoverable-element"
+                data-aos="zoom-in"
+                data-aos-delay="100"
+                data-aos-duration="500"
+              >
+                Servicios
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={6} lg={5}>
+              <Paper
+                elevation={6}
+                data-aos="zoom-in"
+                data-aos-delay="100"
+                data-aos-duration="500"
+              >
+                <img src={img7} alt="El bar" className="w-full rounded-t-md" />
+                <div className="flex justify-center py-8">
+                  <List className="js-hoverable-element">
+                    <ListItem>
+                      <ListItemText
+                        primary="Básicos"
+                        className="!text-[25px] md:!text-[28px] !font-bold"
+                      />
+                    </ListItem>
+                    <ListItem>
+                      <RoomServiceTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                      <ListItemText secondary="Conserjería" />
+                    </ListItem>
+                    <Divider component="li" className="!my-2" />
+                    <ListItem>
+                      <ScheduleTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                      <ListItemText secondary="Atención las 24 horas" />
+                    </ListItem>
+                    <Divider component="li" className="!my-2" />
+                    <ListItem>
+                      <SettingsRemoteTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                      <ListItemText secondary="Internet de alta velocidad" />
+                    </ListItem>
+                    <Divider component="li" className="!my-2" />
+                    <ListItem>
+                      <AcUnitTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                      <ListItemText secondary="Aire Acondicionado" />
+                    </ListItem>
+                    <Divider component="li" className="!my-2" />
+                    <ListItem>
+                      <SafetyCheckTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                      <ListItemText secondary="Seguridad 24 horas" />
+                    </ListItem>
+                    <Divider component="li" className="!my-2" />
+                    <ListItem>
+                      <LocalBarTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                      <ListItemText secondary="Bar" />
+                    </ListItem>
+                    <Divider component="li" className="!my-2" />
+                    <ListItem>
+                      <CleaningServicesTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                      <ListItemText secondary="Limpieza" />
+                    </ListItem>
+                    <Divider component="li" className="!my-2" />
+                    <ListItem>
+                      <DryCleaningTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                      <ListItemText secondary="Ropa blanca" />
+                    </ListItem>
+                    <Divider component="li" className="!my-2" />
+                    <ListItem>
+                      <DirectionsCarFilledTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                      <ListItemText secondary="Estacionamiento" />
+                    </ListItem>
+                  </List>
+                </div>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} sm={6} lg={5}>
+              <Paper
+                elevation={6}
+                data-aos="zoom-in"
+                data-aos-delay="200"
+                data-aos-duration="500"
+              >
+                <img src={img8} alt="El bar" className="w-full rounded-t-md" />
+                <div className="flex justify-center py-8">
+                  <List className="js-hoverable-element">
+                    <ListItem>
+                      <ListItemText
+                        primary="Adicionales"
+                        className="!text-[25px] md:!text-[28px] !font-bold"
+                      />
+                    </ListItem>
+                    <ListItem>
+                      <AirportShuttleTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                      <ListItemText secondary="Traslados" />
+                    </ListItem>
+                    <Divider component="li" className="!my-2" />
+                    <ListItem>
+                      <TourTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                      <ListItemText secondary="Visitas Guiadas" />
+                    </ListItem>
+                    <Divider component="li" className="!my-2" />
+                    <ListItem>
+                      <StadiumTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                      <ListItemText secondary="Asistencia a Estadios" />
+                    </ListItem>
+                    <Divider component="li" className="!my-2" />
+                    <ListItem>
+                      <BakeryDiningTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                      <ListItemText secondary="Experiencias Gastronómicas" />
+                    </ListItem>
+                    <Divider component="li" className="!my-2" />
+                    <ListItem>
+                      <TheaterComedyTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                      <ListItemText secondary="Tours" />
+                    </ListItem>
+                  </List>
+                </div>
+              </Paper>
+            </Grid>
           </Grid>
-          <Grid item xs={12} md={5}>
-            <Paper
-              elevation={6}
-              data-aos="zoom-in"
-              data-aos-delay="100"
-              data-aos-duration="500"
-            >
-              <img src={img7} alt="El bar" className="w-full rounded-t-md" />
-              <div className="flex justify-center py-8">
-                <List className="js-hoverable-element">
-                  <ListItem>
-                    <ListItemText
-                      primary="Básicos"
-                      className="!text-[25px] md:!text-[28px] !font-bold"
-                    />
-                  </ListItem>
-                  <ListItem>
-                    <RoomServiceTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                    <ListItemText secondary="Conserjería" />
-                  </ListItem>
-                  <Divider component="li" className="!my-2" />
-                  <ListItem>
-                    <ScheduleTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                    <ListItemText secondary="Atención las 24 horas" />
-                  </ListItem>
-                  <Divider component="li" className="!my-2" />
-                  <ListItem>
-                    <SettingsRemoteTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                    <ListItemText secondary="Internet de alta velocidad" />
-                  </ListItem>
-                  <Divider component="li" className="!my-2" />
-                  <ListItem>
-                    <AcUnitTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                    <ListItemText secondary="Aire Acondicionado" />
-                  </ListItem>
-                  <Divider component="li" className="!my-2" />
-                  <ListItem>
-                    <SafetyCheckTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                    <ListItemText secondary="Seguridad 24 horas" />
-                  </ListItem>
-                  <Divider component="li" className="!my-2" />
-                  <ListItem>
-                    <LocalBarTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                    <ListItemText secondary="Bar" />
-                  </ListItem>
-                  <Divider component="li" className="!my-2" />
-                  <ListItem>
-                    <CleaningServicesTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                    <ListItemText secondary="Limpieza" />
-                  </ListItem>
-                  <Divider component="li" className="!my-2" />
-                  <ListItem>
-                    <DryCleaningTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                    <ListItemText secondary="Ropa blanca" />
-                  </ListItem>
-                  <Divider component="li" className="!my-2" />
-                  <ListItem>
-                    <DirectionsCarFilledTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                    <ListItemText secondary="Estacionamiento" />
-                  </ListItem>
-                </List>
-              </div>
-            </Paper>
-          </Grid>
-          <Grid item xs={12} md={5}>
-            <Paper
-              elevation={6}
-              data-aos="zoom-in"
-              data-aos-delay="200"
-              data-aos-duration="500"
-            >
-              <img src={img8} alt="El bar" className="w-full rounded-t-md" />
-              <div className="flex justify-center py-8">
-                <List className="js-hoverable-element">
-                  <ListItem>
-                    <ListItemText
-                      primary="Adicionales"
-                      className="!text-[25px] md:!text-[28px] !font-bold"
-                    />
-                  </ListItem>
-                  <ListItem>
-                    <AirportShuttleTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                    <ListItemText secondary="Traslados" />
-                  </ListItem>
-                  <Divider component="li" className="!my-2" />
-                  <ListItem>
-                    <TourTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                    <ListItemText secondary="Visitas Guiadas" />
-                  </ListItem>
-                  <Divider component="li" className="!my-2" />
-                  <ListItem>
-                    <StadiumTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                    <ListItemText secondary="Asistencia a Estadios" />
-                  </ListItem>
-                  <Divider component="li" className="!my-2" />
-                  <ListItem>
-                    <BakeryDiningTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                    <ListItemText secondary="Experiencias Gastronómicas" />
-                  </ListItem>
-                  <Divider component="li" className="!my-2" />
-                  <ListItem>
-                    <TheaterComedyTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                    <ListItemText secondary="Tours" />
-                  </ListItem>
-                </List>
-              </div>
-            </Paper>
-          </Grid>
-        </Grid>
         </div>
         {/*  LLAMADA A LA ACCIÓN   */}
         <div className="bg-action mix-blend-multiply w-full mb-12">
