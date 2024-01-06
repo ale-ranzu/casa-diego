@@ -1,6 +1,6 @@
 @media (min-width: 1000px) {
   .c-cursor {
-    --size: 25px;
+    --size: 18px;
     position: fixed;
     width: var(--size);
     height: var(--size);
@@ -21,7 +21,7 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background-color: black;
+      background-color: #725c42;
       border: none;
       opacity: 1;
       transition: all 0.15s ease-in-out;
@@ -37,7 +37,7 @@
     &.is-element-hovered &__inner {
       transform: scale(1.5) translateZ(0);
       background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: invert(90%);
+      backdrop-filter: invert(95%);
     }
   }
 
@@ -45,33 +45,6 @@
     &,
     * {
       cursor: none !important;
-    }
-  }
-
-  .c-controls {
-    display: none;
-    .has-custom-cursor & {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: auto;
-      height: auto;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-    }
-    &__button {
-      width: auto;
-      padding: 4px 10px;
-      background-color: pink;
-      color: pink;
-      cursor: pointer;
-      transition: all 0.15s ease-in-out;
-      margin-right: 20px;
-      &.is-active {
-        background-color: green;
-        color: green;
-      }
     }
   }
 }

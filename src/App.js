@@ -9,6 +9,9 @@ import {
   ListItemText,
   Paper,
 } from "@mui/material";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Nav from "./components/nav";
 import FooterDiego from "./components/footer";
 import Marquee from "./components/marqueeSection";
@@ -163,52 +166,54 @@ function App() {
 
         {/* <!-- RESERVA --> */}
         <Grid container maxWidth={"xl"}>
-          <Grid item xs={12} className="flex justify-center">
-              <DateRangeOutlined className="text-gold !text-[50px] my-6"/>
+          <Grid
+            item
+            xs={12}
+            className="flex justify-center"
+            data-aos="zoom-in"
+            data-aos-delay="50"
+            data-aos-duration="500"
+          >
+            <DateRangeOutlined className="text-gold !text-[50px] my-6 js-hoverable-element" />
           </Grid>
           <Marquee id="reservar" ref={reservarRef} texto="Reservá ahora">
-          <Grid container spacing={3}>
-            <Grid item xs={12} sm={6} lg={4}>
-              <Typography className="!text-[20px] js-hoverable-element">
-                Check In
-              </Typography>
-              <input
-                type="date"
-                label="Check In"
-                className="px-2 !text-[18px] w-full js-hoverable-element border rounded-md border-gray-light"
-              />
-            </Grid>
-            <Grid item xs={12} sm={6} lg={4}>
-              <Typography className="!text-[20px] js-hoverable-element ">
-                Check Out
-              </Typography>
-              <input
-                type="date"
-                label="Check Out"
-                className="px-2 !text-[18px] w-full js-hoverable-element border rounded-md  border-gray-light"
-              />
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              md={4}
-              className="!mt-[1.5rem] text-right md:text-center"
-            >
-              <Button
-                variant="contained"
-                className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase js-hoverable-element"
+            <Grid container spacing={3} alignItems={"center"}>
+              <Grid item xs={12} sm={6} lg={4}>
+                <Typography className="!text-[20px] js-hoverable-element">
+                  Check In
+                </Typography>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker className="js-hoverable-element w-full" />
+                </LocalizationProvider>
+              </Grid>
+              <Grid item xs={12} sm={6} lg={4}>
+                <Typography className="!text-[20px] js-hoverable-element ">
+                  Check Out
+                </Typography>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker className="js-hoverable-element w-full" />
+                </LocalizationProvider>
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                md={4}
+                className="!mt-[1.5rem] text-right md:text-center"
               >
-                Buscar
-              </Button>
+                <Button
+                  variant="contained"
+                  className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase js-hoverable-element"
+                >
+                  Buscar
+                </Button>
+              </Grid>
             </Grid>
-          </Grid>
-        </Marquee>
+          </Marquee>
         </Grid>
-       
 
         {/* <!-- ICONOS COMODIDADES --> */}
         <Grid
-          container          
+          container
           justifyContent={"center"}
           className="bg-text py-12 px-4 lg:px-0"
         >
@@ -492,7 +497,7 @@ function App() {
         </Grid>
 
         {/* <!-- SERVICIOS --> */}
-        <div className="bg-village w-full mt-24 flex justify-center">
+        <div className="bg-village w-full mt-36 flex justify-center py-24">
           <Grid
             container
             maxWidth={"xl"}
@@ -625,7 +630,7 @@ function App() {
         <div className="bg-action mix-blend-multiply w-full mb-12">
           <div className="w-full pt-64 pb-16 bg-black bg-opacity-10 flex flex-col justify-center items-center">
             <Grid container justifyContent={"center"}>
-              <Grid item xs={10} md={7} className="js-hoverable-element">
+              <Grid item xs={12} md={7} className="js-hoverable-element">
                 <div className="p-6 md:p-10 bg-white bg-opacity-25 rounded-sm backdrop-blur-lg flex flex-col items-center">
                   <Typography variant="h3">
                     Diego, su casa, tu hospedaje
@@ -649,14 +654,9 @@ function App() {
           maxWidth={"xl"}
           justifyContent={"center"}
           id="contacto"
-          className="pb-8"
+          className="pb-24"
         >
-          <Grid
-            item
-            xs={10}
-            md={6}
-            className="!pt-[4rem] md:!-ml-[3rem]"
-          >
+          <Grid item xs={10} md={6} className="!pt-[4rem] md:!-ml-[3rem]">
             <Typography
               variant="h3"
               data-aos="zoom-in"
@@ -670,7 +670,7 @@ function App() {
               data-aos="zoom-in"
               data-aos-delay="200"
               data-aos-duration="500"
-              className="js-hoverable-element"
+              className="js-hoverable-element pb-8"
             >
               Cualquier consulta que tengas, no dudes en escribirnos,
               responderemos a la brevedad.

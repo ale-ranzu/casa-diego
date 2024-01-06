@@ -114,7 +114,7 @@ function Nav({ links }) {
             boxSizing: "border-box",
             width: drawerWidth,
             height: drawerHeight,
-            backgroundColor: "#232020",
+            backgroundColor: "#8a7256",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -129,7 +129,7 @@ function Nav({ links }) {
                   <Button
                     key={link.id}
                     href={`#${link.targetId}`}
-                    className={`js-hoverable-element my-2 !text-white block !lowercase !mr-4 !transition !ease-in-out !delay-150 hover:-translate-y-2 !duration-200 ${
+                    className={`js-hoverable-element my-2 !text-white !font-title block !lowercase !mr-4 !transition !ease-in-out !delay-150 hover:-translate-y-2 !duration-200 ${
                       link.type === "language" ? "!text-[15px]" : ""
                     }`}
                   >
