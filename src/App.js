@@ -508,7 +508,7 @@ function App() {
         </Grid>
 
          {/* galería de imagenes  1*/}
-        <GaleriaImg images={[img9, img15, img16, img14, img10, img13]} />
+        <GaleriaImg images={[img9, img15, img16, img14, img10, img6]} />
 
         {/* <!-- SERVICIOS --> */}
         <div className="bg-village w-full flex justify-center py-24">
@@ -695,7 +695,7 @@ function App() {
         </Grid>
 
         {/* galería de imagenes  2*/}
-        <GaleriaImg images={[img2, img3, img4, img5, img6, img1]}/>
+        <GaleriaImg images={[img2, img3, img4, img5, img13, img1]}/>
         
       </main>
       <FooterDiego />
