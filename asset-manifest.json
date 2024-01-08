@@ -1,22 +1,24 @@
 {
   "files": {
-    "main.css": "/casa-diego/static/css/main.75a5cd7c.css",
-    "main.js": "/casa-diego/static/js/main.69044497.js",
-    "static/media/diego_y_familia_1.jpg": "/casa-diego/static/media/diego_y_familia_1.2ca62bdab21547446690.jpg",
-    "static/media/diego_y_periodista.jpg": "/casa-diego/static/media/diego_y_periodista.09cd75c809a67845cc5a.jpg",
-    "static/media/pileta-quincho.jpg": "/casa-diego/static/media/pileta-quincho.54dc74861f0a51f76165.jpg",
+    "main.css": "/casa-diego/static/css/main.1b227acf.css",
+    "main.js": "/casa-diego/static/js/main.b3befb7f.js",
+    "static/media/casa-front.jpg": "/casa-diego/static/media/casa-front.75e7951bcd823081efad.jpg",
+    "static/media/pileta-quincho.jpg": "/casa-diego/static/media/pileta-quincho.a97d424c580a7a91424e.jpg",
     "static/media/bar.jpg": "/casa-diego/static/media/bar.d199433a9ed327815066.jpg",
-    "static/media/casa-front.jpg": "/casa-diego/static/media/casa-front.39ad15dcff9120f3cb4b.jpg",
-    "static/media/diego_y_familia_3.jpg": "/casa-diego/static/media/diego_y_familia_3.656f3575b4d23b810a23.jpg",
-    "static/media/cesped-sintetico.jpg": "/casa-diego/static/media/cesped-sintetico.dbe85a17d8b4eb242773.jpg",
+    "static/media/pileta-climatizada.jpg": "/casa-diego/static/media/pileta-climatizada.a5426c45def8ce983cf5.jpg",
+    "static/media/balcon.jpg": "/casa-diego/static/media/balcon.61b4581bf8c97aa8ef0a.jpg",
     "static/media/comedor.jpg": "/casa-diego/static/media/comedor.745093acc13e01a677ee.jpg",
-    "static/media/diego_casa.jpg": "/casa-diego/static/media/diego_casa.18d2efbeaf4c5e0e00af.jpg",
-    "static/media/diego.jpg": "/casa-diego/static/media/diego.b2557351c81ae25a5931.jpg",
-    "static/media/living-comedor.jpg": "/casa-diego/static/media/living-comedor.93fbcca5885f045d3068.jpg",
-    "static/media/pileta-climatizada.jpg": "/casa-diego/static/media/pileta-climatizada.f343eb4486f49765022a.jpg",
-    "static/media/dormitorio-principal.jpg": "/casa-diego/static/media/dormitorio-principal.3b10d631f26c9201e586.jpg",
+    "static/media/cesped-sintetico.jpg": "/casa-diego/static/media/cesped-sintetico.f1badf2d6875c587e7f8.jpg",
+    "static/media/living-comedor.jpg": "/casa-diego/static/media/living-comedor.60cc817a9178d42e3535.jpg",
+    "static/media/comedor-principal.jpg": "/casa-diego/static/media/comedor-principal.dc8104997e2142959107.jpg",
+    "static/media/pano-patio.jpg": "/casa-diego/static/media/pano-patio.8ce2cdd46e28d14f2389.jpg",
+    "static/media/mueble.jpg": "/casa-diego/static/media/mueble.1c187f196009f7c5357b.jpg",
+    "static/media/panoramica.jpg": "/casa-diego/static/media/panoramica.fab095332e1ce60045d1.jpg",
     "static/media/cama.jpg": "/casa-diego/static/media/cama.6b9d4f8578f59978c6c1.jpg",
+    "static/media/dormitorio-principal.jpg": "/casa-diego/static/media/dormitorio-principal.d4e4533ba912ca2d18dd.jpg",
+    "static/media/diego_y_familia_1.jpg": "/casa-diego/static/media/diego_y_familia_1.0113990ce597f4d56d04.jpg",
     "static/media/diego_tota.jpg": "/casa-diego/static/media/diego_tota.aff23cbdc499e7046cb1.jpg",
+    "static/media/banio.jpg": "/casa-diego/static/media/banio.3579c8beb1788b19f702.jpg",
     "static/media/bg-diego.jpg": "/casa-diego/static/media/bg-diego.461eb6cd151775b581e0.jpg",
     "static/media/casa-diego-invertido.svg": "/casa-diego/static/media/casa-diego-invertido.93f1ca3a275ce002e889c7b869ceb552.svg",
     "static/media/cocina.svg": "/casa-diego/static/media/cocina.72af73005c4293bbfcad1399ab6f4b7d.svg",
@@ -41,11 +43,11 @@
     "static/media/italia.svg": "/casa-diego/static/media/italia.a3b20930a86abb0d5f107d34751cb947.svg",
     "static/media/facebook.svg": "/casa-diego/static/media/facebook.b808d297c69f9b842adbc2a8ee89af86.svg",
     "static/media/espania.svg": "/casa-diego/static/media/espania.f8f2dc3e79f4ce313483c399ffde3c1e.svg",
-    "main.75a5cd7c.css.map": "/casa-diego/static/css/main.75a5cd7c.css.map",
-    "main.69044497.js.map": "/casa-diego/static/js/main.69044497.js.map"
+    "main.1b227acf.css.map": "/casa-diego/static/css/main.1b227acf.css.map",
+    "main.b3befb7f.js.map": "/casa-diego/static/js/main.b3befb7f.js.map"
   },
   "entrypoints": [
-    "static/css/main.75a5cd7c.css",
-    "static/js/main.69044497.js"
+    "static/css/main.1b227acf.css",
+    "static/js/main.b3befb7f.js"
   ]
 }
