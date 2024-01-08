@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   Divider,
   Grid,
@@ -20,9 +20,8 @@ import Icon from "./components/icon";
 import CustomCursor from "./components/customCursor";
 import GaleriaImg from "./components/galeriaImg";
 import RoomServiceTwoToneIcon from "@mui/icons-material/RoomServiceTwoTone";
-import ScheduleTwoToneIcon from "@mui/icons-material/ScheduleTwoTone";
 import SettingsRemoteTwoToneIcon from "@mui/icons-material/SettingsRemoteTwoTone";
-import AcUnitTwoToneIcon from "@mui/icons-material/AcUnitTwoTone";
+import Restaurant from "@mui/icons-material/Restaurant";
 import SafetyCheckTwoToneIcon from "@mui/icons-material/SafetyCheckTwoTone";
 import LocalBarTwoToneIcon from "@mui/icons-material/LocalBarTwoTone";
 import CleaningServicesTwoToneIcon from "@mui/icons-material/CleaningServicesTwoTone";
@@ -30,7 +29,7 @@ import DryCleaningTwoToneIcon from "@mui/icons-material/DryCleaningTwoTone";
 import DirectionsCarFilledTwoToneIcon from "@mui/icons-material/DirectionsCarFilledTwoTone";
 import AirportShuttleTwoToneIcon from "@mui/icons-material/AirportShuttleTwoTone";
 import StadiumTwoToneIcon from "@mui/icons-material/StadiumTwoTone";
-import BakeryDiningTwoToneIcon from "@mui/icons-material/BakeryDiningTwoTone";
+import LunchDiningTwoToneIcon from "@mui/icons-material/LunchDiningTwoTone";
 import TheaterComedyTwoToneIcon from "@mui/icons-material/TheaterComedyTwoTone";
 import TourTwoToneIcon from "@mui/icons-material/TourTwoTone";
 import DateRangeOutlined from "@mui/icons-material/DateRangeOutlined";
@@ -45,12 +44,14 @@ import img5 from "./assets/comedor.jpg";
 import img6 from "./assets/living-comedor.jpg";
 import img7 from "./assets/dormitorio-principal.jpg";
 import img8 from "./assets/pileta-climatizada.jpg";
-import img9 from "./assets/diego_y_periodista.jpg";
-import img10 from "./assets/diego_casa.jpg";
+import img9 from "./assets/comedor-principal.jpg";
+import img10 from "./assets/mueble.jpg";
 import img11 from "./assets/diego_tota.jpg";
 import img12 from "./assets/diego_y_familia_1.jpg";
-import img13 from "./assets/diego_y_familia_3.jpg";
-import img14 from "./assets/diego.jpg";
+import img13 from "./assets/panoramica.jpg";
+import img14 from "./assets/pano-patio.jpg";
+import img15 from "./assets/balcon.jpg";
+import img16 from "./assets/banio.jpg";
 import italiano from "./assets/italia.svg";
 import espaniol from "./assets/espania.svg";
 import ingles from "./assets/ingles.svg";
@@ -103,12 +104,12 @@ function App() {
       <div className="bg-inicio mt-0 h-[100dvh] bg-blend-multiply js-hoverable-element">
         <div className="w-full h-[100dvh] bg-black bg-opacity-60 flex flex-col justify-center items-center">
           <Typography
-            variant="h2"
-            className="!text-white text-center w-4/5"
+            variant="h1"
+            className="!text-white text-center"
             data-aos="zoom-in"
             data-aos-easing="ease-in-sine"
           >
-            Maradona's Family Home
+            Casa Diego
           </Typography>
           <Divider
             className="!border-white min-w-[40%] !mt-[65px] !mb-[50px]"
@@ -123,7 +124,7 @@ function App() {
             data-aos-delay="200"
             data-aos-easing="ease-in-sine"
           >
-            Reservá tu exclusiva estadía en la mítica casa de Maradona
+            Reservá tu estadía exclusiva en la mítica casa de Maradona
           </Typography>
         </div>
       </div>
@@ -215,7 +216,7 @@ function App() {
         <Grid
           container
           justifyContent={"center"}
-          className="bg-text py-12 px-4 lg:px-0"
+          className="bg-text py-24 px-4 lg:px-0"
         >
           <Grid item xs={12}>
             <Typography
@@ -417,28 +418,28 @@ function App() {
           </Grid>
         </Grid>
 
-        {/* <!-- TEXTO 1 --> */}
+        {/* <!-- IMAGENES Y TEXTO 1 --> */}
         <Grid
           container
-          spacing={2}
+          spacing={5}
           maxWidth={"xl"}
-          justifyContent={"center"}
           alignItems={"center"}
-          className="!mt-12 px-4 xl:px-0"
+          justifyContent={"center"}
+          className="pt-36 pb-24 px-4 xl:px-0"
         >
-          <Grid item xs={10} md={7} className="!pt-[4rem]">
+          <Grid item xs={12} md={5}>
             <Typography
               variant="h3"
-              className="!mb-[1rem] js-hoverable-element md:text-center"
               data-aos="zoom-in"
-              data-aos-delay="100"
+              data-aos-delay="150"
               data-aos-duration="500"
+              className="!mb-[1rem] js-hoverable-element"
             >
               Un patrimonio histórico de Argentina
             </Typography>
             <Typography
               data-aos="zoom-in"
-              data-aos-delay="150"
+              data-aos-delay="200"
               data-aos-duration="500"
               className="js-hoverable-element"
             >
@@ -452,6 +453,16 @@ function App() {
               casa y vivir una experiencia única.
             </Typography>
           </Grid>
+          <Grid item xs={12} md={5}>
+            <img
+              src={img12}
+              alt="El bar"
+              className="w-full rounded-md js-hoverable-element"
+              data-aos="zoom-in"
+              data-aos-delay="100"
+              data-aos-duration="500"
+            />
+          </Grid>
         </Grid>
 
         {/* <!-- IMAGENES Y TEXTO 2 --> */}
@@ -461,7 +472,7 @@ function App() {
           maxWidth={"xl"}
           alignItems={"center"}
           justifyContent={"center"}
-          className="pt-32 px-4 xl:px-0"
+          className="py-36 px-4 xl:px-0"
         >
           <Grid item xs={12} md={5}>
             <img
@@ -496,8 +507,11 @@ function App() {
           </Grid>
         </Grid>
 
+         {/* galería de imagenes  1*/}
+        <GaleriaImg images={[img9, img15, img16, img14, img10, img13]} />
+
         {/* <!-- SERVICIOS --> */}
-        <div className="bg-village w-full mt-36 flex justify-center py-24">
+        <div className="bg-village w-full flex justify-center py-24">
           <Grid
             container
             maxWidth={"xl"}
@@ -528,28 +542,18 @@ function App() {
                   <List className="js-hoverable-element">
                     <ListItem>
                       <ListItemText
-                        primary="Básicos"
+                        primary="Incluídos"
                         className="!text-[25px] md:!text-[28px] !font-bold"
                       />
                     </ListItem>
                     <ListItem>
+                      <AirportShuttleTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                      <ListItemText secondary="Traslado desde el aeropuerto" />
+                    </ListItem>
+                    <Divider component="li" className="!my-2" />
+                    <ListItem>
                       <RoomServiceTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                      <ListItemText secondary="Conserjería" />
-                    </ListItem>
-                    <Divider component="li" className="!my-2" />
-                    <ListItem>
-                      <ScheduleTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                      <ListItemText secondary="Atención las 24 horas" />
-                    </ListItem>
-                    <Divider component="li" className="!my-2" />
-                    <ListItem>
-                      <SettingsRemoteTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                      <ListItemText secondary="Internet de alta velocidad" />
-                    </ListItem>
-                    <Divider component="li" className="!my-2" />
-                    <ListItem>
-                      <AcUnitTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                      <ListItemText secondary="Aire Acondicionado" />
+                      <ListItemText secondary="Conserjería las 24 horas" />
                     </ListItem>
                     <Divider component="li" className="!my-2" />
                     <ListItem>
@@ -558,8 +562,18 @@ function App() {
                     </ListItem>
                     <Divider component="li" className="!my-2" />
                     <ListItem>
+                      <SettingsRemoteTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                      <ListItemText secondary="Internet de alta velocidad" />
+                    </ListItem>
+                    <Divider component="li" className="!my-2" />
+                    <ListItem>
                       <LocalBarTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
                       <ListItemText secondary="Bar" />
+                    </ListItem>
+                    <Divider component="li" className="!my-2" />
+                    <ListItem>
+                      <Restaurant className="mr-3 text-gold !w-[1.7rem]" />
+                      <ListItemText secondary="Asado" />
                     </ListItem>
                     <Divider component="li" className="!my-2" />
                     <ListItem>
@@ -612,7 +626,7 @@ function App() {
                     </ListItem>
                     <Divider component="li" className="!my-2" />
                     <ListItem>
-                      <BakeryDiningTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
+                      <LunchDiningTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
                       <ListItemText secondary="Experiencias Gastronómicas" />
                     </ListItem>
                     <Divider component="li" className="!my-2" />
@@ -626,8 +640,9 @@ function App() {
             </Grid>
           </Grid>
         </div>
+       
         {/*  LLAMADA A LA ACCIÓN   */}
-        <div className="bg-action mix-blend-multiply w-full mb-12">
+        {/*  <div className="bg-action mix-blend-multiply w-full mb-12">
           <div className="w-full pt-64 pb-16 bg-black bg-opacity-10 flex flex-col justify-center items-center">
             <Grid container justifyContent={"center"}>
               <Grid item xs={12} md={7} className="js-hoverable-element">
@@ -646,7 +661,7 @@ function App() {
               </Grid>
             </Grid>
           </div>
-        </div>
+        </div> */}
 
         {/*  CONTACTO  */}
         <Grid
@@ -654,7 +669,7 @@ function App() {
           maxWidth={"xl"}
           justifyContent={"center"}
           id="contacto"
-          className="pb-24"
+          className="pb-48"
         >
           <Grid item xs={10} md={6} className="!pt-[4rem] md:!-ml-[3rem]">
             <Typography
@@ -679,8 +694,9 @@ function App() {
           <ContactForm />
         </Grid>
 
-        {/* galería de imagenes  */}
-        <GaleriaImg images={[img1, img2, img3, img4, img5, img6]} />
+        {/* galería de imagenes  2*/}
+        <GaleriaImg images={[img2, img3, img4, img5, img6, img1]}/>
+        
       </main>
       <FooterDiego />
     </div>

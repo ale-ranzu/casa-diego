@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Grid, Modal, Backdrop, Fade, Button, IconButton } from "@mui/material";
+import { Grid, Modal, Fade, IconButton } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CloseIcon from "@mui/icons-material/Close";
@@ -29,7 +29,7 @@ const GaleriaImg = ({ images }) => {
 
   return (
     <div>
-      <Grid container className="!mt-12">
+      <Grid container>
         {images.map((image, index) => (
           <Grid
             item
@@ -41,7 +41,7 @@ const GaleriaImg = ({ images }) => {
           >
             <img
               src={image}
-              alt={`Image ${index + 1}`}
+              alt={`Imagen ${index + 1}`}
               onClick={() => openLightbox(index)}
               data-aos="zoom-in-up"
               data-aos-delay={100 + index * 50}
@@ -88,7 +88,7 @@ const GaleriaImg = ({ images }) => {
               <Grid item xs={12} className="flex justify-center items-center">
                 <img
                   src={images[currentImageIndex]}
-                  alt={`Image ${currentImageIndex + 1}`}
+                  alt={`Imagen ${currentImageIndex + 1}`}
                   className="h-[80dvh] w-auto"
                 />
               </Grid>
