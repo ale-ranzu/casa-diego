@@ -55,7 +55,7 @@ function ContactForm() {
 
     try {
       const serviceID = "casadiego_contactform";
-      const templateID = "template_hv2f7vs";
+      const templateID = "casa_diego";
 
       await emailjs.sendForm(serviceID, templateID, e.target).then(
         () => {
