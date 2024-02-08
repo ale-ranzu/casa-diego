@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import emailjs from "emailjs-com";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
@@ -17,6 +17,10 @@ function ContactForm() {
     message: "",
   });
 
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isSending, setIsSending] = useState(false);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -32,28 +36,31 @@ function ContactForm() {
   const handleReservaClick = async (e) => {
     e.preventDefault();
 
+    // Limpiar mensajes de error al interactuar con el formulario nuevamente
+    setErrorMessage("");
+
     if (!isEmailValid(formData.email)) {
-      alert("Por favor, ingresa una dirección de correo electrónico válida.");
+      setErrorMessage(
+        "Por favor, ingresa una dirección de correo electrónico válida."
+      );
       return;
     }
 
     if (!formData.name || !formData.email || !formData.message) {
-      alert("Por favor, completa todos los campos obligatorios.");
+      setErrorMessage("Por favor, completa todos los campos obligatorios.");
       return;
     }
 
-    const btn = document.getElementById("button");
-    btn.value = "Enviando...";
+    setIsSending(true);
 
     try {
-      const serviceID = "testeo_gmail";
+      const serviceID = "casadiego_contactform";
       const templateID = "template_hv2f7vs";
 
       await emailjs.sendForm(serviceID, templateID, e.target).then(
         () => {
-          btn.value = "Enviar la consulta";
-          alert(
-            "Hemos recibido tu consulta, en breve nos contactaremos con vos."
+          setSuccessMessage(
+            "Hemos recibido tu consulta, en breve nos contactaremos contigo."
           );
           setFormData({
             name: "",
@@ -61,14 +68,33 @@ function ContactForm() {
             email: "",
             message: "",
           });
+
+          // Limpiar mensaje de éxito después de 5 segundos (5000 milisegundos)
+          setTimeout(() => {
+            setSuccessMessage("");
+          }, 5000);
         },
         (err) => {
-          btn.value = "Enviar la consulta";
-          alert(JSON.stringify(err));
+          setErrorMessage(JSON.stringify(err));
+
+          // Limpiar mensaje de error después de 5 segundos (5000 milisegundos)
+          setTimeout(() => {
+            setErrorMessage("");
+          }, 5000);
         }
       );
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
+      setErrorMessage(
+        "Hubo un error al enviar el formulario. Por favor, inténtalo nuevamente."
+      );
+
+      // Limpiar mensaje de error después de 5 segundos (5000 milisegundos)
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 5000);
+    } finally {
+      setIsSending(false);
     }
   };
 
@@ -149,16 +175,21 @@ function ContactForm() {
             />
           </Grid>
           <Grid item xs={12} className="text-center">
+            {successMessage && (
+              <p style={{ color: "green" }}>{successMessage}</p>
+            )}
+            {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+          </Grid>
+
+          <Grid item xs={12} className="text-center">
             <Button
               type="submit"
               id="button"
               variant="contained"
-              className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6 js-hoverable-element"
-              data-aos="zoom-in"
-              data-aos-delay="300"
-              data-aos-duration="500"
+              className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6 js-hoverable-element"              
+              disabled={isSending}
             >
-              Envíanos tu consulta
+              {isSending ? "Enviando..." : "Envíanos tu consulta"}
             </Button>
           </Grid>
         </Grid>

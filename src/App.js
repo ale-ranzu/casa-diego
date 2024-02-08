@@ -69,7 +69,9 @@ function App() {
   };
 
   const navLinks = [
-    { id: "reservar", text: "Reservar", targetId: "reservar" },
+    { id: "reservar", text: "Reservar", targetId: "reservar" },  
+    { id: "descripcion", text: "Descripción", targetId: "descripcion" },
+    { id: "servicios", text: "Servicios", targetId: "servicios" },
     { id: "contacto", text: "Contacto", targetId: "contacto" },
     {
       id: "italiano",
@@ -166,7 +168,7 @@ function App() {
         </Grid>
 
         {/* <!-- RESERVA --> */}
-        <Grid container maxWidth={"xl"}>
+        <Grid container maxWidth={"xl"} id="reservar">
           <Grid
             item
             xs={12}
@@ -177,7 +179,7 @@ function App() {
           >
             <DateRangeOutlined className="text-gold !text-[50px] my-6 js-hoverable-element" />
           </Grid>
-          <Marquee id="reservar" ref={reservarRef} texto="Reservá ahora">
+          <Marquee ref={reservarRef} texto="Reservá ahora">
             <Grid container spacing={3} alignItems={"center"}>
               <Grid item xs={12} sm={6} lg={4}>
                 <Typography className="!text-[20px] js-hoverable-element">
@@ -217,6 +219,7 @@ function App() {
           container
           justifyContent={"center"}
           className="bg-text py-24 px-4 lg:px-0"
+          id="descripcion"
         >
           <Grid item xs={12}>
             <Typography
@@ -511,7 +514,7 @@ function App() {
         <GaleriaImg images={[img9, img15, img16, img14, img10, img6]} />
 
         {/* <!-- SERVICIOS --> */}
-        <div className="bg-village w-full flex justify-center py-24">
+        <div className="bg-village w-full flex justify-center py-24" id="servicios">
           <Grid
             container
             maxWidth={"xl"}
