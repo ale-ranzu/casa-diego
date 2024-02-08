@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/casa-diego/static/css/main.1b227acf.css",
-    "main.js": "/casa-diego/static/js/main.0fe3d8a8.js",
+    "main.js": "/casa-diego/static/js/main.9bc0b738.js",
     "static/media/casa-front.jpg": "/casa-diego/static/media/casa-front.75e7951bcd823081efad.jpg",
     "static/media/pileta-quincho.jpg": "/casa-diego/static/media/pileta-quincho.a97d424c580a7a91424e.jpg",
     "static/media/bar.jpg": "/casa-diego/static/media/bar.d199433a9ed327815066.jpg",
@@ -44,10 +44,10 @@
     "static/media/facebook.svg": "/casa-diego/static/media/facebook.b808d297c69f9b842adbc2a8ee89af86.svg",
     "static/media/espania.svg": "/casa-diego/static/media/espania.f8f2dc3e79f4ce313483c399ffde3c1e.svg",
     "main.1b227acf.css.map": "/casa-diego/static/css/main.1b227acf.css.map",
-    "main.0fe3d8a8.js.map": "/casa-diego/static/js/main.0fe3d8a8.js.map"
+    "main.9bc0b738.js.map": "/casa-diego/static/js/main.9bc0b738.js.map"
   },
   "entrypoints": [
     "static/css/main.1b227acf.css",
-    "static/js/main.0fe3d8a8.js"
+    "static/js/main.9bc0b738.js"
   ]
 }
