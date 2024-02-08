@@ -189,7 +189,7 @@ function ContactForm() {
 
           <Grid item xs={12} className="text-center">
             <ReCAPTCHA
-              sitekey="6LefR2wpAAAAAOCu8Dfb9nHsQcGmR42crV0tLlPc" // Reemplaza con tu clave del sitio de reCAPTCHA
+              sitekey="6LefR2wpAAAAAAGoHclc0vxPX4mfLXeRiDN3n7mg" // Reemplaza con tu clave del sitio de reCAPTCHA
               onChange={handleRecaptchaChange}
             />
             
