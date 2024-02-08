@@ -3,6 +3,7 @@ import emailjs from "emailjs-com";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import ReCAPTCHA from "react-google-recaptcha";
 import AOS from "aos";
 
 function ContactForm() {
@@ -20,6 +21,7 @@ function ContactForm() {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
+  const [recaptchaValue, setRecaptchaValue] = useState(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -31,6 +33,10 @@ function ContactForm() {
   const isEmailValid = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
+  };
+
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value);
   };
 
   const handleReservaClick = async (e) => {
@@ -46,8 +52,8 @@ function ContactForm() {
       return;
     }
 
-    if (!formData.name || !formData.email || !formData.message) {
-      setErrorMessage("Por favor, completa todos los campos obligatorios.");
+    if (!formData.name || !formData.email || !formData.message || !recaptchaValue) {
+      setErrorMessage("Por favor, completa todos los campos obligatorios y verifica que no eres un robot.");
       return;
     }
 
@@ -182,6 +188,11 @@ function ContactForm() {
           </Grid>
 
           <Grid item xs={12} className="text-center">
+            <ReCAPTCHA
+              sitekey="6LefR2wpAAAAAOCu8Dfb9nHsQcGmR42crV0tLlPc" // Reemplaza con tu clave del sitio de reCAPTCHA
+              onChange={handleRecaptchaChange}
+            />
+            
             <Button
               type="submit"
               id="button"
