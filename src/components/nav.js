@@ -140,6 +140,11 @@ function Nav({ links }) {
                   <Button
                     key={link.id}
                     href={`#${link.targetId}`}
+                    onClick={() =>
+                      link.type === "language"
+                        ? changeLanguage(link.language)
+                        : null
+                    }
                     className={`js-hoverable-element my-2 !text-white !font-title block !lowercase !mr-4 !transition !ease-in-out !delay-150 hover:-translate-y-2 !duration-200 ${
                       link.type === "language" ? "!text-[15px]" : ""
                     }`}
