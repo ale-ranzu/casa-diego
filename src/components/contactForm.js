@@ -66,6 +66,7 @@ function ContactForm() {
     if (
       !formData.name ||
       !formData.email ||
+      !formData.phone ||
       !formData.country ||
       !formData.people ||
       !formData.checkIn ||
@@ -82,7 +83,16 @@ function ContactForm() {
       const serviceID = "casadiego_contactform";
       const templateID = "cotizacion";
 
-      const response = await emailjs.sendForm(serviceID, templateID, e.target);
+      const response = await emailjs.sendForm(serviceID, templateID, {
+        ...e.target,
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        checkIn: formData.checkIn,
+        checkOut: formData.checkOut,
+        country: formData.country,
+        people: formData.people,
+      });
 
       if (response.data.success) {
         setSuccessMessage(response.data.message);
