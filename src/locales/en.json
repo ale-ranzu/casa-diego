@@ -9,7 +9,7 @@
   "slogan": "Book your exclusive stay at Maradona's mythical house.",
   "title1": "A unique accommodation in the world.",
   "texto1": "Now you can stay in the mythical house of Maradona and his family, the home that Diego chose as a meeting point with his family and friends, which has a capacity for 12 people.",
-  "reservaAhora": "Book Now",
+  "reservaAhora": "Request a quote",
   "buscar": "Search",
   "fechaInicio": "Start Date",
   "fechaFin": "End Date",
@@ -51,12 +51,13 @@
   "gastro": "Gastronomic Experiences",
   "tours": "City tours",
   "contactanos": "Contact Us",
-  "textoContacto": "If you have any questions, do not hesitate to write us, we will answer as soon as possible.",
+  "textoContacto": "Send us your quote request, and we will respond as soon as possible.",
   "formLabels": {
     "name": "Name and Last Name *",
     "phone": "Phone Number *",
     "email": "Email Address *",
-    "message": "Message *"
+    "country": "Country *",
+    "people": "Amount of people *"
   },
   "formMessages": {
     "emailValidation": "Please enter a valid email address.",

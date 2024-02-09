@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import emailjs from "emailjs-com";
 import Grid from "@mui/material/Grid";
-import TextField from "@mui/material/TextField";
+import { TextField, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import ReCAPTCHA from "react-google-recaptcha";
 import AOS from "aos";
 import { useTranslation } from "react-i18next";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 function ContactForm() {
   useEffect(() => {
@@ -16,7 +19,9 @@ function ContactForm() {
     name: "",
     phone: "",
     email: "",
-    message: "",
+    checkIn: "",
+    checkOut: "",
+    country: "",
   });
 
   const [successMessage, setSuccessMessage] = useState("");
@@ -61,7 +66,8 @@ function ContactForm() {
     if (
       !formData.name ||
       !formData.email ||
-      !formData.message ||
+      !formData.country ||
+      !formData.people ||
       !recaptchaValue
     ) {
       setErrorMessage(t("formMessages.requiredFields"));
@@ -113,7 +119,7 @@ function ContactForm() {
           md={6}
           maxWidth={"lg"}
           className="!pt-12"
-          rowSpacing={3}
+          rowSpacing={5}
         >
           <Grid item xs={12}>
             <TextField
@@ -164,19 +170,49 @@ function ContactForm() {
           </Grid>
           <Grid item xs={12}>
             <TextField
-              label={t("formLabels.message")}
+              label={t("formLabels.country")}
               variant="standard"
               fullWidth
-              name="message"
-              multiline
-              rows={4}
-              value={formData.message}
+              name="country"
+              value={formData.country}
               onChange={handleChange}
               size="small"
               className="bg-white bg-opacity-20 js-hoverable-element"
               data-aos="zoom-in"
               data-aos-delay="250"
               data-aos-duration="500"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography className="!text-[20px] js-hoverable-element">
+              {t("fechaInicio")}
+            </Typography>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DatePicker className="js-hoverable-element w-11/12" name="checkIn"/>
+            </LocalizationProvider>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography className="!text-[20px] js-hoverable-element ">
+              {t("fechaFin")}
+            </Typography>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DatePicker className="js-hoverable-element w-11/12" name="checkOut"/>
+            </LocalizationProvider>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label={t("formLabels.people")}
+              variant="standard"
+              fullWidth
+              name="people"
+              type="number"
+              value={formData.people}
+              onChange={handleChange}
+              size="small"
+              className="bg-white bg-opacity-20 js-hoverable-element"
+              data-aos="zoom-in"
+              data-aos-delay="250"
+              data-aos-duration="500"              
             />
           </Grid>
           <Grid item xs={12} className="text-center">
@@ -186,7 +222,7 @@ function ContactForm() {
             {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
           </Grid>
 
-          <Grid item xs={12} className="text-center">
+          <Grid item xs={12}>
             <ReCAPTCHA
               sitekey="6LefR2wpAAAAAAGoHclc0vxPX4mfLXeRiDN3n7mg" // Reemplaza con tu clave del sitio de reCAPTCHA
               onChange={handleRecaptchaChange}
@@ -218,7 +254,7 @@ function ContactForm() {
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1641.9572308177735!2d-58.51833459706597!3d-34.606324446725374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb7ce2876574f%3A0x5f330af22cd97bf6!2sJos%C3%A9%20Luis%20Cantilo%204575%2C%20C1419%20Villa%20Devoto%2C%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1702559007816!5m2!1ses-419!2sar"
             width="100%"
-            height="350"
+            height="100%"
             allowfullscreen="true"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"

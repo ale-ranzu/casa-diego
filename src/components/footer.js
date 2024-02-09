@@ -3,7 +3,6 @@ import { Grid, Typography } from "@mui/material";
 import casaDiegoLogo from "../assets/casa-diego-invertido.svg";
 import iconFace from "../assets/facebook.svg";
 import iconInsta from "../assets/instagram.svg";
-import iconX from "../assets/x.svg";
 
 function FooterDiego() {
   return (

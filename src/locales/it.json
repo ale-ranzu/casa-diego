@@ -9,7 +9,7 @@
   "slogan": "Prenota il tuo soggiorno esclusivo nella mitica casa di Maradona.",
   "title1": "Un alloggio unico al mondo.",
   "texto1": "Ora potete soggiornare nella mitica casa di Maradona e della sua famiglia, la casa che Diego scelse come punto d'incontro con la sua famiglia e i suoi amici, che ha una capacità di 12 persone.",
-  "reservaAhora": "Prenota ora",
+  "reservaAhora": "Richiedi un preventivo",
   "buscar": "Cercare",
   "fechaInicio": "Arrivo",
   "fechaFin": "Uscita",
@@ -51,12 +51,13 @@
   "gastro": "Esperienze gastronomiche",
   "tours": "Tour della città",
   "contactanos": "Contatti e informazioni",
-  "textoContacto": "Se avete domande, non esitate a scriverci, vi risponderemo il prima possibile.",
+  "textoContacto": "Inviaci la tua richiesta di preventivo, ti risponderemo il prima possibile.",
   "formLabels": {
     "name": "Nome e cognome *",
     "phone": "Telefono *",
     "email": "E-mail *",
-    "message": "Messaggio *"
+    "country": "Paese *",
+    "people": "Quantità di persone *"
   },
   "formMessages": {
     "emailValidation": "Si prega di inserire un indirizzo email valido.",

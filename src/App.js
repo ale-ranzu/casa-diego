@@ -1,20 +1,15 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import {
   Divider,
   Grid,
   Typography,
-  Button,
   List,
   ListItem,
   ListItemText,
   Paper,
 } from "@mui/material";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Nav from "./components/nav";
 import FooterDiego from "./components/footer";
-import Marquee from "./components/marqueeSection";
 import ContactForm from "./components/contactForm";
 import Icon from "./components/icon";
 import CustomCursor from "./components/customCursor";
@@ -63,8 +58,6 @@ function App() {
     AOS.init();
   }, []);
 
-  const reservarRef = useRef(null);
-
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -73,10 +66,24 @@ function App() {
   };
 
   const navLinks = [
-    { id: "reservar", text: "Reservar", targetId: "reservar", onClick: () => scrollToSection("reservar")},
-    { id: "descripcion", text: "Descripción", targetId: "descripcion", onClick: () => scrollToSection("descripcion") },
-    { id: "servicios", text: "Servicios", targetId: "servicios",onClick: () => scrollToSection("servicios") },
-    { id: "contacto", text: "Contacto", targetId: "contacto",onClick: () => scrollToSection("contacto") },
+    {
+      id: "cotizar",
+      text: "Cotizar",
+      targetId: "cotizar",
+      onClick: () => scrollToSection("cotizar"),
+    },
+    {
+      id: "descripcion",
+      text: "Descripción",
+      targetId: "descripcion",
+      onClick: () => scrollToSection("descripcion"),
+    },
+    {
+      id: "servicios",
+      text: "Servicios",
+      targetId: "servicios",
+      onClick: () => scrollToSection("servicios"),
+    },
     {
       id: "language-es",
       targetId: "espaniol",
@@ -181,7 +188,8 @@ function App() {
         </Grid>
 
         {/* <!-- RESERVA --> */}
-        <Grid container maxWidth={"xl"} id="reservar">
+
+        <Grid container maxWidth={"xl"} id="cotizar">
           <Grid
             item
             xs={12}
@@ -192,39 +200,33 @@ function App() {
           >
             <DateRangeOutlined className="text-gold !text-[50px] my-6 js-hoverable-element" />
           </Grid>
-          <Marquee ref={reservarRef} texto={t("reservaAhora")}>
-            <Grid container spacing={3} alignItems={"center"}>
-              <Grid item xs={12} sm={6} lg={4}>
-                <Typography className="!text-[20px] js-hoverable-element">
-                  {t("fechaInicio")}
-                </Typography>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker className="js-hoverable-element w-full" />
-                </LocalizationProvider>
-              </Grid>
-              <Grid item xs={12} sm={6} lg={4}>
-                <Typography className="!text-[20px] js-hoverable-element ">
-                  {t("fechaFin")}
-                </Typography>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker className="js-hoverable-element w-full" />
-                </LocalizationProvider>
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                md={4}
-                className="!mt-[1.5rem] text-right md:text-center"
-              >
-                <Button
-                  variant="contained"
-                  className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase js-hoverable-element"
-                >
-                  {t("buscar")}
-                </Button>
-              </Grid>
-            </Grid>
-          </Marquee>
+        </Grid>
+        <Grid
+          container
+          maxWidth={"xl"}
+          justifyContent={"center"}
+          className="pb-48"
+        >
+          <Grid item xs={10} md={6} className="!pt-[4rem] md:!-ml-[3rem]">
+            <Typography
+              variant="h3"
+              data-aos="zoom-in"
+              data-aos-delay="150"
+              data-aos-duration="500"
+              className="!mb-[1rem] js-hoverable-element md:text-center"
+            >
+              {t("reservaAhora")}
+            </Typography>
+            <Typography
+              data-aos="zoom-in"
+              data-aos-delay="200"
+              data-aos-duration="500"
+              className="js-hoverable-element pb-8"
+            >
+              {t("textoContacto")}
+            </Typography>
+          </Grid>
+          <ContactForm />
         </Grid>
 
         {/* <!-- ICONOS COMODIDADES --> */}
@@ -672,36 +674,6 @@ function App() {
             </Grid>
           </div>
         </div> */}
-
-        {/*  CONTACTO  */}
-        <Grid
-          container
-          maxWidth={"xl"}
-          justifyContent={"center"}
-          id="contacto"
-          className="pb-48"
-        >
-          <Grid item xs={10} md={6} className="!pt-[4rem] md:!-ml-[3rem]">
-            <Typography
-              variant="h3"
-              data-aos="zoom-in"
-              data-aos-delay="150"
-              data-aos-duration="500"
-              className="!mb-[1rem] js-hoverable-element md:text-center"
-            >
-              {t("contactanos")}
-            </Typography>
-            <Typography
-              data-aos="zoom-in"
-              data-aos-delay="200"
-              data-aos-duration="500"
-              className="js-hoverable-element pb-8"
-            >
-              {t("textoContacto")}
-            </Typography>
-          </Grid>
-          <ContactForm />
-        </Grid>
 
         {/* galería de imagenes  2*/}
         <GaleriaImg images={[img2, img3, img4, img5, img13, img1]} />
