@@ -3,7 +3,6 @@ import emailjs from "emailjs-com";
 import Grid from "@mui/material/Grid";
 import { TextField, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
-import ReCAPTCHA from "react-google-recaptcha";
 import AOS from "aos";
 import { useTranslation } from "react-i18next";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -19,15 +18,14 @@ function ContactForm() {
     name: "",
     phone: "",
     email: "",
-    checkIn: "",
-    checkOut: "",
+    checkIn: null,
+    checkOut: null,
     country: "",
   });
 
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [isSending, setIsSending] = useState(false);
-  const [recaptchaValue, setRecaptchaValue] = useState(null);
 
   const { t } = useTranslation();
 
@@ -48,10 +46,6 @@ function ContactForm() {
     setErrorMessage("");
   };
 
-  const handleRecaptchaChange = (value) => {
-    setRecaptchaValue(value);
-  };
-
   const handleReservaClick = async (e) => {
     e.preventDefault();
 
@@ -68,10 +62,7 @@ function ContactForm() {
       !formData.email ||
       !formData.phone ||
       !formData.country ||
-      !formData.people ||
-      !formData.checkIn ||
-      !formData.checkOut ||
-      !recaptchaValue
+      !formData.people
     ) {
       setErrorMessage(t("formMessages.requiredFields"));
       return;
@@ -90,58 +81,26 @@ function ContactForm() {
         checkOut: formData.checkOut.format("DD-MM-YYYY"),
       };
 
-      // Validar y verificar el token de ReCAPTCHA
-      const recaptchaValidationData = {
-        event: {
-          token: recaptchaValue,
-          expectedAction: "USER_ACTION", // Reemplaza con el valor correcto
-          siteKey: "6LfrP2wpAAAAANAReaEDKNH34pWo1oSmU3okFxxC", // Reemplaza con tu clave del sitio de reCAPTCHA
-        },
-      };
-
-      // Hacer la solicitud para validar y verificar el token de ReCAPTCHA
-      const recaptchaValidationResponse = await fetch(
-        "URL_DE_VALIDACION_RECAPTCHA",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(recaptchaValidationData),
-        }
+      const response = await emailjs.send(
+        serviceID,
+        templateID,
+        formattedFormData
       );
 
-      // Obtener la respuesta del servidor
-      const recaptchaValidationResult =
-        await recaptchaValidationResponse.json();
+      if (response.data.success) {
+        setSuccessMessage(response.data.message);
 
-      if (recaptchaValidationResult.success) {
-        // El token de ReCAPTCHA es válido, procede con el envío del formulario
-
-        const response = await emailjs.send(
-          serviceID,
-          templateID,
-          formattedFormData
-        );
-
-        if (response.data.success) {
-          setSuccessMessage(response.data.message);
-
-          // Limpiar mensaje de éxito después de 5 segundos (5000 milisegundos)
-          setTimeout(() => {
-            setSuccessMessage("");
-          }, 5000);
-        } else {
-          setErrorMessage(response.data.message);
-
-          // Limpiar mensaje de error después de 5 segundos (5000 milisegundos)
-          setTimeout(() => {
-            setErrorMessage("");
-          }, 5000);
-        }
+        // Limpiar mensaje de éxito después de 5 segundos (5000 milisegundos)
+        setTimeout(() => {
+          setSuccessMessage("");
+        }, 5000);
       } else {
-        // El token de ReCAPTCHA no es válido, maneja el error según sea necesario
-        setErrorMessage("Error de validación de ReCAPTCHA");
+        setErrorMessage(response.data.message);
+
+        // Limpiar mensaje de error después de 5 segundos (5000 milisegundos)
+        setTimeout(() => {
+          setErrorMessage("");
+        }, 5000);
       }
     } catch (error) {
       console.error(t("formMessages.errorMessage"), error);
@@ -155,6 +114,7 @@ function ContactForm() {
       setIsSending(false);
     }
   };
+
   return (
     <form id="form" onSubmit={handleReservaClick}>
       <Grid container spacing={2} maxWidth={"lg"} className="px-4 xl:px-0">
@@ -290,24 +250,17 @@ function ContactForm() {
             {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
           </Grid>
 
-          <Grid item xs={12}>
-            <ReCAPTCHA
-              sitekey="6LfrP2wpAAAAANAReaEDKNH34pWo1oSmU3okFxxC" // Reemplaza con tu clave del sitio de reCAPTCHA
-              onChange={handleRecaptchaChange}
-            />
-
-            <Button
-              type="submit"
-              id="button"
-              variant="contained"
-              className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6 js-hoverable-element"
-              disabled={isSending || !recaptchaValue}
-            >
-              {isSending
-                ? t("submitButton.sending")
-                : t("submitButton.default")}
-            </Button>
-          </Grid>
+          <Button
+            type="submit"
+            id="button"
+            variant="contained"
+            className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6 js-hoverable-element"
+            disabled={isSending}
+          >
+            {isSending
+              ? t("submitButton.sending")
+              : t("submitButton.default")}
+          </Button>
         </Grid>
 
         <Grid
