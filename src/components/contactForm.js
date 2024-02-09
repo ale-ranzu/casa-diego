@@ -43,13 +43,13 @@ function ContactForm() {
     return emailRegex.test(email);
   };
 
-  const handleRecaptchaChange = (value) => {
-    setRecaptchaValue(value);
-  };
-
   const clearMessages = () => {
     setSuccessMessage("");
     setErrorMessage("");
+  };
+
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value);
   };
 
   const handleReservaClick = async (e) => {
@@ -90,26 +90,58 @@ function ContactForm() {
         checkOut: formData.checkOut.format("DD-MM-YYYY"),
       };
 
-      const response = await emailjs.send(
-        serviceID,
-        templateID,
-        formattedFormData
+      // Validar y verificar el token de ReCAPTCHA
+      const recaptchaValidationData = {
+        event: {
+          token: recaptchaValue,
+          expectedAction: "USER_ACTION", // Reemplaza con el valor correcto
+          siteKey: "6LfrP2wpAAAAANAReaEDKNH34pWo1oSmU3okFxxC", // Reemplaza con tu clave del sitio de reCAPTCHA
+        },
+      };
+
+      // Hacer la solicitud para validar y verificar el token de ReCAPTCHA
+      const recaptchaValidationResponse = await fetch(
+        "URL_DE_VALIDACION_RECAPTCHA",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(recaptchaValidationData),
+        }
       );
 
-      if (response.data.success) {
-        setSuccessMessage(response.data.message);
+      // Obtener la respuesta del servidor
+      const recaptchaValidationResult =
+        await recaptchaValidationResponse.json();
 
-        // Limpiar mensaje de éxito después de 5 segundos (5000 milisegundos)
-        setTimeout(() => {
-          setSuccessMessage("");
-        }, 5000);
+      if (recaptchaValidationResult.success) {
+        // El token de ReCAPTCHA es válido, procede con el envío del formulario
+
+        const response = await emailjs.send(
+          serviceID,
+          templateID,
+          formattedFormData
+        );
+
+        if (response.data.success) {
+          setSuccessMessage(response.data.message);
+
+          // Limpiar mensaje de éxito después de 5 segundos (5000 milisegundos)
+          setTimeout(() => {
+            setSuccessMessage("");
+          }, 5000);
+        } else {
+          setErrorMessage(response.data.message);
+
+          // Limpiar mensaje de error después de 5 segundos (5000 milisegundos)
+          setTimeout(() => {
+            setErrorMessage("");
+          }, 5000);
+        }
       } else {
-        setErrorMessage(response.data.message);
-
-        // Limpiar mensaje de error después de 5 segundos (5000 milisegundos)
-        setTimeout(() => {
-          setErrorMessage("");
-        }, 5000);
+        // El token de ReCAPTCHA no es válido, maneja el error según sea necesario
+        setErrorMessage("Error de validación de ReCAPTCHA");
       }
     } catch (error) {
       console.error(t("formMessages.errorMessage"), error);
@@ -259,17 +291,17 @@ function ContactForm() {
           </Grid>
 
           <Grid item xs={12}>
-         {/*    <ReCAPTCHA
-              sitekey="6LefR2wpAAAAAAGoHclc0vxPX4mfLXeRiDN3n7mg" // Reemplaza con tu clave del sitio de reCAPTCHA
+            <ReCAPTCHA
+              sitekey="6LfrP2wpAAAAANAReaEDKNH34pWo1oSmU3okFxxC" // Reemplaza con tu clave del sitio de reCAPTCHA
               onChange={handleRecaptchaChange}
-            /> */}
+            />
 
             <Button
               type="submit"
               id="button"
               variant="contained"
               className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6 js-hoverable-element"
-              disabled={isSending}
+              disabled={isSending || !recaptchaValue}
             >
               {isSending
                 ? t("submitButton.sending")
