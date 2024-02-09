@@ -55,6 +55,8 @@ import img16 from "./assets/banio.jpg";
 import italiano from "./assets/italia.svg";
 import espaniol from "./assets/espania.svg";
 import ingles from "./assets/ingles.svg";
+import { useTranslation } from "react-i18next";
+import i18n from "./i18n";
 
 function App() {
   useEffect(() => {
@@ -62,39 +64,52 @@ function App() {
   }, []);
 
   const reservarRef = useRef(null);
-  const handleReservaClick = () => {
-    if (reservarRef.current) {
-      reservarRef.current.scrollIntoView({ behavior: "smooth" });
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const navLinks = [
-    { id: "reservar", text: "Reservar", targetId: "reservar" },  
-    { id: "descripcion", text: "Descripción", targetId: "descripcion" },
-    { id: "servicios", text: "Servicios", targetId: "servicios" },
-    { id: "contacto", text: "Contacto", targetId: "contacto" },
+    { id: "reservar", text: "Reservar", targetId: "reservar", onClick: () => scrollToSection("reservar")},
+    { id: "descripcion", text: "Descripción", targetId: "descripcion", onClick: () => scrollToSection("descripcion") },
+    { id: "servicios", text: "Servicios", targetId: "servicios",onClick: () => scrollToSection("servicios") },
+    { id: "contacto", text: "Contacto", targetId: "contacto",onClick: () => scrollToSection("contacto") },
     {
-      id: "italiano",
-      text: "Italiano",
-      targetId: "italiano",
-      type: "language",
-      svg: italiano,
-    },
-    {
-      id: "espaniol",
-      text: "Español",
+      id: "language-es",
       targetId: "espaniol",
+      onClick: () => i18n.changeLanguage("es"),
       type: "language",
-      svg: espaniol,
+      text: "Español",
+      language: "es",
+      svg: espaniol, // Replace with the actual URL of the Spanish flag SVG icon
+      url: "/es", // Replace with the actual URL for the Spanish version of your site
     },
     {
-      id: "english",
-      text: "English",
+      id: "language-en",
       targetId: "english",
+      onClick: () => i18n.changeLanguage("en"),
       type: "language",
-      svg: ingles,
+      text: "English",
+      language: "en",
+      svg: ingles, // Replace with the actual URL of the English flag SVG icon
+      url: "/en", // Replace with the actual URL for the English version of your site
+    },
+    {
+      id: "language-it",
+      targetId: "italiano",
+      onClick: () => i18n.changeLanguage("it"),
+      type: "language",
+      text: "Italiano",
+      language: "it",
+      svg: italiano, // Replace with the actual URL of the English flag SVG icon
+      url: "/it", // Replace with the actual URL for the English version of your site
     },
   ];
+
+  const { t } = useTranslation();
 
   return (
     <div className="App">
@@ -126,7 +141,7 @@ function App() {
             data-aos-delay="200"
             data-aos-easing="ease-in-sine"
           >
-            Reservá tu estadía exclusiva en la mítica casa de Maradona
+            {t("slogan")}
           </Typography>
         </div>
       </div>
@@ -149,7 +164,7 @@ function App() {
               data-aos-easing="ease-in-sine"
               className="js-hoverable-element"
             >
-              Un alojamiento único en el mundo.
+              {t("title1")}
             </Typography>
           </Grid>
           <Grid item xs={12} md={8}>
@@ -160,9 +175,7 @@ function App() {
               data-aos-duration="500"
               data-aos-easing="ease-in-sine"
             >
-              Ahora podés hospedarte en la mítica casa de Maradona y su familia,
-              el hogar que Diego eligió como punto de encuentro con sus
-              familiares y amigos, que cuenta con capacidad para 12 personas.
+              {t("texto1")}
             </Typography>
           </Grid>
         </Grid>
@@ -179,11 +192,11 @@ function App() {
           >
             <DateRangeOutlined className="text-gold !text-[50px] my-6 js-hoverable-element" />
           </Grid>
-          <Marquee ref={reservarRef} texto="Reservá ahora">
+          <Marquee ref={reservarRef} texto={t("reservaAhora")}>
             <Grid container spacing={3} alignItems={"center"}>
               <Grid item xs={12} sm={6} lg={4}>
                 <Typography className="!text-[20px] js-hoverable-element">
-                  Check In
+                  {t("fechaInicio")}
                 </Typography>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePicker className="js-hoverable-element w-full" />
@@ -191,7 +204,7 @@ function App() {
               </Grid>
               <Grid item xs={12} sm={6} lg={4}>
                 <Typography className="!text-[20px] js-hoverable-element ">
-                  Check Out
+                  {t("fechaFin")}
                 </Typography>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePicker className="js-hoverable-element w-full" />
@@ -207,7 +220,7 @@ function App() {
                   variant="contained"
                   className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase js-hoverable-element"
                 >
-                  Buscar
+                  {t("buscar")}
                 </Button>
               </Grid>
             </Grid>
@@ -229,7 +242,7 @@ function App() {
               data-aos-delay="100"
               data-aos-duration="500"
             >
-              Toda la casa para vos y tus amigos
+              {t("titleDescripcion")}
             </Typography>
           </Grid>
           <Grid container justifyContent={"center"} spacing={5}>
@@ -244,7 +257,7 @@ function App() {
               data-aos-delay="100"
               data-aos-duration="500"
             >
-              <Icon name="iconCasa" text="700 m2 cubiertos" />
+              <Icon name="iconCasa" text={t("m2cubiertos")} />
             </Grid>
             <Grid
               item
@@ -256,7 +269,7 @@ function App() {
               data-aos-delay="150"
               data-aos-duration="500"
             >
-              <Icon name="iconJardin" text="500 m2 descubiertos" />
+              <Icon name="iconJardin" text={t("m2descubiertos")} />
             </Grid>
             <Grid
               item
@@ -268,7 +281,7 @@ function App() {
               data-aos-delay="200"
               data-aos-duration="500"
             >
-              <Icon name="iconPisos" text="3 pisos" />
+              <Icon name="iconPisos" text={t("pisos")} />
             </Grid>
             <Grid
               item
@@ -280,7 +293,7 @@ function App() {
               data-aos-delay="250"
               data-aos-duration="500"
             >
-              <Icon name="iconHabitaciones" text="6 habitaciones" />
+              <Icon name="iconHabitaciones" text={t("habitaciones")} />
             </Grid>
             <Grid
               item
@@ -292,7 +305,7 @@ function App() {
               data-aos-delay="300"
               data-aos-duration="500"
             >
-              <Icon name="iconLiving" text="Living" />
+              <Icon name="iconLiving" text={t("living")} />
             </Grid>
 
             <Grid
@@ -306,7 +319,7 @@ function App() {
               data-aos-delay="150"
               data-aos-duration="500"
             >
-              <Icon name="iconComedor" text="Comedor" />
+              <Icon name="iconComedor" text={t("comedor")} />
             </Grid>
             <Grid
               item
@@ -318,7 +331,7 @@ function App() {
               data-aos-delay="200"
               data-aos-duration="500"
             >
-              <Icon name="iconCocina" text="Cocina" />
+              <Icon name="iconCocina" text={t("cocina")} />
             </Grid>
             <Grid
               item
@@ -330,7 +343,7 @@ function App() {
               data-aos-delay="250"
               data-aos-duration="500"
             >
-              <Icon name="iconBanio" text="4 Baños" />
+              <Icon name="iconBanio" text={t("bano")} />
             </Grid>
             <Grid
               item
@@ -342,7 +355,7 @@ function App() {
               data-aos-delay="300"
               data-aos-duration="500"
             >
-              <Icon name="iconCesped" text="Jardín con césped sintético" />
+              <Icon name="iconCesped" text={t("jardin")} />
             </Grid>
             <Grid
               item
@@ -354,7 +367,7 @@ function App() {
               data-aos-delay="350"
               data-aos-duration="500"
             >
-              <Icon name="iconQuincho" text="Quincho" />
+              <Icon name="iconQuincho" text={t("quincho")} />
             </Grid>
 
             <Grid
@@ -368,7 +381,7 @@ function App() {
               data-aos-delay="200"
               data-aos-duration="500"
             >
-              <Icon name="iconParrilla" text="Parrilla" />
+              <Icon name="iconParrilla" text={t("parrilla")} />
             </Grid>
             <Grid
               item
@@ -380,7 +393,7 @@ function App() {
               data-aos-delay="250"
               data-aos-duration="500"
             >
-              <Icon name="iconPileta" text="Pileta climatizada" />
+              <Icon name="iconPileta" text={t("pileta")} />
             </Grid>
             <Grid
               item
@@ -392,7 +405,7 @@ function App() {
               data-aos-delay="300"
               data-aos-duration="500"
             >
-              <Icon name="iconCapacidad" text="Capacidad para 10-15 personas" />
+              <Icon name="iconCapacidad" text={t("capacidad")} />
             </Grid>
             <Grid
               item
@@ -404,7 +417,7 @@ function App() {
               data-aos-delay="350"
               data-aos-duration="500"
             >
-              <Icon name="iconMobiliario" text="Mobiliario original" />
+              <Icon name="iconMobiliario" text={t("mobiliario")} />
             </Grid>
             <Grid
               item
@@ -416,7 +429,7 @@ function App() {
               data-aos-delay="400"
               data-aos-duration="500"
             >
-              <Icon name="iconCopa" text="Recuerdos únicos de los Maradona" />
+              <Icon name="iconCopa" text={t("recuerdos")} />
             </Grid>
           </Grid>
         </Grid>
@@ -438,7 +451,7 @@ function App() {
               data-aos-duration="500"
               className="!mb-[1rem] js-hoverable-element"
             >
-              Un patrimonio histórico de Argentina
+              {t("title2")}
             </Typography>
             <Typography
               data-aos="zoom-in"
@@ -446,14 +459,7 @@ function App() {
               data-aos-duration="500"
               className="js-hoverable-element"
             >
-              En 1981, Diego es transferido de Argentinos Juniors a Boca Juniors
-              y cumple el sueño de regalarle una casa a sus padres. Se
-              transformó en el hogar de la familia donde vivió con Don Diego,
-              Doña Tota y sus hermanos. Hoy, tras quedar a un paso de ser
-              demolida, la casa fue recuperada y renovada manteniendo su
-              espíritu y estructura original y está lista para recibir a
-              fanáticos de todo el mundo que quieran venir a hospedarse en su
-              casa y vivir una experiencia única.
+              {t("texto2")}
             </Typography>
           </Grid>
           <Grid item xs={12} md={5}>
@@ -495,7 +501,7 @@ function App() {
               data-aos-duration="500"
               className="!mb-[1rem] js-hoverable-element"
             >
-              Hospedate en Casa Diego en forma privada y exclusiva
+              {t("title3")}
             </Typography>
             <Typography
               data-aos="zoom-in"
@@ -503,18 +509,19 @@ function App() {
               data-aos-duration="500"
               className="js-hoverable-element"
             >
-              Entrá, cerrá la puerta y disfrutá con total privacidad. <br></br>
-              La vivienda se reserva completa, con capacidad para hasta 12
-              huéspedes y con un servicio exclusivo.
+              {t("texto3")}
             </Typography>
           </Grid>
         </Grid>
 
-         {/* galería de imagenes  1*/}
+        {/* galería de imagenes  1*/}
         <GaleriaImg images={[img9, img15, img16, img14, img10, img6]} />
 
         {/* <!-- SERVICIOS --> */}
-        <div className="bg-village w-full flex justify-center py-24" id="servicios">
+        <div
+          className="bg-village w-full flex justify-center py-24"
+          id="servicios"
+        >
           <Grid
             container
             maxWidth={"xl"}
@@ -530,7 +537,7 @@ function App() {
                 data-aos-delay="100"
                 data-aos-duration="500"
               >
-                Servicios
+                {t("servicios")}
               </Typography>
             </Grid>
             <Grid item xs={12} sm={6} lg={5}>
@@ -545,53 +552,53 @@ function App() {
                   <List className="js-hoverable-element">
                     <ListItem>
                       <ListItemText
-                        primary="Incluídos"
+                        primary={t("incluidos")}
                         className="!text-[25px] md:!text-[28px] !font-bold"
                       />
                     </ListItem>
                     <ListItem>
                       <AirportShuttleTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                      <ListItemText secondary="Traslado desde el aeropuerto" />
+                      <ListItemText secondary={t("trasladoAeropuerto")} />
                     </ListItem>
                     <Divider component="li" className="!my-2" />
                     <ListItem>
                       <RoomServiceTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                      <ListItemText secondary="Conserjería las 24 horas" />
+                      <ListItemText secondary={t("conserge")} />
                     </ListItem>
                     <Divider component="li" className="!my-2" />
                     <ListItem>
                       <SafetyCheckTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                      <ListItemText secondary="Seguridad 24 horas" />
+                      <ListItemText secondary={t("seguridad")} />
                     </ListItem>
                     <Divider component="li" className="!my-2" />
                     <ListItem>
                       <SettingsRemoteTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                      <ListItemText secondary="Internet de alta velocidad" />
+                      <ListItemText secondary={t("wifi")} />
                     </ListItem>
                     <Divider component="li" className="!my-2" />
                     <ListItem>
                       <LocalBarTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                      <ListItemText secondary="Bar" />
+                      <ListItemText secondary={t("bar")} />
                     </ListItem>
                     <Divider component="li" className="!my-2" />
                     <ListItem>
                       <Restaurant className="mr-3 text-gold !w-[1.7rem]" />
-                      <ListItemText secondary="Asado" />
+                      <ListItemText secondary={t("asado")} />
                     </ListItem>
                     <Divider component="li" className="!my-2" />
                     <ListItem>
                       <CleaningServicesTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                      <ListItemText secondary="Limpieza" />
+                      <ListItemText secondary={t("limpieza")} />
                     </ListItem>
                     <Divider component="li" className="!my-2" />
                     <ListItem>
                       <DryCleaningTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                      <ListItemText secondary="Ropa blanca" />
+                      <ListItemText secondary={t("ropablanca")} />
                     </ListItem>
                     <Divider component="li" className="!my-2" />
                     <ListItem>
                       <DirectionsCarFilledTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                      <ListItemText secondary="Estacionamiento" />
+                      <ListItemText secondary={t("estacionamiento")} />
                     </ListItem>
                   </List>
                 </div>
@@ -609,33 +616,33 @@ function App() {
                   <List className="js-hoverable-element">
                     <ListItem>
                       <ListItemText
-                        primary="Adicionales"
+                        primary={t("adicionales")}
                         className="!text-[25px] md:!text-[28px] !font-bold"
                       />
                     </ListItem>
                     <ListItem>
                       <AirportShuttleTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                      <ListItemText secondary="Traslados" />
+                      <ListItemText secondary={t("traslados")} />
                     </ListItem>
                     <Divider component="li" className="!my-2" />
                     <ListItem>
                       <TourTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                      <ListItemText secondary="Visitas Guiadas" />
+                      <ListItemText secondary={t("guiaTuristica")} />
                     </ListItem>
                     <Divider component="li" className="!my-2" />
                     <ListItem>
                       <StadiumTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                      <ListItemText secondary="Asistencia a Estadios" />
+                      <ListItemText secondary={t("estadios")} />
                     </ListItem>
                     <Divider component="li" className="!my-2" />
                     <ListItem>
                       <LunchDiningTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                      <ListItemText secondary="Experiencias Gastronómicas" />
+                      <ListItemText secondary={t("gastro")} />
                     </ListItem>
                     <Divider component="li" className="!my-2" />
                     <ListItem>
                       <TheaterComedyTwoToneIcon className="mr-3 text-gold !w-[1.7rem]" />
-                      <ListItemText secondary="Tours" />
+                      <ListItemText secondary={t("tours")} />
                     </ListItem>
                   </List>
                 </div>
@@ -643,7 +650,7 @@ function App() {
             </Grid>
           </Grid>
         </div>
-       
+
         {/*  LLAMADA A LA ACCIÓN   */}
         {/*  <div className="bg-action mix-blend-multiply w-full mb-12">
           <div className="w-full pt-64 pb-16 bg-black bg-opacity-10 flex flex-col justify-center items-center">
@@ -682,7 +689,7 @@ function App() {
               data-aos-duration="500"
               className="!mb-[1rem] js-hoverable-element md:text-center"
             >
-              Contactanos
+              {t("contactanos")}
             </Typography>
             <Typography
               data-aos="zoom-in"
@@ -690,16 +697,14 @@ function App() {
               data-aos-duration="500"
               className="js-hoverable-element pb-8"
             >
-              Cualquier consulta que tengas, no dudes en escribirnos,
-              responderemos a la brevedad.
+              {t("textoContacto")}
             </Typography>
           </Grid>
           <ContactForm />
         </Grid>
 
         {/* galería de imagenes  2*/}
-        <GaleriaImg images={[img2, img3, img4, img5, img13, img1]}/>
-        
+        <GaleriaImg images={[img2, img3, img4, img5, img13, img1]} />
       </main>
       <FooterDiego />
     </div>

@@ -5,6 +5,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import ReCAPTCHA from "react-google-recaptcha";
 import AOS from "aos";
+import { useTranslation } from "react-i18next";
 
 function ContactForm() {
   useEffect(() => {
@@ -23,6 +24,8 @@ function ContactForm() {
   const [isSending, setIsSending] = useState(false);
   const [recaptchaValue, setRecaptchaValue] = useState(null);
 
+  const { t } = useTranslation();
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -39,21 +42,29 @@ function ContactForm() {
     setRecaptchaValue(value);
   };
 
+  const clearMessages = () => {
+    setSuccessMessage("");
+    setErrorMessage("");
+  };
+
   const handleReservaClick = async (e) => {
     e.preventDefault();
 
     // Limpiar mensajes de error al interactuar con el formulario nuevamente
-    setErrorMessage("");
+    clearMessages();
 
     if (!isEmailValid(formData.email)) {
-      setErrorMessage(
-        "Por favor, ingresa una dirección de correo electrónico válida."
-      );
+      setErrorMessage(t("formMessages.emailValidation"));
       return;
     }
 
-    if (!formData.name || !formData.email || !formData.message || !recaptchaValue) {
-      setErrorMessage("Por favor, completa todos los campos obligatorios y verifica que no eres un robot.");
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.message ||
+      !recaptchaValue
+    ) {
+      setErrorMessage(t("formMessages.requiredFields"));
       return;
     }
 
@@ -63,37 +74,26 @@ function ContactForm() {
       const serviceID = "casadiego_contactform";
       const templateID = "casa_diego";
 
-      await emailjs.sendForm(serviceID, templateID, e.target).then(
-        () => {
-          setSuccessMessage(
-            "Hemos recibido tu consulta, en breve nos contactaremos contigo."
-          );
-          setFormData({
-            name: "",
-            phone: "",
-            email: "",
-            message: "",
-          });
+      const response = await emailjs.sendForm(serviceID, templateID, e.target);
 
-          // Limpiar mensaje de éxito después de 5 segundos (5000 milisegundos)
-          setTimeout(() => {
-            setSuccessMessage("");
-          }, 5000);
-        },
-        (err) => {
-          setErrorMessage(JSON.stringify(err));
+      if (response.data.success) {
+        setSuccessMessage(response.data.message);
 
-          // Limpiar mensaje de error después de 5 segundos (5000 milisegundos)
-          setTimeout(() => {
-            setErrorMessage("");
-          }, 5000);
-        }
-      );
+        // Limpiar mensaje de éxito después de 5 segundos (5000 milisegundos)
+        setTimeout(() => {
+          setSuccessMessage("");
+        }, 5000);
+      } else {
+        setErrorMessage(response.data.message);
+
+        // Limpiar mensaje de error después de 5 segundos (5000 milisegundos)
+        setTimeout(() => {
+          setErrorMessage("");
+        }, 5000);
+      }
     } catch (error) {
-      console.error("Error al enviar el formulario:", error);
-      setErrorMessage(
-        "Hubo un error al enviar el formulario. Por favor, inténtalo nuevamente."
-      );
+      console.error(t("formMessages.errorMessage"), error);
+      setErrorMessage(t("formMessages.errorMessage"));
 
       // Limpiar mensaje de error después de 5 segundos (5000 milisegundos)
       setTimeout(() => {
@@ -103,7 +103,6 @@ function ContactForm() {
       setIsSending(false);
     }
   };
-
   return (
     <form id="form" onSubmit={handleReservaClick}>
       <Grid container spacing={2} maxWidth={"lg"} className="px-4 xl:px-0">
@@ -118,7 +117,7 @@ function ContactForm() {
         >
           <Grid item xs={12}>
             <TextField
-              label="Nombre y Apellido *"
+              label={t("formLabels.name")}
               variant="standard"
               fullWidth
               name="name"
@@ -133,7 +132,7 @@ function ContactForm() {
           </Grid>
           <Grid item xs={12}>
             <TextField
-              label="Teléfono *"
+              label={t("formLabels.phone")}
               variant="standard"
               fullWidth
               name="phone"
@@ -149,7 +148,7 @@ function ContactForm() {
           </Grid>
           <Grid item xs={12}>
             <TextField
-              label="Email *"
+              label={t("formLabels.email")}
               variant="standard"
               fullWidth
               name="email"
@@ -165,7 +164,7 @@ function ContactForm() {
           </Grid>
           <Grid item xs={12}>
             <TextField
-              label="Mensaje *"
+              label={t("formLabels.message")}
               variant="standard"
               fullWidth
               name="message"
@@ -192,15 +191,17 @@ function ContactForm() {
               sitekey="6LefR2wpAAAAAAGoHclc0vxPX4mfLXeRiDN3n7mg" // Reemplaza con tu clave del sitio de reCAPTCHA
               onChange={handleRecaptchaChange}
             />
-            
+
             <Button
               type="submit"
               id="button"
               variant="contained"
-              className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6 js-hoverable-element"              
+              className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6 js-hoverable-element"
               disabled={isSending}
             >
-              {isSending ? "Enviando..." : "Envíanos tu consulta"}
+              {isSending
+                ? t("submitButton.sending")
+                : t("submitButton.default")}
             </Button>
           </Grid>
         </Grid>
@@ -221,6 +222,7 @@ function ContactForm() {
             allowfullscreen="true"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
+            title="google mmap"
           ></iframe>
         </Grid>
       </Grid>
