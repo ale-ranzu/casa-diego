@@ -86,8 +86,8 @@ function ContactForm() {
       // Formatear fechas antes de enviar
       const formattedFormData = {
         ...formData,
-        checkIn: formData.checkIn.format("YYYY-MM-DD"),
-        checkOut: formData.checkOut.format("YYYY-MM-DD"),
+        checkIn: formData.checkIn.format("DD-MM-YYYY"),
+        checkOut: formData.checkOut.format("DD-MM-YYYY"),
       };
 
       const response = await emailjs.send(
@@ -259,10 +259,10 @@ function ContactForm() {
           </Grid>
 
           <Grid item xs={12}>
-            <ReCAPTCHA
+         {/*    <ReCAPTCHA
               sitekey="6LefR2wpAAAAAAGoHclc0vxPX4mfLXeRiDN3n7mg" // Reemplaza con tu clave del sitio de reCAPTCHA
               onChange={handleRecaptchaChange}
-            />
+            /> */}
 
             <Button
               type="submit"
