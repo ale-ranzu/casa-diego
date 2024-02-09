@@ -1,5 +1,6 @@
 {
   "reservar": "Rizerva",
+  "cotizar": "Citazione",
   "descripcion": "Descrizione",
   "servicios": "Servici",
   "contacto": "Contatto",
@@ -11,8 +12,8 @@
   "texto1": "Ora potete soggiornare nella mitica casa di Maradona e della sua famiglia, la casa che Diego scelse come punto d'incontro con la sua famiglia e i suoi amici, che ha una capacità di 12 persone.",
   "reservaAhora": "Richiedi un preventivo",
   "buscar": "Cercare",
-  "fechaInicio": "Arrivo",
-  "fechaFin": "Uscita",
+  "fechaInicio": "Arrivo *",
+  "fechaFin": "Uscita *",
   "personas": "Persone",
   "titleDescripcion": "L'intera casa per voi e i vostri amici",
   "m2cubiertos": "700 m2 coperti",

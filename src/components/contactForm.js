@@ -68,6 +68,8 @@ function ContactForm() {
       !formData.email ||
       !formData.country ||
       !formData.people ||
+      !formData.checkIn ||
+      !formData.checkOut ||
       !recaptchaValue
     ) {
       setErrorMessage(t("formMessages.requiredFields"));
@@ -78,7 +80,7 @@ function ContactForm() {
 
     try {
       const serviceID = "casadiego_contactform";
-      const templateID = "casa_diego";
+      const templateID = "cotizacion";
 
       const response = await emailjs.sendForm(serviceID, templateID, e.target);
 
@@ -183,20 +185,42 @@ function ContactForm() {
               data-aos-duration="500"
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            data-aos="zoom-in"
+            data-aos-delay="250"
+            data-aos-duration="500"
+          >
             <Typography className="!text-[20px] js-hoverable-element">
               {t("fechaInicio")}
             </Typography>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker className="js-hoverable-element w-11/12" name="checkIn"/>
+              <DatePicker
+                className="js-hoverable-element w-11/12"
+                name="checkIn"
+                value={formData.checkIn}
+              />
             </LocalizationProvider>
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            data-aos="zoom-in"
+            data-aos-delay="250"
+            data-aos-duration="500"
+          >
             <Typography className="!text-[20px] js-hoverable-element ">
               {t("fechaFin")}
             </Typography>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker className="js-hoverable-element w-11/12" name="checkOut"/>
+              <DatePicker
+                className="js-hoverable-element w-11/12"
+                name="checkOut"
+                value={formData.checkOut}
+              />
             </LocalizationProvider>
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -212,7 +236,7 @@ function ContactForm() {
               className="bg-white bg-opacity-20 js-hoverable-element"
               data-aos="zoom-in"
               data-aos-delay="250"
-              data-aos-duration="500"              
+              data-aos-duration="500"
             />
           </Grid>
           <Grid item xs={12} className="text-center">

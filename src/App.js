@@ -65,22 +65,24 @@ function App() {
     }
   };
 
+  const { t } = useTranslation();
+
   const navLinks = [
     {
       id: "cotizar",
-      text: "Cotizar",
+      text: (t("cotizar")),
       targetId: "cotizar",
       onClick: () => scrollToSection("cotizar"),
     },
     {
       id: "descripcion",
-      text: "Descripción",
+      text: (t("descripcion")),
       targetId: "descripcion",
       onClick: () => scrollToSection("descripcion"),
     },
     {
       id: "servicios",
-      text: "Servicios",
+      text: (t("servicios")),
       targetId: "servicios",
       onClick: () => scrollToSection("servicios"),
     },
@@ -89,7 +91,7 @@ function App() {
       targetId: "espaniol",
       onClick: () => i18n.changeLanguage("es"),
       type: "language",
-      text: "Español",
+      text: (t("espanol")),
       language: "es",
       svg: espaniol, // Replace with the actual URL of the Spanish flag SVG icon
       url: "/es", // Replace with the actual URL for the Spanish version of your site
@@ -99,7 +101,7 @@ function App() {
       targetId: "english",
       onClick: () => i18n.changeLanguage("en"),
       type: "language",
-      text: "English",
+      text: (t("ingles")),
       language: "en",
       svg: ingles, // Replace with the actual URL of the English flag SVG icon
       url: "/en", // Replace with the actual URL for the English version of your site
@@ -109,14 +111,13 @@ function App() {
       targetId: "italiano",
       onClick: () => i18n.changeLanguage("it"),
       type: "language",
-      text: "Italiano",
+      text: (t("italiano")),
       language: "it",
       svg: italiano, // Replace with the actual URL of the English flag SVG icon
       url: "/it", // Replace with the actual URL for the English version of your site
     },
   ];
-
-  const { t } = useTranslation();
+ 
 
   return (
     <div className="App">
