@@ -83,16 +83,18 @@ function ContactForm() {
       const serviceID = "casadiego_contactform";
       const templateID = "cotizacion";
 
-      const response = await emailjs.sendForm(serviceID, templateID, {
-        ...e.target,
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        checkIn: formData.checkIn,
-        checkOut: formData.checkOut,
-        country: formData.country,
-        people: formData.people,
-      });
+      // Formatear fechas antes de enviar
+      const formattedFormData = {
+        ...formData,
+        checkIn: formData.checkIn.format("YYYY-MM-DD"),
+        checkOut: formData.checkOut.format("YYYY-MM-DD"),
+      };
+
+      const response = await emailjs.send(
+        serviceID,
+        templateID,
+        formattedFormData
+      );
 
       if (response.data.success) {
         setSuccessMessage(response.data.message);
