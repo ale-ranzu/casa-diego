@@ -54,8 +54,6 @@ function ContactForm() {
 
   const handleReservaClick = async (e) => {
     e.preventDefault();
-
-    // Limpiar mensajes de error al interactuar con el formulario nuevamente
     clearMessages();
 
     if (!isEmailValid(formData.email)) {
@@ -69,8 +67,7 @@ function ContactForm() {
       !formData.country ||
       !formData.people ||
       !formData.checkIn ||
-      !formData.checkOut ||
-      !recaptchaValue
+      !formData.checkOut
     ) {
       setErrorMessage(t("formMessages.requiredFields"));
       return;
@@ -82,17 +79,36 @@ function ContactForm() {
       const serviceID = "casadiego_contactform";
       const templateID = "cotizacion";
 
-      const response = await emailjs.sendForm(serviceID, templateID, e.target);
+      // Enviar la solicitud a EmailJS
+      const response = await emailjs.sendForm(
+        serviceID,
+        templateID
+      );
 
-      if (response.data.success) {
-        setSuccessMessage(response.data.message);
+      // Verificar si la respuesta tiene el formato esperado
+      if (response && response.status === 200) {
+        const responseData = response.data || {};
 
-        // Limpiar mensaje de éxito después de 5 segundos (5000 milisegundos)
-        setTimeout(() => {
-          setSuccessMessage("");
-        }, 5000);
+        if (responseData.success) {
+          setSuccessMessage(responseData.message);
+
+          // Limpiar mensaje de éxito después de 5 segundos (5000 milisegundos)
+          setTimeout(() => {
+            setSuccessMessage("");
+          }, 5000);
+        } else {
+          setErrorMessage(
+            responseData.message || t("formMessages.errorMessage")
+          );
+
+          // Limpiar mensaje de error después de 5 segundos (5000 milisegundos)
+          setTimeout(() => {
+            setErrorMessage("");
+          }, 5000);
+        }
       } else {
-        setErrorMessage(response.data.message);
+        // Manejar errores de solicitud
+        setErrorMessage(t("formMessages.errorMessage"));
 
         // Limpiar mensaje de error después de 5 segundos (5000 milisegundos)
         setTimeout(() => {
@@ -129,6 +145,7 @@ function ContactForm() {
               variant="standard"
               fullWidth
               name="name"
+              id="name"
               value={formData.name}
               onChange={handleChange}
               size="small"
@@ -144,6 +161,7 @@ function ContactForm() {
               variant="standard"
               fullWidth
               name="phone"
+              id="phone"
               type="number"
               value={formData.phone}
               onChange={handleChange}
@@ -160,6 +178,7 @@ function ContactForm() {
               variant="standard"
               fullWidth
               name="email"
+              id="email"
               type="email"
               value={formData.email}
               onChange={handleChange}
@@ -176,6 +195,7 @@ function ContactForm() {
               variant="standard"
               fullWidth
               name="country"
+              id="country"
               value={formData.country}
               onChange={handleChange}
               size="small"
@@ -196,13 +216,14 @@ function ContactForm() {
             <Typography className="!text-[20px] js-hoverable-element">
               {t("fechaInicio")}
             </Typography>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker
-                className="js-hoverable-element w-11/12"
-                name="checkIn"
-                value={formData.checkIn}
-              />
-            </LocalizationProvider>
+            <TextField
+              className="js-hoverable-element w-11/12"
+              name="checkIn"
+              id="checkIn"
+              type="date" // Cambiado a un campo de entrada de fecha
+              value={formData.checkIn}
+              onChange={handleChange}
+            />
           </Grid>
           <Grid
             item
@@ -215,13 +236,14 @@ function ContactForm() {
             <Typography className="!text-[20px] js-hoverable-element ">
               {t("fechaFin")}
             </Typography>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker
-                className="js-hoverable-element w-11/12"
-                name="checkOut"
-                value={formData.checkOut}
-              />
-            </LocalizationProvider>
+            <TextField
+              className="js-hoverable-element w-11/12"
+              name="checkOut"
+              id="checkOut"
+              type="date" // Cambiado a un campo de entrada de fecha
+              value={formData.checkOut}
+              onChange={handleChange}
+            />
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
@@ -229,6 +251,7 @@ function ContactForm() {
               variant="standard"
               fullWidth
               name="people"
+              id="people"
               type="number"
               value={formData.people}
               onChange={handleChange}
@@ -246,24 +269,15 @@ function ContactForm() {
             {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
           </Grid>
 
-          <Grid item xs={12}>
-            <ReCAPTCHA
-              sitekey="6LefR2wpAAAAAAGoHclc0vxPX4mfLXeRiDN3n7mg" // Reemplaza con tu clave del sitio de reCAPTCHA
-              onChange={handleRecaptchaChange}
-            />
-
-            <Button
-              type="submit"
-              id="button"
-              variant="contained"
-              className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6 js-hoverable-element"
-              disabled={isSending}
-            >
-              {isSending
-                ? t("submitButton.sending")
-                : t("submitButton.default")}
-            </Button>
-          </Grid>
+          <Button
+            type="submit"
+            id="button"
+            variant="contained"
+            className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6 js-hoverable-element"
+            disabled={isSending}
+          >
+            {isSending ? t("submitButton.sending") : t("submitButton.default")}
+          </Button>
         </Grid>
 
         <Grid
