@@ -5,14 +5,14 @@ import { TextField, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import AOS from "aos";
 import { useTranslation } from "react-i18next";
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 
 function ContactForm() {
   useEffect(() => {
     AOS.init();
   }, []);
 
-  const [recaptchaValue, setRecaptchaValue] = useState(null);
+  // const [recaptchaValue, setRecaptchaValue] = useState(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -51,10 +51,10 @@ function ContactForm() {
     e.preventDefault();
     clearMessages();
 
-    if (!recaptchaValue) {
+   /*  if (!recaptchaValue) {
       setErrorMessage("Por favor, demuestra que no eres un robot.");
       return;
-    }
+    } */
 
     if (!isEmailValid(formData.email)) {
       setErrorMessage(t("formMessages.emailValidation"));
@@ -109,7 +109,7 @@ function ContactForm() {
       });
   };
 
-  const recaptchaKey = "6LefR2wpAAAAAAGoHclc0vxPX4mfLXeRiDN3n7mg";
+  // const recaptchaKey = "6LefR2wpAAAAAAGoHclc0vxPX4mfLXeRiDN3n7mg";
 
   return (
     <form id="form" onSubmit={handleSubmit}>
@@ -258,12 +258,12 @@ function ContactForm() {
               </Typography>
             )}
           </Grid>
-          <Grid item xs={12}>
+          {/* <Grid item xs={12}>
             <ReCAPTCHA
               sitekey={recaptchaKey}
               onChange={(value) => setRecaptchaValue(value)}
             />
-          </Grid>
+          </Grid> */}
           <Button
             type="submit"
             id="button"
