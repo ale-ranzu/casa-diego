@@ -53,6 +53,7 @@
   "tours": "City tours",
   "contactanos": "Contact Us",
   "textoContacto": "Send us your quote request, and we will respond as soon as possible.",
+  "phoneNumber": "You should indicate your country and city code, for example +54 11 12345678.",
   "formLabels": {
     "name": "Name and Last Name *",
     "phone": "Phone Number *",

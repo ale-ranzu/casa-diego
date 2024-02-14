@@ -53,6 +53,7 @@
   "tours": "Tour della città",
   "contactanos": "Contatti e informazioni",
   "textoContacto": "Inviaci la tua richiesta di preventivo, ti risponderemo il prima possibile.",
+  "phoneNumber": "Dovresti indicare il tuo codice di paese e città, ad esempio +54 11 12345678.",
   "formLabels": {
     "name": "Nome e cognome *",
     "phone": "Telefono *",

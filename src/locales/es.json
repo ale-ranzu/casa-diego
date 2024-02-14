@@ -53,6 +53,7 @@
   "tours": "Tours",
   "contactanos": "Contactanos",
   "textoContacto": "Envianos tu solicitud de cotización, y te responderemos a la brevedad.",
+  "phoneNumber": "Debes indicar tu código de país y de ciudad, por ejemplo +54 11 12345678",
   "formLabels": {
     "name": "Nombre y Apellido *",
     "phone": "Teléfono *",

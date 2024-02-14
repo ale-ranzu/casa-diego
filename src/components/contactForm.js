@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import emailjs from "emailjs-com";
-import Grid from "@mui/material/Grid";
-import { TextField, Typography } from "@mui/material";
-import Button from "@mui/material/Button";
+import { TextField, Typography, Grid, Button } from "@mui/material";
 import AOS from "aos";
 import { useTranslation } from "react-i18next";
 // import ReCAPTCHA from "react-google-recaptcha";
@@ -51,7 +49,7 @@ function ContactForm() {
     e.preventDefault();
     clearMessages();
 
-   /*  if (!recaptchaValue) {
+    /*  if (!recaptchaValue) {
       setErrorMessage("Por favor, demuestra que no eres un robot.");
       return;
     } */
@@ -146,7 +144,7 @@ function ContactForm() {
               fullWidth
               name="phone"
               id="phone"
-              type="number"
+              type="tel"
               value={formData.phone}
               onChange={handleChange}
               size="small"
@@ -155,6 +153,7 @@ function ContactForm() {
               data-aos-delay="150"
               data-aos-duration="500"
             />
+            <Typography className="!text-[14px]">{t("phoneNumber")}</Typography>
           </Grid>
           <Grid item xs={12}>
             <TextField
