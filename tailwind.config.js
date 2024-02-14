@@ -12,6 +12,8 @@ module.exports = {
         white: '#ffffff',
         gold: '#8a7256',
         village: '#dadbd5',
+        error: '#FF5733',
+        success: '#1CAF7E',
       },
       fontFamily: {
         'sans': ['DM Sans', 'ui-sans-serif', 'system-ui'],

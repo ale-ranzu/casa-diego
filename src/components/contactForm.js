@@ -3,12 +3,9 @@ import emailjs from "emailjs-com";
 import Grid from "@mui/material/Grid";
 import { TextField, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
-import ReCAPTCHA from "react-google-recaptcha";
 import AOS from "aos";
 import { useTranslation } from "react-i18next";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import ReCAPTCHA from "react-google-recaptcha";
 
 function ContactForm() {
   useEffect(() => {
@@ -22,6 +19,7 @@ function ContactForm() {
     checkIn: "",
     checkOut: "",
     country: "",
+    people: "",
   });
 
   const [successMessage, setSuccessMessage] = useState("");
@@ -43,18 +41,19 @@ function ContactForm() {
     return emailRegex.test(email);
   };
 
-  const handleRecaptchaChange = (value) => {
-    setRecaptchaValue(value);
-  };
-
   const clearMessages = () => {
     setSuccessMessage("");
     setErrorMessage("");
   };
 
-  const handleReservaClick = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     clearMessages();
+
+    if (!recaptchaValue) {
+      setErrorMessage("Por favor, demuestra que no eres un robot.");
+      return;
+    }
 
     if (!isEmailValid(formData.email)) {
       setErrorMessage(t("formMessages.emailValidation"));
@@ -75,60 +74,43 @@ function ContactForm() {
 
     setIsSending(true);
 
-    try {
-      const serviceID = "casadiego_contactform";
-      const templateID = "cotizacion";
+    const serviceID = "smtp_diego"; // Reemplaza con tu Service ID
+    const templateID = "template_08r91ry";
+    const userID = "LkhVpv6EeTnkdyXPE";
 
-      // Enviar la solicitud a EmailJS
-      const response = await emailjs.sendForm(
-        serviceID,
-        templateID
-      );
+    emailjs
+      .send(serviceID, templateID, formData, userID)
+      .then((response) => {
+        if (response && response.status === 200) {
+          setSuccessMessage(t("formMessages.successMessage"));
 
-      // Verificar si la respuesta tiene el formato esperado
-      if (response && response.status === 200) {
-        const responseData = response.data || {};
-
-        if (responseData.success) {
-          setSuccessMessage(responseData.message);
-
-          // Limpiar mensaje de éxito después de 5 segundos (5000 milisegundos)
           setTimeout(() => {
             setSuccessMessage("");
           }, 5000);
         } else {
-          setErrorMessage(
-            responseData.message || t("formMessages.errorMessage")
-          );
+          setErrorMessage(response.text || t("formMessages.errorMessage"));
 
-          // Limpiar mensaje de error después de 5 segundos (5000 milisegundos)
           setTimeout(() => {
             setErrorMessage("");
           }, 5000);
         }
-      } else {
-        // Manejar errores de solicitud
+      })
+      .catch((error) => {
         setErrorMessage(t("formMessages.errorMessage"));
 
-        // Limpiar mensaje de error después de 5 segundos (5000 milisegundos)
         setTimeout(() => {
           setErrorMessage("");
         }, 5000);
-      }
-    } catch (error) {
-      console.error(t("formMessages.errorMessage"), error);
-      setErrorMessage(t("formMessages.errorMessage"));
-
-      // Limpiar mensaje de error después de 5 segundos (5000 milisegundos)
-      setTimeout(() => {
-        setErrorMessage("");
-      }, 5000);
-    } finally {
-      setIsSending(false);
-    }
+      })
+      .finally(() => {
+        setIsSending(false);
+      });
   };
+
+  const recaptchaKey = "6LefR2wpAAAAAAGoHclc0vxPX4mfLXeRiDN3n7mg";
+
   return (
-    <form id="form" onSubmit={handleReservaClick}>
+    <form id="form" onSubmit={handleSubmit}>
       <Grid container spacing={2} maxWidth={"lg"} className="px-4 xl:px-0">
         <Grid
           item
@@ -262,13 +244,24 @@ function ContactForm() {
               data-aos-duration="500"
             />
           </Grid>
-          <Grid item xs={12} className="text-center">
+          <Grid item xs={12}>
             {successMessage && (
-              <p style={{ color: "green" }}>{successMessage}</p>
+              <Typography className="text-success !text-[16px]">
+                {successMessage}
+              </Typography>
             )}
-            {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+            {errorMessage && (
+              <Typography className="text-error !text-[16px]">
+                {errorMessage}
+              </Typography>
+            )}
           </Grid>
-
+          <Grid item xs={12}>
+            <ReCAPTCHA
+              sitekey={recaptchaKey}
+              onChange={(value) => setRecaptchaValue(value)}
+            />
+          </Grid>
           <Button
             type="submit"
             id="button"
