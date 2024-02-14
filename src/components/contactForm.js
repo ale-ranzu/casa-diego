@@ -5,14 +5,14 @@ import { TextField, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import AOS from "aos";
 import { useTranslation } from "react-i18next";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import ReCAPTCHA from "react-google-recaptcha";
 
 function ContactForm() {
   useEffect(() => {
     AOS.init();
   }, []);
+
+  const [recaptchaValue, setRecaptchaValue] = useState(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -21,6 +21,7 @@ function ContactForm() {
     checkIn: null,
     checkOut: null,
     country: "",
+    people: "",
   });
 
   const [successMessage, setSuccessMessage] = useState("");
@@ -46,11 +47,14 @@ function ContactForm() {
     setErrorMessage("");
   };
 
-  const handleReservaClick = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Limpiar mensajes de error al interactuar con el formulario nuevamente
     clearMessages();
+
+    if (!recaptchaValue) {
+      setErrorMessage("Por favor, demuestra que no eres un robot.");
+      return;
+    }
 
     if (!isEmailValid(formData.email)) {
       setErrorMessage(t("formMessages.emailValidation"));
@@ -62,7 +66,9 @@ function ContactForm() {
       !formData.email ||
       !formData.phone ||
       !formData.country ||
-      !formData.people
+      !formData.people ||
+      !formData.checkIn ||
+      !formData.checkOut
     ) {
       setErrorMessage(t("formMessages.requiredFields"));
       return;
@@ -70,53 +76,43 @@ function ContactForm() {
 
     setIsSending(true);
 
-    try {
-      const serviceID = "casadiego_contactform";
-      const templateID = "cotizacion";
+    const serviceID = "smtp_diego"; // Reemplaza con tu Service ID
+    const templateID = "template_08r91ry";
+    const userID = "LkhVpv6EeTnkdyXPE";
 
-      // Formatear fechas antes de enviar
-      const formattedFormData = {
-        ...formData,
-        checkIn: formData.checkIn.format("DD-MM-YYYY"),
-        checkOut: formData.checkOut.format("DD-MM-YYYY"),
-      };
+    emailjs
+      .send(serviceID, templateID, formData, userID)
+      .then((response) => {
+        if (response && response.status === 200) {
+          setSuccessMessage(t("formMessages.successMessage"));
 
-      const response = await emailjs.send(
-        serviceID,
-        templateID,
-        formattedFormData
-      );
+          setTimeout(() => {
+            setSuccessMessage("");
+          }, 5000);
+        } else {
+          setErrorMessage(response.text || t("formMessages.errorMessage"));
 
-      if (response.data.success) {
-        setSuccessMessage(response.data.message);
+          setTimeout(() => {
+            setErrorMessage("");
+          }, 5000);
+        }
+      })
+      .catch((error) => {
+        setErrorMessage(t("formMessages.errorMessage"));
 
-        // Limpiar mensaje de éxito después de 5 segundos (5000 milisegundos)
-        setTimeout(() => {
-          setSuccessMessage("");
-        }, 5000);
-      } else {
-        setErrorMessage(response.data.message);
-
-        // Limpiar mensaje de error después de 5 segundos (5000 milisegundos)
         setTimeout(() => {
           setErrorMessage("");
         }, 5000);
-      }
-    } catch (error) {
-      console.error(t("formMessages.errorMessage"), error);
-      setErrorMessage(t("formMessages.errorMessage"));
-
-      // Limpiar mensaje de error después de 5 segundos (5000 milisegundos)
-      setTimeout(() => {
-        setErrorMessage("");
-      }, 5000);
-    } finally {
-      setIsSending(false);
-    }
+      })
+      .finally(() => {
+        setIsSending(false);
+      });
   };
 
+  const recaptchaKey = "6LefR2wpAAAAAAGoHclc0vxPX4mfLXeRiDN3n7mg";
+
   return (
-    <form id="form" onSubmit={handleReservaClick}>
+    <form id="form" onSubmit={handleSubmit}>
       <Grid container spacing={2} maxWidth={"lg"} className="px-4 xl:px-0">
         <Grid
           item
@@ -133,6 +129,7 @@ function ContactForm() {
               variant="standard"
               fullWidth
               name="name"
+              id="name"
               value={formData.name}
               onChange={handleChange}
               size="small"
@@ -148,6 +145,7 @@ function ContactForm() {
               variant="standard"
               fullWidth
               name="phone"
+              id="phone"
               type="number"
               value={formData.phone}
               onChange={handleChange}
@@ -164,6 +162,7 @@ function ContactForm() {
               variant="standard"
               fullWidth
               name="email"
+              id="email"
               type="email"
               value={formData.email}
               onChange={handleChange}
@@ -180,6 +179,7 @@ function ContactForm() {
               variant="standard"
               fullWidth
               name="country"
+              id="country"
               value={formData.country}
               onChange={handleChange}
               size="small"
@@ -200,13 +200,14 @@ function ContactForm() {
             <Typography className="!text-[20px] js-hoverable-element">
               {t("fechaInicio")}
             </Typography>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker
-                className="js-hoverable-element w-11/12"
-                name="checkIn"
-                value={formData.checkIn}
-              />
-            </LocalizationProvider>
+            <TextField
+              className="js-hoverable-element w-11/12"
+              name="checkIn"
+              id="checkIn"
+              type="date" // Cambiado a un campo de entrada de fecha
+              value={formData.checkIn}
+              onChange={handleChange}
+            />
           </Grid>
           <Grid
             item
@@ -219,13 +220,14 @@ function ContactForm() {
             <Typography className="!text-[20px] js-hoverable-element ">
               {t("fechaFin")}
             </Typography>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker
-                className="js-hoverable-element w-11/12"
-                name="checkOut"
-                value={formData.checkOut}
-              />
-            </LocalizationProvider>
+            <TextField
+              className="js-hoverable-element w-11/12"
+              name="checkOut"
+              id="checkOut"
+              type="date" // Cambiado a un campo de entrada de fecha
+              value={formData.checkOut}
+              onChange={handleChange}
+            />
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
@@ -233,6 +235,7 @@ function ContactForm() {
               variant="standard"
               fullWidth
               name="people"
+              id="people"
               type="number"
               value={formData.people}
               onChange={handleChange}
@@ -243,13 +246,24 @@ function ContactForm() {
               data-aos-duration="500"
             />
           </Grid>
-          <Grid item xs={12} className="text-center">
+          <Grid item xs={12}>
             {successMessage && (
-              <p style={{ color: "green" }}>{successMessage}</p>
+              <Typography className="text-success !text-[16px]">
+                {successMessage}
+              </Typography>
             )}
-            {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+            {errorMessage && (
+              <Typography className="text-error !text-[16px]">
+                {errorMessage}
+              </Typography>
+            )}
           </Grid>
-
+          <Grid item xs={12}>
+            <ReCAPTCHA
+              sitekey={recaptchaKey}
+              onChange={(value) => setRecaptchaValue(value)}
+            />
+          </Grid>
           <Button
             type="submit"
             id="button"
@@ -257,9 +271,7 @@ function ContactForm() {
             className="!text-[16px] bg-primary !hover:bg-gray-700 !font-light px-4 !lowercase !mt-6 js-hoverable-element"
             disabled={isSending}
           >
-            {isSending
-              ? t("submitButton.sending")
-              : t("submitButton.default")}
+            {isSending ? t("submitButton.sending") : t("submitButton.default")}
           </Button>
         </Grid>
 
