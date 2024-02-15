@@ -7,7 +7,7 @@
   "italiano": "Italiano",
   "espanol": "Español",
   "ingles": "Inglés",
-  "slogan": "Reserva tu estadía exclusiva en la mítica casa de Maradona.",
+  "slogan": "Reservá tu estadía exclusiva en la mítica casa de Maradona.",
   "title1": "Un alojamiento único en el mundo.",
   "texto1": "Ahora podés hospedarte en la mítica casa de Maradona y su familia, el hogar que Diego eligió como punto de encuentro con sus familiares y amigos, que cuenta con capacidad para 12 personas.",
   "reservaAhora": "Solicitá una cotización",
@@ -63,7 +63,7 @@
   },
   "formMessages": {
     "emailValidation": "Por favor, ingresa una dirección de correo electrónico válida.",
-    "requiredFields": "Por favor, completa todos los campos obligatorios y verifica que no eres un robot.",
+    "requiredFields": "Por favor, completa todos los campos obligatorios.",
     "successMessage": "Hemos recibido tu consulta, en breve nos contactaremos contigo.",
     "errorMessage": "Hubo un error al enviar el formulario. Por favor, inténtalo nuevamente."
   },

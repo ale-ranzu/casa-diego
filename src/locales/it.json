@@ -63,7 +63,7 @@
   },
   "formMessages": {
     "emailValidation": "Si prega di inserire un indirizzo email valido.",
-    "requiredFields": "Compila tutti i campi obbligatori e verifica di non essere un robot.",
+    "requiredFields": "Compila tutti i campi obbligatori.",
     "successMessage": "Abbiamo ricevuto la tua richiesta, ti contatteremo a breve.",
     "errorMessage": "Si è verificato un errore durante l'invio del modulo. Riprova."
   },
